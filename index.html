@@ -10,7 +10,7 @@
   <!--
     - favicon
   -->
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  <!-- <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon"> -->
 
   <!--
     - custom css link
@@ -46,9 +46,48 @@
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Richard hanrick">Richard hanrick</h1>
+          <h1 class="name" title="Varun Talluri">Varun Talluri</h1>
 
-          <p class="title">Web developer</p>
+          <p class="title" id="rotatingText">Lifelong Learner</p>
+
+          <style>
+            .title {
+              font-size: 24px;
+              font-weight: bold;
+              transition: opacity 0.5s ease-in-out;
+              opacity: 1;
+            }
+
+            .fade-out {
+              opacity: 0;
+            }
+          </style>
+
+          <script>
+            const phrases = [
+              "Software Engineer",
+              "Entrepreneur",
+              "CS-Biz Minded",
+              "Web Developer",
+              "Lifelong Learner",
+            ];
+
+            let index = 0;
+            const textElement = document.getElementById("rotatingText");
+
+            setInterval(() => {
+              // Fade out
+              textElement.classList.add("fade-out");
+
+              setTimeout(() => {
+                // Change text and fade in
+                index = (index + 1) % phrases.length;
+                textElement.textContent = phrases[index];
+                textElement.classList.remove("fade-out");
+              }, 500); // Match the CSS transition duration
+            }, 3000); // Change every 3 seconds
+          </script>
+
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
@@ -74,7 +113,7 @@
             <div class="contact-info">
               <p class="contact-title">Email</p>
 
-              <a href="mailto:richard@example.com" class="contact-link">richard@example.com</a>
+              <a href="mailto:talluriv@umich.edu" class="contact-link">talluriv@umich.edu</a>
             </div>
 
           </li>
@@ -86,9 +125,9 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Phone</p>
+              <p class="contact-title">Expected Graduation</p>
 
-              <a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a>
+              <a> May 2027 </a>
             </div>
 
           </li>
@@ -116,7 +155,7 @@
             <div class="contact-info">
               <p class="contact-title">Location</p>
 
-              <address>Sacramento, California, USA</address>
+              <address> Ann Arbor, MI </address>
             </div>
 
           </li>
