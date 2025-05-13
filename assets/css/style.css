@@ -854,38 +854,80 @@ main {
  * skills 
  */
 
-.skills-title { margin-bottom: 20px; }
+/* General Styles for the Skills Section */
+.skills-title {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+}
 
-.skills-list { padding: 20px; }
+/* Container for the skills list with responsive layout */
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Two-column layout with responsiveness */
+  gap: 20px;
+  padding: 20px;
+  list-style: none;
+}
 
+/* Individual Skill Item */
+.skills-item {
+  background-color: var(--eerie-black-2);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
 
-.skills-item:not(:last-child) { margin-bottom: 15px; }
-
-.skill .title-wrapper {
+/* Title Wrapper with Skill Name and Percentage */
+.skills-item .title-wrapper {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 5px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
-.skill .title-wrapper data {
+.skills-item .title-wrapper h5 {
+  font-size: 1.1rem;
+  color: var(--white-1);
+}
+
+.skills-item .title-wrapper data {
+  font-size: 1rem;
+  font-weight: bold;
   color: var(--light-gray);
-  font-size: var(--fs-7);
-  font-weight: var(--fw-300);
 }
 
+/* Progress Bar Background */
 .skill-progress-bg {
-  background: var(--jet);
+  background: var(--jet); /* Dark background for the progress bar */
   width: 100%;
   height: 8px;
   border-radius: 10px;
+  margin-top: 5px;
 }
 
+/* Skill Progress Fill (colored part of the bar) */
 .skill-progress-fill {
-  background: var(--text-gradient-yellow);
+  background: var(--text-gradient-yellow); /* You can change to any color or gradient */
   height: 100%;
   border-radius: inherit;
+  transition: width 0.3s ease-in-out;
 }
+
+/* Hover Effect on Skills for Interactivity */
+.skills-item:hover {
+  transform: scale(1.05); /* Slight scaling effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Make sure text is responsive */
+.skills-item h5,
+.skills-item data {
+  font-size: 1.1rem;
+  color: var(--white-1);
+}
+
 
 
 
