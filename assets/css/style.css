@@ -871,13 +871,29 @@ main {
 }
 
 /* Emoji styling and animation */
-.emoji {
-  font-size: 2rem;
-  display: inline-block;
-  margin-left: 5px;
-  animation: bounce 2s infinite ease-in-out;
+/* Emojis Section Styling */
+.emoji-section {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+  gap: 20px;
+  margin-top: 50px;  /* Adjust spacing as needed */
 }
 
+/* Styling for the emojis */
+.emoji {
+  font-size: 4rem; /* Larger emojis */
+  display: inline-block;
+  transition: transform 0.3s ease; /* Smooth transformation */
+  cursor: pointer;
+}
+
+/* Hover Effect: Emojis move when hovered */
+.emoji:hover {
+  transform: translateY(-10px) scale(1.2); /* Moves up slightly and enlarges */
+}
+
+/* Bounce Animation (Initial State) */
 @keyframes bounce {
   0% {
     transform: translateY(0);
@@ -896,7 +912,12 @@ main {
   }
 }
 
-/* Optional: For rotating animation */
+/* Applying the bounce animation to all emojis */
+.emoji {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Rotate Animation for specific emojis */
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
@@ -906,14 +927,11 @@ main {
   }
 }
 
-.emoji.rotate {
-  animation: rotate 3s linear infinite;
+/* Applying rotate animation to robot and car emojis */
+.emoji.robot {
+  animation: rotate 4s linear infinite;
 }
 
-/* Optional: Add a slight hover effect */
-.emoji:hover {
-  transform: scale(1.2);
-}
 
 
 /* Individual Skill Item */
