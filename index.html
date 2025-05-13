@@ -465,8 +465,8 @@
             <!-- Projects -->
             <ul class="project-list">
 
-              <li class="project-item active" data-filter-item data-category="applications">
-                <a href="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ">
+              <li class="project-item active" data-project-link="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ" data-filter-item data-category="applications">
+                <a href="#">
                   <figure class="project-img">
                     <div class="project-item-icon-box">
                       <ion-icon name="eye-outline"></ion-icon>
@@ -474,12 +474,15 @@
                     <img src="./assets/images/aidj.JPG" alt="AIDJ" loading="lazy">
                   </figure>
                   <h3 class="project-title">AIDJ</h3>
-                  <p class="project-category">Applications</p>
+                  <p class="project-description">
+                    An AI-powered DJ application that selects and mixes music based on mood and context using audio feature analysis.
+                  </p>
+                  <i class="project-skills">Python, Machine Learning, Audio Analysis, PyDub, Flask, HTML/CSS/JS</i>
                 </a>
               </li>
 
-              <li class="project-item active" data-filter-item data-category="applications">
-                <a href="https://github.com/VarunPTalluri/SkillUp">
+              <li class="project-item active" data-project-link="https://github.com/VarunPTalluri/SkillUp" data-filter-item data-category="applications">
+                <a href="#">
                   <figure class="project-img">
                     <div class="project-item-icon-box">
                       <ion-icon name="eye-outline"></ion-icon>
@@ -487,9 +490,13 @@
                     <img src="./assets/images/skillup.JPG" alt="SkillUp" loading="lazy">
                   </figure>
                   <h3 class="project-title">SkillUp</h3>
-                  <p class="project-category">Applications</p>
+                  <p class="project-description">
+                    A platform that recommends personalized learning paths and courses based on users' goals and skill assessments.
+                  </p>
+                  <i class="project-skills">React, Node.js, MongoDB, Recommendation Algorithms, Express</i>
                 </a>
               </li>
+
 
               <li class="project-item  active" data-project-url="Hello! I am interested in viewing your Instagram project." data-filter-item data-category="web development">
                         <a href="#">
@@ -546,6 +553,10 @@ PageRank for relevance scoring, and document-based partitioning for parallelism 
                      <div data-project-modal-text>
                         <p></p>
                      </div>
+                     <a href="#" target="_blank" class="project-link" data-project-modal-link style="display:none; color: #00bfff; font-weight: bold; text-decoration: underline; margin-top: 1rem; display: inline-block;">
+                      View on GitHub
+                      </a>
+
                   </div>
                </section>
           </div>
@@ -562,49 +573,56 @@ PageRank for relevance scoring, and document-based partitioning for parallelism 
   -->
   <script src="./assets/js/script.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const modalContainer = document.querySelector("[data-project-modal-container]");
-      const modalOverlay = document.querySelector("[data-project-overlay]");
-      const closeBtn = document.querySelector("[data-project-modal-close-btn]");
-      const modalImg = document.querySelector("[data-project-modal-img]");
-      const modalTitle = document.querySelector("[data-project-modal-title]");
-      const modalText = document.querySelector("[data-project-modal-text] p");
+  document.addEventListener('DOMContentLoaded', function () {
+    const projectItems = document.querySelectorAll('.project-item');
+    const modalContainer = document.querySelector('[data-project-modal-container]');
+    const overlay = document.querySelector('[data-project-overlay]');
+    const closeBtn = document.querySelector('[data-project-modal-close-btn]');
 
-      // Open modal and populate content
-      document.querySelectorAll(".project-item").forEach(item => {
-        item.addEventListener("click", function (e) {
-          e.preventDefault(); // Prevent any unwanted link navigation
+    const modalImg = document.querySelector('[data-project-modal-img]');
+    const modalTitle = document.querySelector('[data-project-modal-title]');
+    const modalText = document.querySelector('[data-project-modal-text]');
 
-          const title = item.querySelector(".project-title")?.textContent.trim() || "";
-          const description = item.querySelector(".project-description")?.textContent.trim() || "";
-          const imageSrc = item.querySelector("img")?.getAttribute("src") || "./assets/images/project-placeholder.png";
+    // Loop through each project and bind click event
+    projectItems.forEach(item => {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
 
-          modalTitle.textContent = title;
-          modalText.textContent = description;
-          modalImg.setAttribute("src", imageSrc);
-          modalImg.setAttribute("alt", title);
+        const title = item.querySelector('.project-title')?.textContent || '';
+        const description = item.querySelector('.project-description')?.textContent || '';
+        const skills = item.querySelector('.project-skills')?.textContent || '';
+        const imgSrc = item.querySelector('img')?.getAttribute('src') || './assets/images/project-placeholder.png';
+        const altText = item.querySelector('img')?.getAttribute('alt') || '';
+        const link = item.querySelector('a')?.getAttribute('href');
 
-          modalContainer.classList.add("active");
-        });
-      });
+        // Update modal content
+        modalTitle.textContent = title;
+        modalImg.setAttribute('src', imgSrc);
+        modalImg.setAttribute('alt', altText);
 
-      // Close modal
-      closeBtn.addEventListener("click", () => {
-        modalContainer.classList.remove("active");
-      });
+        // Inject description, skills, and GitHub link
+        modalText.innerHTML = `
+          <p>${description}</p>
+          ${skills ? `<h4>Tech Stack:</h4><p>${skills}</p>` : ''}
+          ${link && link !== '#' ? `<h4>GitHub:</h4><p><a href="${link}" target="_blank" rel="noopener noreferrer">${link}</a></p>` : ''}
+        `;
 
-      modalOverlay.addEventListener("click", () => {
-        modalContainer.classList.remove("active");
-      });
-
-      // (Optional) Close with Esc key
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          modalContainer.classList.remove("active");
-        }
+        modalContainer.classList.add('active');
+        document.body.style.overflow = 'hidden'; // prevent background scroll
       });
     });
-  </script>
+
+    // Close modal function
+    function closeModal() {
+      modalContainer.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+  });
+</script>
+
 
 
   <!--
