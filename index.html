@@ -537,27 +537,31 @@ PageRank for relevance scoring, and document-based partitioning for parallelism 
             </article>
             <!-- project modal -->
             <div class="project-modal-container" data-project-modal-container>
-               <div class="project-overlay" data-project-overlay></div>
-               <section class="project-modal">
+                <div class="project-overlay" data-project-overlay></div>
+                <section class="project-modal">
                   <button class="project-modal-close-btn" data-project-modal-close-btn>
-                     <ion-icon name="close-outline"></ion-icon>
+                    <ion-icon name="close-outline"></ion-icon>
                   </button>
-                  <div class="modal-img-wrapper">
-                     <figure class="project-avatar-box">
-                        <img src="./assets/images/project-placeholder.png" alt="Project Image" width="80" data-project-modal-img>
-                     </figure>
-                  </div>
-                  <div class="project-modal-content">
-                     <h3 class="h3 modal-title" data-project-modal-title></h3>
-                     <br>
-                     <div data-project-modal-text>
-                        <p></p>
-                     </div>
-                     <a href="#" target="_blank" class="project-link" data-project-modal-link style="display:none; color: #00bfff; font-weight: bold; text-decoration: underline; margin-top: 1rem; display: inline-block;">
-                      View on GitHub
-                      </a>
 
+                  <div class="modal-img-wrapper">
+                    <figure class="project-avatar-box">
+                      <img src="./assets/images/project-placeholder.png" alt="Project Image" width="80" data-project-modal-img style="max-width: 100px; height: auto;">
+                    </figure>
                   </div>
+
+                  <div class="project-modal-content" style="max-height: 70vh; overflow-y: auto;">
+                    <h3 class="h3 modal-title" data-project-modal-title></h3>
+                    <br>
+                    <div data-project-modal-text>
+                      <p></p>
+                    </div>
+                    <a href="#" target="_blank" class="project-link" data-project-modal-link style="color: #00bfff; font-weight: bold; text-decoration: underline; margin-top: 1rem; display: none;">
+                      View on GitHub
+                    </a>
+                  </div>
+                </section>
+            </div>
+
                </section>
           </div>
 
@@ -582,8 +586,8 @@ PageRank for relevance scoring, and document-based partitioning for parallelism 
     const modalImg = document.querySelector('[data-project-modal-img]');
     const modalTitle = document.querySelector('[data-project-modal-title]');
     const modalText = document.querySelector('[data-project-modal-text]');
+    const modalLink = document.querySelector('[data-project-modal-link]');
 
-    // Loop through each project and bind click event
     projectItems.forEach(item => {
       item.addEventListener('click', function (e) {
         e.preventDefault();
@@ -593,26 +597,32 @@ PageRank for relevance scoring, and document-based partitioning for parallelism 
         const skills = item.querySelector('.project-skills')?.textContent || '';
         const imgSrc = item.querySelector('img')?.getAttribute('src') || './assets/images/project-placeholder.png';
         const altText = item.querySelector('img')?.getAttribute('alt') || '';
-        const link = item.querySelector('a')?.getAttribute('href');
+        const link = item.querySelector('a')?.getAttribute('href') || '';
 
-        // Update modal content
+        // Update content
         modalTitle.textContent = title;
         modalImg.setAttribute('src', imgSrc);
         modalImg.setAttribute('alt', altText);
 
-        // Inject description, skills, and GitHub link
         modalText.innerHTML = `
           <p>${description}</p>
           ${skills ? `<h4>Tech Stack:</h4><p>${skills}</p>` : ''}
-          ${link && link !== '#' ? `<h4>GitHub:</h4><p><a href="${link}" target="_blank" rel="noopener noreferrer">${link}</a></p>` : ''}
         `;
 
+        // Handle link visibility
+        if (link && link !== '#') {
+          modalLink.setAttribute('href', link);
+          modalLink.style.display = 'inline-block';
+        } else {
+          modalLink.setAttribute('href', '#');
+          modalLink.style.display = 'none';
+        }
+
         modalContainer.classList.add('active');
-        document.body.style.overflow = 'hidden'; // prevent background scroll
+        document.body.style.overflow = 'hidden';
       });
     });
 
-    // Close modal function
     function closeModal() {
       modalContainer.classList.remove('active');
       document.body.style.overflow = 'auto';
@@ -622,6 +632,7 @@ PageRank for relevance scoring, and document-based partitioning for parallelism 
     overlay.addEventListener('click', closeModal);
   });
 </script>
+
 
 
 

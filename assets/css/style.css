@@ -2095,10 +2095,15 @@ textarea.form-input::-webkit-resizer { display: none; }
 }
 @media (max-width: 768px) {
   .project-modal {
-    padding: 10px;
-    width: 95%;
-    max-width: 400px;
-  }
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
 
   .project-modal-content h3, .project-modal-content h4 {
     font-size: 14px;
