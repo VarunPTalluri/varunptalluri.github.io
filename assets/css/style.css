@@ -78,7 +78,6 @@
 
 
 
-
   /**
    * typography
    */
@@ -866,26 +865,25 @@ main {
 /* Container for the skills list with responsive layout */
 .skills-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Two-column layout with responsiveness */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Makes multiple skills per row */
   gap: 20px;
   padding: 20px;
-  list-style: none;
 }
 
 /* Individual Skill Item */
 .skills-item {
-  background-color: var(--eerie-black-2);
+  background: var(--eerie-black-2);
+  border-radius: 10px;
   padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+  color: var(--white-1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Title Wrapper with Skill Name and Percentage */
 .skills-item .title-wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 10px;
 }
 
@@ -902,19 +900,18 @@ main {
 
 /* Progress Bar Background */
 .skill-progress-bg {
-  background: var(--jet); /* Dark background for the progress bar */
+  background: var(--light-gray-70);
   width: 100%;
-  height: 8px;
-  border-radius: 10px;
+  height: 10px;
+  border-radius: 5px;
   margin-top: 5px;
 }
 
-/* Skill Progress Fill (colored part of the bar) */
+/* Skill Progress Fill (colorized) */
 .skill-progress-fill {
-  background: var(--text-gradient-yellow); /* You can change to any color or gradient */
+  background: var(--text-gradient-yellow);
   height: 100%;
   border-radius: inherit;
-  transition: width 0.3s ease-in-out;
 }
 
 /* Hover Effect on Skills for Interactivity */
@@ -930,7 +927,11 @@ main {
   color: var(--white-1);
 }
 
-
+.title-wrapper data {
+  color: var(--light-gray);
+  font-size: 14px;
+  font-weight: 300;
+}
 
 
 
