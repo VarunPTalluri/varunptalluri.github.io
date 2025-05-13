@@ -184,7 +184,7 @@
         </header>
 
         <section class="about-text">
-          <p>Hi! I’m Varun, a dual-degree student at the University of Michigan, 
+          <p>Hey there! I’m Varun, a dual-degree student at the University of Michigan, 
             studying Computer Science in the College of Engineering and 
             Business Administration at the Ross School of Business. 
             I’m passionate about building software that solves real-world challenges, 
@@ -577,7 +577,7 @@ PageRank for relevance scoring, and document-based partitioning for parallelism 
   -->
   <script src="./assets/js/script.js"></script>
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', () => {
     const projectItems = document.querySelectorAll('.project-item');
     const modalContainer = document.querySelector('[data-project-modal-container]');
     const overlay = document.querySelector('[data-project-overlay]');
@@ -595,29 +595,31 @@ PageRank for relevance scoring, and document-based partitioning for parallelism 
         const title = item.querySelector('.project-title')?.textContent || '';
         const description = item.querySelector('.project-description')?.textContent || '';
         const skills = item.querySelector('.project-skills')?.textContent || '';
-        const imgSrc = item.querySelector('img')?.getAttribute('src') || './assets/images/project-placeholder.png';
-        const altText = item.querySelector('img')?.getAttribute('alt') || '';
+        const img = item.querySelector('img');
+        const imgSrc = img?.getAttribute('src') || './assets/images/project-placeholder.png';
+        const altText = img?.getAttribute('alt') || '';
         const link = item.querySelector('a')?.getAttribute('href') || '';
 
-        // Update content
+        // Update modal content
         modalTitle.textContent = title;
-        modalImg.setAttribute('src', imgSrc);
-        modalImg.setAttribute('alt', altText);
+        modalImg.src = imgSrc;
+        modalImg.alt = altText;
 
         modalText.innerHTML = `
           <p>${description}</p>
-          ${skills ? `<h4>Tech Stack:</h4><p>${skills}</p>` : ''}
+          ${skills ? `<h4 style="margin-top: 10px;">Tech Stack:</h4><p>${skills}</p>` : ''}
         `;
 
-        // Handle link visibility
-        if (link && link !== '#') {
-          modalLink.setAttribute('href', link);
+        // Show/hide GitHub link
+        if (link && link !== '#' && link.includes('github.com')) {
+          modalLink.href = link;
           modalLink.style.display = 'inline-block';
         } else {
-          modalLink.setAttribute('href', '#');
+          modalLink.href = '#';
           modalLink.style.display = 'none';
         }
 
+        // Show modal
         modalContainer.classList.add('active');
         document.body.style.overflow = 'hidden';
       });
@@ -632,6 +634,7 @@ PageRank for relevance scoring, and document-based partitioning for parallelism 
     overlay.addEventListener('click', closeModal);
   });
 </script>
+
 
 
 
