@@ -561,7 +561,51 @@ PageRank for relevance scoring, and document-based partitioning for parallelism 
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
-  <script src="./assets/js/portfolio.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const modalContainer = document.querySelector("[data-project-modal-container]");
+      const modalOverlay = document.querySelector("[data-project-overlay]");
+      const closeBtn = document.querySelector("[data-project-modal-close-btn]");
+      const modalImg = document.querySelector("[data-project-modal-img]");
+      const modalTitle = document.querySelector("[data-project-modal-title]");
+      const modalText = document.querySelector("[data-project-modal-text] p");
+
+      // Open modal and populate content
+      document.querySelectorAll(".project-item").forEach(item => {
+        item.addEventListener("click", function (e) {
+          e.preventDefault(); // Prevent any unwanted link navigation
+
+          const title = item.querySelector(".project-title")?.textContent.trim() || "";
+          const description = item.querySelector(".project-description")?.textContent.trim() || "";
+          const imageSrc = item.querySelector("img")?.getAttribute("src") || "./assets/images/project-placeholder.png";
+
+          modalTitle.textContent = title;
+          modalText.textContent = description;
+          modalImg.setAttribute("src", imageSrc);
+          modalImg.setAttribute("alt", title);
+
+          modalContainer.classList.add("active");
+        });
+      });
+
+      // Close modal
+      closeBtn.addEventListener("click", () => {
+        modalContainer.classList.remove("active");
+      });
+
+      modalOverlay.addEventListener("click", () => {
+        modalContainer.classList.remove("active");
+      });
+
+      // (Optional) Close with Esc key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          modalContainer.classList.remove("active");
+        }
+      });
+    });
+  </script>
+
 
   <!--
     - ionicon link
