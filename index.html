@@ -177,7 +177,8 @@
         - #ABOUT
       -->
 
-      <article class="about active" data-page="about">
+      <article class="about  active" data-page="about">
+
         <header>
           <h2 class="h2 article-title">About me</h2>
         </header>
@@ -195,7 +196,7 @@
             learned the importance of teamwork when tackling complex problems. 
             This passion led me to Ford, where I’ve worked the last two summers, 
             focusing on anomaly detection and machine learning to help improve
-            real-time software decision-making.</p>
+             real-time software decision-making.</p>
 
           <p>On campus, I’m a Teaching Assistant for a robotics course, where I teach scalable solutions 
             for computational linear algebra. I’m also involved in MEG Consulting, 
@@ -207,18 +208,46 @@
             spending time outdoors, or picking up new skills (most recently, juggling)!</p>
         </section>
 
-        <!-- Emojis Section -->
-        <section class="emoji-section">
-          <span class="emoji robot">🦾</span>
-          <span class="emoji robot">🤖</span>
-          <span class="emoji ball">🏓</span>
-          <span class="emoji car">🚗</span>
-          <span class="emoji tree">🌳</span>
-          <span class="emoji juggling">🤸‍♂️</span>
-        </section>
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+
+              <time datetime="2021-06-14">14 June, 2021</time>
+
+              <div data-modal-text>
+                <p>
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
 
       </article>
-
 
 
 
