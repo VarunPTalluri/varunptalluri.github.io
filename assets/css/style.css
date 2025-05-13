@@ -875,25 +875,29 @@ main {
 .emoji-section {
   display: flex;
   justify-content: center;
-  align-items: center; /* Center vertically */
-  gap: 20px;
-  margin-top: 50px;  /* Adjust spacing as needed */
+  align-items: center;
+  gap: 30px; /* Increased gap */
+  margin-top: 50px;
+  height: 100vh; /* Make it take up the full height of the screen */
+  flex-direction: row;
+  animation: fadeIn 1s ease-in-out; /* Add a fade-in effect */
 }
 
 /* Styling for the emojis */
 .emoji {
-  font-size: 4rem; /* Larger emojis */
+  font-size: 6rem; /* Larger emojis */
   display: inline-block;
   transition: transform 0.3s ease; /* Smooth transformation */
   cursor: pointer;
+  animation: bounce 2s ease-in-out infinite; /* Bounce effect */
 }
 
 /* Hover Effect: Emojis move when hovered */
 .emoji:hover {
-  transform: translateY(-10px) scale(1.2); /* Moves up slightly and enlarges */
+  transform: translateY(-10px) scale(1.2); /* Move up and scale */
 }
 
-/* Bounce Animation (Initial State) */
+/* Bounce Animation */
 @keyframes bounce {
   0% {
     transform: translateY(0);
@@ -912,11 +916,6 @@ main {
   }
 }
 
-/* Applying the bounce animation to all emojis */
-.emoji {
-  animation: bounce 2s ease-in-out infinite;
-}
-
 /* Rotate Animation for specific emojis */
 @keyframes rotate {
   0% {
@@ -927,9 +926,28 @@ main {
   }
 }
 
-/* Applying rotate animation to robot and car emojis */
+/* Apply rotate animation to robot and car emojis */
 .emoji.robot {
-  animation: rotate 4s linear infinite;
+  animation: rotate 4s linear infinite; /* Robot and F1 car rotate */
+}
+
+/* Apply specific styles to F1 car and Volleyball emojis */
+.emoji.f1-car {
+  animation: rotate 4s linear infinite; /* F1 car rotates */
+}
+
+.emoji.volleyball {
+  animation: bounce 2s ease-in-out infinite; /* Volleyball bounces */
+}
+
+/* Add fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 
