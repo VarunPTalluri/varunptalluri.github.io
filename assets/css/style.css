@@ -870,6 +870,52 @@ main {
   padding: 20px;
 }
 
+/* Emoji styling and animation */
+.emoji {
+  font-size: 2rem;
+  display: inline-block;
+  margin-left: 5px;
+  animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Optional: For rotating animation */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.emoji.rotate {
+  animation: rotate 3s linear infinite;
+}
+
+/* Optional: Add a slight hover effect */
+.emoji:hover {
+  transform: scale(1.2);
+}
+
+
 /* Individual Skill Item */
 .skills-item {
   background: var(--eerie-black-2);
