@@ -395,7 +395,7 @@
 
               <div class="title-wrapper">
                 <h5 class="h5">Branding</h5>
-                <data value="90">90%</data>
+                <data value="90">100%</data>
               </div>
 
               <div class="skill-progress-bg">
@@ -427,48 +427,68 @@
 
 
 
-      <!--
+<!--
         - #PORTFOLIO
       -->
 
       <article class="portfolio" data-page="portfolio">
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
 
-        <section class="projects">
-          <ul class="project-list">
+          <header>
+            <h2 class="h2 article-title">Portfolio</h2>
+          </header>
 
-            <li class="project-item">
-              <a href="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/aidj.JPG" alt="AIDJ" loading="lazy">
-                </figure>
-                <h3 class="project-title">AIDJ</h3>
-                <p class="project-category">Applications</p>
-              </a>
-            </li>
+          <section class="projects">
 
-            <li class="project-item">
-              <a href="https://github.com/VarunPTalluri/SkillUp">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/skillup.JPG" alt="SkillUp" loading="lazy">
-                </figure>
-                <h3 class="project-title">SkillUp</h3>
-                <p class="project-category">Applications</p>
-              </a>
-            </li>
+            <!-- Filter Buttons -->
+            <ul class="filter-list">
+              <li class="filter-item">
+                <button class="active" data-filter-btn>All</button>
+              </li>
+            </ul>
 
-          </ul>
-        </section>
-      </article>
+            <!-- Dropdown for smaller screens -->
+            <div class="filter-select-box">
+              <ul class="select-list">
+                <li class="select-item">
+                  <button data-select-item>All</button>
+                </li>
+              </ul>
+            </div>
 
+            <!-- Projects -->
+            <ul class="project-list">
+
+              <li class="project-item active" data-filter-item data-category="applications">
+                <a href="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ">
+                  <figure class="project-img">
+                    <div class="project-item-icon-box">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                    <img src="./assets/images/aidj.JP" alt="AIDJ" loading="lazy">
+                  </figure>
+                  <h3 class="project-title">AIDJ</h3>
+                  <p class="project-category">Applications</p>
+                </a>
+              </li>
+
+              <li class="project-item active" data-filter-item data-category="applications">
+                <a href="https://github.com/VarunPTalluri/SkillUp">
+                  <figure class="project-img">
+                    <div class="project-item-icon-box">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                    <img src="./assets/images/skillup.JPG" alt="SkillUp" loading="lazy">
+                  </figure>
+                  <h3 class="project-title">SkillUp</h3>
+                  <p class="project-category">Applications</p>
+                </a>
+              </li>
+
+            </ul>
+
+          </section>
+
+        </article>
 
 
 
