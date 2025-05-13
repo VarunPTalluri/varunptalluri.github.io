@@ -449,15 +449,15 @@
             <!-- Dropdown for smaller screens -->
             <div class="filter-select-box">
               <button class="filter-select" data-select>
-                <div class="select-value" data-selecct-value>Select category</div>
+                <!-- <div class="select-value" data-selecct-value>Select category</div>
                 <div class="select-icon">
                   <ion-icon name="chevron-down"></ion-icon>
-                </div>
+                </div> -->
               </button>
 
               <ul class="select-list">
                 <li class="select-item">
-                  <button data-select-item>All</button>
+                  <!-- <button data-select-item>All</button> -->
                 </li>
               </ul>
             </div>
@@ -491,7 +491,44 @@
                 </a>
               </li>
 
+              <li class="project-item">
+                <button class="project-popup-btn" data-project="instagram-clone">
+                  <figure class="project-img">
+                    <div class="project-item-icon-box">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                    <img src="./assets/images/instagram-clone.JPG" alt="Instagram Clone" loading="lazy">
+                  </figure>
+                  <h3 class="project-title">Instagram Clone</h3>
+                  <p class="project-category">Applications</p>
+                </button>
+              </li>
+
+              <li class="project-item">
+                <button class="project-popup-btn" data-project="search-engine">
+                  <figure class="project-img">
+                    <div class="project-item-icon-box">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                    <img src="./assets/images/search-engine.jpg" alt="Search Engine" loading="lazy">
+                  </figure>
+                  <h3 class="project-title">Search Engine</h3>
+                  <p class="project-category">Systems</p>
+                </button>
+              </li>
+
+
             </ul>
+
+            <div id="project-modal" class="modal hidden">
+              <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h3 id="modal-title"></h3>
+                <p id="modal-description"></p>
+                <ul id="modal-tech-stack"></ul>
+              </div>
+            </div>
+
 
           </section>
 
@@ -512,6 +549,7 @@
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/portfolio.js"></script>
 
   <!--
     - ionicon link
