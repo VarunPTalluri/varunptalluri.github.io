@@ -21,8 +21,13 @@
 </head>
 
 <body>
+  <!-- <canvas id="fireworks-canvas"></canvas> -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
   <main>
     <!-- SIDEBAR -->
+     
     <aside class="sidebar" data-sidebar>
       <div class="sidebar-info">
         <figure class="avatar-box">
@@ -48,12 +53,14 @@
 
           setInterval(() => {
             textElement.classList.add("fade-out");
+
             setTimeout(() => {
               index = (index + 1) % phrases.length;
               textElement.textContent = phrases[index];
               textElement.classList.remove("fade-out");
-            }, 500);
-          }, 3000);
+            }, 700); // matches CSS fade duration
+          }, 3500); // increased interval for smoother feel
+
         </script>
 
         <button class="info_more-btn" data-sidebar-btn>
@@ -135,7 +142,10 @@
             </a>
           </li>
         </ul>
-
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"></span>
+        </label>
       </div>
     </aside>
 
@@ -248,7 +258,7 @@
             <li class="timeline-item">
               <div class="timeline-header">
                 <h4 class="h4 timeline-item-title">University of Michigan, College of Engineering</h4>
-                <span class="timeline-date">B.S.E in Computer Science and Engineering &bull; GPA: 4.00/4.00<br></span>
+                <span class="timeline-date">B.S.E in Computer Science and Engineering &bull; GPA: 3.98/4.00<br></span>
               </div>
               <p class="timeline-text">
                 Relevant Coursework: Data Structures and Algorithms, Web Systems, OOP, Computer Architecture, Discrete Math, Computational Linear Algebra, Multivariable Calculus, Ethics of AI, Engineering Physics
@@ -521,12 +531,12 @@
             <ul class="project-list">
 
               <li class="project-item active" data-project-link="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ" data-filter-item data-category="applications">
-                <a href="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ">
+                <a href="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ" target="_blank" rel="noopener noreferrer" aria-label="View AIDJ project on GitHub">
                   <figure class="project-img">
-                    <div class="project-item-icon-box">
+                    <div class="project-item-icon-box" aria-hidden="true">
                       <ion-icon name="eye-outline"></ion-icon>
                     </div>
-                    <img src="./assets/images/aidj.JPG" alt="AIDJ" loading="lazy">
+                    <img src="./assets/images/aidj.JPG" alt="Screenshot of AIDJ application" loading="lazy" />
                   </figure>
                   <h3 class="project-title">AIDJ</h3>
                   <p class="project-description">
@@ -537,12 +547,12 @@
               </li>
 
               <li class="project-item active" data-project-link="https://github.com/VarunPTalluri/SkillUp" data-filter-item data-category="applications">
-                <a href="https://github.com/VarunPTalluri/SkillUp">
+                <a href="https://github.com/VarunPTalluri/SkillUp" target="_blank" rel="noopener noreferrer" aria-label="View SkillUp project on GitHub">
                   <figure class="project-img">
-                    <div class="project-item-icon-box">
+                    <div class="project-item-icon-box" aria-hidden="true">
                       <ion-icon name="eye-outline"></ion-icon>
                     </div>
-                    <img src="./assets/images/skillup.JPG" alt="SkillUp" loading="lazy">
+                    <img src="./assets/images/skillup.JPG" alt="Screenshot of SkillUp platform" loading="lazy" />
                   </figure>
                   <h3 class="project-title">SkillUp</h3>
                   <p class="project-description">
@@ -552,72 +562,71 @@
                 </a>
               </li>
 
-
-              <li class="project-item  active" data-project-url="Hello! I am interested in viewing your Instagram project." data-filter-item data-category="web development">
-                        <a href="#">
-                           <figure class="project-img">
-                              <div class="project-item-icon-box">
-                                 <ion-icon name="eye-outline"></ion-icon>
-                              </div>
-                              <img src="./assets/images/insta.png" alt="instagram" loading="lazy">
-                           </figure>
-                           <h3 class="project-title">Instagram Clone</h3>
-                           <p class="project-category"></p>
-                           <p class="project-description">Built an Instagram-style web application with a React frontend and Flask backend, using SQLite for data management,
-RESTful APIs for dynamic client-side rendering, sessions and cookies for authentication, and deployed on AWS EC2
-                           </p>
-                           <p class="skillsbuffer"></p>
-                           <i class="project-skills">Python, Rest APIs, Amazon EC2, Sessions, Cookies, Flask, React, HTML/JS/CSS</i>
-                        </a>
-                     </li>
-                     <li class="project-item  active" data-project-url="Hello! I am interested in viewing your Search Engine project." data-filter-item data-category="web development">
-                        <a href="#">
-                           <figure class="project-img">
-                              <div class="project-item-icon-box">
-                                 <ion-icon name="eye-outline"></ion-icon>
-                              </div>
-                              <img src="./assets/images/google.png" alt="google" loading="lazy">
-                           </figure>
-                           <h3 class="project-title">Search Engine</h3>
-                           <p class="project-category"></p>
-                           <p class="project-description">Designed a distributed search engine that leverages a MapReduce pipeline to extract and index web content, tf-idf and
-PageRank for relevance scoring, and document-based partitioning for parallelism and fault tolerance
-                           </p>
-                           <p class="skillsbuffer"></p>
-                           <i class="project-skills">Python, Hadoop MapReduce, Rest APIs</i>
-                        </a>
-                     </li>
-                  </ul>
-               </section>
-            </article>
-            <!-- project modal -->
-            <div class="project-modal-container" data-project-modal-container>
-                <div class="project-overlay" data-project-overlay></div>
-                <section class="project-modal">
-                  <button class="project-modal-close-btn" data-project-modal-close-btn>
-                    <ion-icon name="close-outline"></ion-icon>
-                  </button>
-
-                  <div class="modal-img-wrapper">
-                    <figure class="project-avatar-box">
-                      <img src="./assets/images/project-placeholder.png" alt="Project Image" width="80" data-project-modal-img style="max-width: 100px; height: auto;">
-                    </figure>
-                  </div>
-
-                  <div class="project-modal-content" style="max-height: 70vh; overflow-y: auto;">
-                    <h3 class="h3 modal-title" data-project-modal-title></h3>
-                    <br>
-                    <div data-project-modal-text>
-                      <p></p>
+              <li class="project-item active" data-project-url="Hello! I am interested in viewing your Instagram project." data-filter-item data-category="web development">
+                <a href="#" aria-label="View Instagram Clone project details">
+                  <figure class="project-img">
+                    <div class="project-item-icon-box" aria-hidden="true">
+                      <ion-icon name="eye-outline"></ion-icon>
                     </div>
-                    <a href="#" target="_blank" class="project-link" data-project-modal-link
-                      style="color: #00bfff; font-weight: bold; text-decoration: underline; margin-top: 1rem; display: none;">
-                      View on GitHub
-                    </a>
+                    <img src="./assets/images/insta.png" alt="Screenshot of Instagram Clone" loading="lazy" />
+                  </figure>
+                  <h3 class="project-title">Instagram Clone</h3>
+                  <p class="project-description">
+                    Built an Instagram-style web application with a React frontend and Flask backend, using SQLite for data management,
+                    RESTful APIs for dynamic client-side rendering, sessions and cookies for authentication, deployed on AWS EC2.
+                  </p>
+                  <i class="project-skills">Python, REST APIs, Amazon EC2, Sessions, Cookies, Flask, React, HTML/JS/CSS</i>
+                </a>
+              </li>
 
+              <li class="project-item active" data-project-url="Hello! I am interested in viewing your Search Engine project." data-filter-item data-category="web development">
+                <a href="#" aria-label="View Search Engine project details">
+                  <figure class="project-img">
+                    <div class="project-item-icon-box" aria-hidden="true">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                    <img src="./assets/images/google.png" alt="Screenshot of Search Engine project" loading="lazy" />
+                  </figure>
+                  <h3 class="project-title">Search Engine</h3>
+                  <p class="project-description">
+                    Designed a distributed search engine leveraging a MapReduce pipeline to extract and index web content, tf-idf and
+                    PageRank for relevance scoring, and document-based partitioning for parallelism and fault tolerance.
+                  </p>
+                  <i class="project-skills">Python, Hadoop MapReduce, REST APIs</i>
+                </a>
+              </li>
+
+            </ul>
+
+            <!-- Project modal -->
+            <div class="project-modal-container" data-project-modal-container>
+              <div class="project-overlay" data-project-overlay></div>
+              <section class="project-modal" style="max-width: 700px; padding: 2rem; background: var(--onyx); border-radius: 14px; box-shadow: 0 25px 50px rgba(0,0,0,0.2); color: var(--white-1);">
+                <button class="project-modal-close-btn" data-project-modal-close-btn>
+                  <ion-icon name="close-outline"></ion-icon>
+                </button>
+
+                <div class="modal-img-wrapper" style="text-align: center; margin-bottom: 1.5rem;">
+                  <figure class="project-avatar-box" style="margin: 0;">
+                    <img src="./assets/images/project-placeholder.png" alt="Project Image" data-project-modal-img
+                      style="max-width: 200px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.25); transition: transform 0.3s ease;">
+                  </figure>
+                </div>
+
+                <div class="project-modal-content" style="max-height: 70vh; overflow-y: auto;">
+                  <h3 class="h3 modal-title" data-project-modal-title></h3>
+                  <br>
+                  <div data-project-modal-text>
+                    <p></p>
                   </div>
-                </section>
+                  <a href="#" target="_blank" class="project-link" data-project-modal-link
+                    style="color: #00bfff; font-weight: bold; text-decoration: underline; margin-top: 1rem; display: none;">
+                    View on GitHub
+                  </a>
+                </div>
+              </section>
             </div>
+
 
                </section>
           </div>
@@ -634,6 +643,95 @@ PageRank for relevance scoring, and document-based partitioning for parallelism 
   -->
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/modal.js"></script>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('change', () => {
+      document.body.classList.toggle('light-mode');
+    });
+  </script>
+
+  <script>
+    const dot = document.querySelector('.cursor-dot');
+    const outline = document.querySelector('.cursor-outline');
+
+    let mouseX = 0, mouseY = 0;
+    let outlineX = 0, outlineY = 0;
+
+    window.addEventListener("mousemove", e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = `${mouseX}px`;
+      dot.style.top = `${mouseY}px`;
+    });
+
+    function animate() {
+      outlineX += (mouseX - outlineX) * 0.2;
+      outlineY += (mouseY - outlineY) * 0.2;
+      outline.style.left = `${outlineX}px`;
+      outline.style.top = `${outlineY}px`;
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    window.addEventListener('click', () => {
+      for (let i = 0; i < 12; i++) {
+        const burst = document.createElement('div');
+        burst.className = 'burst';
+
+        // Position the burst at the mouse pointer
+        burst.style.left = `${mouseX}px`;
+        burst.style.top = `${mouseY}px`;
+
+        // Center the burst exactly on the click point using transform in CSS
+        // So no offset needed here in JS
+
+        // Randomize direction and radius of each burst piece
+        const angle = Math.random() * 2 * Math.PI;
+        const radius = 30 + Math.random() * 20;
+        const x = Math.cos(angle) * radius + 'px';
+        const y = Math.sin(angle) * radius + 'px';
+
+        burst.style.setProperty('--x', x);
+        burst.style.setProperty('--y', y);
+
+        document.body.appendChild(burst);
+
+        setTimeout(() => burst.remove(), 600);
+      }
+    });
+  </script>
+  
+  <script>
+  // Add hover scale effect on modal image
+  const modalImg = document.querySelector('[data-project-modal-img]');
+  if (modalImg) {
+    modalImg.addEventListener('mouseenter', () => {
+      modalImg.style.transform = 'scale(1.05)';
+    });
+    modalImg.addEventListener('mouseleave', () => {
+      modalImg.style.transform = 'scale(1)';
+    });
+  }
+</script>
+
+  <script>
+    window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = scrollTop / docHeight;
+
+    const maxOpacity = 0.3; // max darkness at bottom — lighter than before
+    const gradualFactor = 1.5; // slow the change by multiplying progress
+
+    const opacity = Math.min(scrollPercent * gradualFactor * maxOpacity, maxOpacity);
+
+    document.body.style.setProperty('--dark-overlay-opacity', opacity);
+  });
+  </script>
+
+
+
   
 
 
@@ -646,6 +744,7 @@ PageRank for relevance scoring, and document-based partitioning for parallelism 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+  
 </body>
 
 </html>
