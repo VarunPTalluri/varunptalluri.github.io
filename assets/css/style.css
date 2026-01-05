@@ -2620,3 +2620,24 @@ body[data-theme="light"] .sidebar-info {
 .mapbox iframe {
   pointer-events: none;
 }
+
+/* --- cursor fix: ensure outline follows JS and no stray glow --- */
+.cursor-dot, .cursor-outline {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: translate(-50%, -50%) !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+}
+
+.cursor-outline {
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--maize);
+  background: transparent;
+  box-shadow: none !important;   /* kills the stuck glowing circle */
+  filter: none !important;
+  opacity: 0.9;
+}
+
