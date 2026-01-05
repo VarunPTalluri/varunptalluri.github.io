@@ -2381,51 +2381,6 @@ body::after {
 
 
 
-
-/* Custom cursor elements */
-.cursor-dot,
-    .cursor-outline {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      border-radius: 50%;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-    }
-
-    .cursor-dot {
-      width: 10px;
-      height: 10px;
-      background-color: var(--maize);
-      box-shadow: 0 0 8px var(--maize), 0 0 20px var(--maize);
-      animation: pulse 1.2s infinite ease-in-out;
-    }
-
-
-    @keyframes pulse {
-      0%, 100% { transform: translate(-50%, -50%) scale(1); }
-      50% { transform: translate(-50%, -50%) scale(1.3); }
-    }
-
-    .burst {
-      position: fixed;  /* change absolute -> fixed */
-      width: 6px;
-      height: 6px;
-      background: var(--maize);
-      border-radius: 50%;
-      pointer-events: none;
-      animation: burst 0.6s forwards;
-      z-index: 9999;
-      transform: translate(-50%, -50%); /* center on the mouse point */
-    }
-
-
-    @keyframes burst {
-      0% { opacity: 1; transform: scale(1) translate(0, 0); }
-      100% { opacity: 0; transform: scale(0.5) translate(var(--x), var(--y)); }
-    }
-
     /* Smooth fade-out transition */
 #rotatingText {
   transition: opacity 0.7s ease-in-out;
@@ -2619,25 +2574,5 @@ body[data-theme="light"] .sidebar-info {
 
 .mapbox iframe {
   pointer-events: none;
-}
-
-/* --- cursor fix: ensure outline follows JS and no stray glow --- */
-.cursor-dot, .cursor-outline {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  transform: translate(-50%, -50%) !important;
-  pointer-events: none !important;
-  z-index: 9999 !important;
-}
-
-.cursor-outline {
-  width: 34px;
-  height: 34px;
-  border: 2px solid var(--maize);
-  background: transparent;
-  box-shadow: none !important;   /* kills the stuck glowing circle */
-  filter: none !important;
-  opacity: 0.9;
 }
 
