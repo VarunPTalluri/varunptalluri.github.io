@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Varun Talluri</title>
 
-  <!-- Ionicons -->
+  <!-- Include Ionicons CDN -->
   <link href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/css/ionicons.min.css" rel="stylesheet" />
   <link rel="shortcut icon" href="./assets/images/personallogo.JPG" type="image/x-icon" />
 
@@ -19,63 +19,103 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- Clean, functional polish (kept minimal) -->
+  <!-- Small “awesome” upgrades without touching your stylesheet -->
   <style>
-    /* =========================
-       Cursor: ALWAYS visible
-       ========================= */
-    .cursor-dot,
-    .cursor-outline {
+    /* Subtle animated gradient behind main content (does not affect layout/cursor) */
+    body::before {
+      content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      transform: translate3d(-9999px, -9999px, 0);
+      inset: 0;
+      z-index: -2;
+      background: radial-gradient(900px 600px at 10% 10%, rgba(0, 191, 255, 0.12), transparent 60%),
+        radial-gradient(900px 600px at 90% 20%, rgba(138, 43, 226, 0.10), transparent 60%),
+        radial-gradient(900px 600px at 50% 95%, rgba(0, 255, 179, 0.08), transparent 60%);
+      filter: saturate(1.05);
+      animation: bgFloat 14s ease-in-out infinite alternate;
       pointer-events: none;
-      z-index: 2147483647;
-      will-change: transform;
+    }
+
+    @keyframes bgFloat {
+      from { transform: translateY(0px) scale(1); }
+      to { transform: translateY(-10px) scale(1.02); }
+    }
+
+    /* Quick “chips” */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 0.9rem;
+      line-height: 1;
+      backdrop-filter: blur(8px);
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .chip:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 191, 255, 0.35);
+    }
+
+    /* Highlight cards */
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 980px) {
+      .highlight-grid { grid-template-columns: 1fr; }
+    }
+
+    .highlight-card {
+      border-radius: 16px;
+      padding: 16px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.20);
+      transform: translateY(6px);
+      opacity: 0;
+      transition: opacity 500ms ease, transform 500ms ease, border-color 250ms ease;
+    }
+
+    .highlight-card.reveal {
+      transform: translateY(0);
       opacity: 1;
     }
 
-    /* Only hide the native cursor on desktop pointer devices */
-    @media (hover: hover) and (pointer: fine) {
-      body { cursor: none; }
-      a, button, input, textarea, select { cursor: none; }
+    .highlight-card:hover {
+      border-color: rgba(138, 43, 226, 0.35);
     }
 
-    /* On touch devices, disable the custom cursor entirely */
-    @media (hover: none) and (pointer: coarse) {
-      .cursor-dot, .cursor-outline { display: none !important; }
-      body { cursor: auto !important; }
-    }
-
-    /* =========================
-       About: recruiter-forward
-       ========================= */
-    .tldr-card {
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
-      border-radius: 16px;
-      padding: 16px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.18);
-      margin-bottom: 14px;
-    }
-
-    .tldr-title {
+    .highlight-title {
       font-weight: 600;
       margin-bottom: 6px;
     }
 
-    .tldr-text {
-      opacity: 0.9;
-      line-height: 1.45;
+    .highlight-metric {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 6px 0 6px;
     }
 
+    .subtle { opacity: 0.85; }
+
+    /* Resume CTA button */
     .cta-row {
       display: flex;
-      flex-wrap: wrap;
       gap: 10px;
-      margin-top: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
     }
 
     .cta-btn {
@@ -84,80 +124,37 @@
       gap: 8px;
       padding: 10px 14px;
       border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 191, 255, 0.10);
       color: inherit;
-      text-decoration: none;
       font-weight: 600;
-      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
-    }
-
-    .cta-btn.primary {
-      background: rgba(0,191,255,0.10);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      text-decoration: none;
     }
 
     .cta-btn:hover {
       transform: translateY(-2px);
-      border-color: rgba(0,191,255,0.30);
-      background: rgba(0,191,255,0.12);
+      border-color: rgba(0, 191, 255, 0.35);
+      background: rgba(0, 191, 255, 0.14);
     }
 
-    /* Keep your "code vibe" but make it readable */
+    .cta-btn.secondary { background: rgba(255, 255, 255, 0.05); }
+
+    /* Make your About <pre> nicer on mobile */
     .about pre {
       white-space: pre-wrap;
       word-break: break-word;
-      line-height: 1.5;
+      line-height: 1.45;
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.03);
       padding: 16px;
-      margin: 0;
-    }
-
-    /* =========================
-       Skills: consistent spacing
-       ========================= */
-    .skills-list.content-card { padding: 18px; }
-
-    .skills-list .skills-item { padding: 12px 0; }
-
-    .skills-list .skills-item:not(:last-child) {
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .skills-list .skills-item .title-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: nowrap;
-    }
-
-    .skills-list .skills-item .title-wrapper h5 {
-      flex: 1;
-      min-width: 0;
-      white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
     }
-
-    .skills-list .skills-item .title-wrapper data {
-      flex: 0 0 auto;
-      white-space: nowrap;
-      opacity: 0.9;
-    }
-
-    .skills-list .skills-item .skill-progress-bg {
-      margin-top: 8px;
-    }
-
-    /* Small: reduce accidental layout breaks */
-    img { max-width: 100%; height: auto; }
   </style>
 </head>
 
 <body>
-  <!-- Cursor elements -->
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
 
@@ -175,19 +172,17 @@
         </div>
 
         <script>
-          // Short, sharp rotation (no redundancy)
-          const phrases = ["Software Engineer", "ML + Systems", "CS × Business", "Builder"];
-          let phraseIdx = 0;
-          const textEl = document.getElementById("rotatingText");
+          const phrases = ["Software Engineer", "Builder", "CS × Business", "ML + Systems", "Lifelong Learner"];
+          let index = 0;
+          const textElement = document.getElementById("rotatingText");
 
           setInterval(() => {
-            if (!textEl) return;
-            textEl.classList.add("fade-out");
+            textElement.classList.add("fade-out");
             setTimeout(() => {
-              phraseIdx = (phraseIdx + 1) % phrases.length;
-              textEl.textContent = phrases[phraseIdx];
-              textEl.classList.remove("fade-out");
-            }, 650);
+              index = (index + 1) % phrases.length;
+              textElement.textContent = phrases[index];
+              textElement.classList.remove("fade-out");
+            }, 700);
           }, 3200);
         </script>
 
@@ -203,11 +198,33 @@
         <ul class="contacts-list">
           <li class="contact-item">
             <div class="icon-box">
+              <ion-icon name="call-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a href="tel:+12484964483" class="contact-link">(248) 496-4483</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
               <ion-icon name="mail-outline"></ion-icon>
             </div>
             <div class="contact-info">
               <p class="contact-title">Email</p>
               <a href="mailto:talluriv@umich.edu" class="contact-link">talluriv@umich.edu</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="globe-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Website</p>
+              <a href="https://varunptalluri.github.io" class="contact-link" target="_blank" rel="noopener noreferrer">
+                varunptalluri.github.io
+              </a>
             </div>
           </li>
 
@@ -246,7 +263,8 @@
 
         <ul class="social-list">
           <li class="social-item">
-            <a href="https://www.linkedin.com/in/varun-talluri/" class="social-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/varun-talluri/" class="social-link" target="_blank"
+              rel="noopener noreferrer">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
           </li>
@@ -263,7 +281,7 @@
             </a>
           </li>
 
-          <!-- Updated resume link -->
+          <!-- Resume link (UPDATED) -->
           <li class="social-item">
             <a href="https://drive.google.com/file/d/1pmd4W0aLQoRuz_blGVPbRFwUAmQwQNlr/view?usp=sharing"
               class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Open resume PDF">
@@ -279,7 +297,6 @@
       </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
     <div class="main-content">
       <!-- NAVBAR -->
       <nav class="navbar">
@@ -299,47 +316,108 @@
       <!-- ABOUT -->
       <article class="about active" data-page="about">
         <header>
-          <h2 class="h2 article-title">About</h2>
+          <h2 class="h2 article-title">About me</h2>
         </header>
 
         <section class="about-text">
-          <div class="tldr-card">
-            <div class="tldr-title">Recruiter TL;DR</div>
-            <div class="tldr-text">
-              CS + Ross @ Michigan. I build ML + systems that ship (CV at Ford, multi-agent RAG workflows at McKinsey, and distributed search).
-              I like measurable impact, clean engineering, and fast iteration.
-            </div>
-            <div class="cta-row">
-              <a class="cta-btn primary" target="_blank" rel="noopener noreferrer"
-                href="https://drive.google.com/file/d/1pmd4W0aLQoRuz_blGVPbRFwUAmQwQNlr/view?usp=sharing">
-                <ion-icon name="document-text-outline"></ion-icon> Resume
-              </a>
-              <a class="cta-btn" target="_blank" rel="noopener noreferrer" href="mailto:talluriv@umich.edu">
-                <ion-icon name="mail-outline"></ion-icon> Email
-              </a>
-              <a class="cta-btn" target="_blank" rel="noopener noreferrer" href="https://github.com/VarunPTalluri">
-                <ion-icon name="logo-github"></ion-icon> GitHub
-              </a>
-            </div>
-          </div>
-
           <pre>
 class VarunTalluri {
 public:
-  // I care about: impact, clarity, and shipping.
-  string focus = "ML + systems + product-minded engineering";
-  string school = "University of Michigan (CSE + Ross)";
+  void introduce() {
+    print("Hey — I’m Varun.");
+  }
 
-  list<string> recentWork = {
-    "Ford: RoadHawk risky-driving CV model (22k images, ResNet features, 95% accuracy)",
-    "McKinsey: multi-agent RAG workflows to accelerate delivery",
-    "Search: distributed indexing + ranking with caching for low-latency queries"
+  void mission() {
+    print("I build at the intersection of business + engineering.");
+    print("I like practical ML, systems that ship, and products with real-world impact.");
+  }
+
+  string school = "University of Michigan (CSE + Ross)";
+  string focus  = "ML + Systems + Product-minded engineering";
+
+  list<string> recent = {
+    "Ford ADAS — RoadHawk CV model (ResNet-18 features, 22k images, 95% acc, +15% throughput)",
+    "McKinsey — multi-agent workflows on Lilli (RAG) to speed delivery by 2 weeks",
+    "TA — Julia robotics projects + correctness testing at scale"
   };
 
-  list<string> interests = {"tennis", "F1", "viola", "spikeball"};
+  list<string> interests = {
+    "Tennis", "Formula One", "Viola & classical music", "Spikeball", "NYT Mini-Games"
+  };
 };
           </pre>
+
+          <!-- Quick highlight cards -->
+          <div class="highlight-grid" aria-label="Quick highlights">
+            <div class="highlight-card" data-reveal>
+              <div class="highlight-title">Impact</div>
+              <div class="highlight-metric">2 weeks faster</div>
+              <div class="subtle">Cut delivery time on a 17,000-word technical appendix using multi-agent workflows + RAG.</div>
+            </div>
+            <div class="highlight-card" data-reveal>
+              <div class="highlight-title">ML</div>
+              <div class="highlight-metric">95% accuracy</div>
+              <div class="subtle">Built RoadHawk risky-driving detection using fixed feature extraction + ResNet-18.</div>
+            </div>
+            <div class="highlight-card" data-reveal>
+              <div class="highlight-title">Systems</div>
+              <div class="highlight-metric">40% lower latency</div>
+              <div class="subtle">Distributed search engine with caching + ranking layers over MapReduce indexing.</div>
+            </div>
+          </div>
+
+          <div class="cta-row">
+            <a class="cta-btn" target="_blank" rel="noopener noreferrer"
+              href="https://drive.google.com/file/d/1pmd4W0aLQoRuz_blGVPbRFwUAmQwQNlr/view?usp=sharing">
+              <ion-icon name="document-text-outline"></ion-icon>
+              Resume (PDF)
+            </a>
+            <a class="cta-btn secondary" target="_blank" rel="noopener noreferrer"
+              href="https://www.linkedin.com/in/varun-talluri/">
+              <ion-icon name="logo-linkedin"></ion-icon>
+              LinkedIn
+            </a>
+            <a class="cta-btn secondary" target="_blank" rel="noopener noreferrer" href="https://github.com/VarunPTalluri">
+              <ion-icon name="logo-github"></ion-icon>
+              GitHub
+            </a>
+          </div>
+
+          <div class="chip-row" aria-label="Tech chips">
+            <span class="chip">PyTorch</span>
+            <span class="chip">React</span>
+            <span class="chip">Flask</span>
+            <span class="chip">Hadoop / MapReduce</span>
+            <span class="chip">AWS + GCP</span>
+            <span class="chip">Weights &amp; Biases</span>
+            <span class="chip">SQL</span>
+          </div>
         </section>
+
+        <!-- testimonials modal (kept) -->
+        <div class="modal-container" data-modal-container>
+          <div class="overlay" data-overlay></div>
+          <section class="testimonials-modal">
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="avatar" width="80" data-modal-img />
+              </figure>
+              <img src="./assets/images/icon-quote.svg" alt="quote icon" />
+            </div>
+
+            <div class="modal-content">
+              <h4 class="h3 modal-title" data-modal-title></h4>
+              <time datetime="2021-06-14"></time>
+              <div data-modal-text>
+                <p></p>
+              </div>
+            </div>
+          </section>
+        </div>
       </article>
 
       <!-- RESUME -->
@@ -362,17 +440,19 @@ public:
               <div class="timeline-header">
                 <h4 class="h4 timeline-item-title">University of Michigan</h4>
                 <span class="timeline-date">
-                  B.S.E in Computer Science &bull; B.B.A (Ross) &bull; Expected May 2027
+                  B.S.E in Computer Science &bull; B.B.A in Product Management (Ross) <br />
+                  GPA: 3.97/4.0 &bull; Expected Graduation: May 2027
                 </span>
               </div>
               <p class="timeline-text">
-                Coursework: Data Structures &amp; Algorithms, Web Systems, Machine Learning, Computer Architecture, Discrete Math, Linear Algebra
+                Coursework: Data Structures &amp; Algorithms, Object-Oriented Programming, Web Systems, Machine Learning,
+                Computer Architecture, Discrete Math, Computational Linear Algebra, Multivariable Calculus, Ethics of AI
               </p>
             </li>
           </ol>
         </section>
 
-        <!-- Experience (kept concise to avoid redundancy with PDF) -->
+        <!-- Experience -->
         <section class="timeline">
           <div class="title-wrapper">
             <div class="icon-box">
@@ -382,46 +462,59 @@ public:
           </div>
 
           <ol class="timeline-list">
+            <!-- Ford ADAS -->
+            <li class="timeline-item">
+              <div class="timeline-header">
+                <h4 class="h4 timeline-item-title">Ford Motor Company (ADAS)</h4>
+                <span class="timeline-date">Software Engineer Intern &bull; June 2024 – Aug 2024</span>
+              </div>
+              <p class="timeline-text">
+                &bull; Built RoadHawk, a PyTorch-based computer vision model for risky driving detection using fixed feature
+                extraction with a pretrained ResNet-18 on a 22,000-image dataset, achieving 95% classification accuracy<br />
+                &bull; Optimized the training pipeline by batching and caching inputs to isolate data preprocessing from model
+                training, reducing GPU idle time and improving training throughput by 15%
+              </p>
+            </li>
+
+            <!-- Ford Data Reliability -->
+            <li class="timeline-item">
+              <div class="timeline-header">
+                <h4 class="h4 timeline-item-title">Ford Motor Company (Data Reliability)</h4>
+                <span class="timeline-date">Software Engineer Intern &bull; June 2023 – Aug 2023</span>
+              </div>
+              <p class="timeline-text">
+                &bull; Improved data reliability for Google Cloud Storage uploads by deploying and evaluating unsupervised
+                anomaly detection on live traffic using anonymized data, reducing false negatives by 25%<br />
+                &bull; Automated hyperparameter tuning by running asynchronous parameter sweeps using Weights &amp; Biases,
+                saving 2–3 hours of manual experimentation per week
+              </p>
+            </li>
+
+            <!-- McKinsey -->
             <li class="timeline-item">
               <div class="timeline-header">
                 <h4 class="h4 timeline-item-title">McKinsey &amp; Company</h4>
-                <span class="timeline-date">Business Analyst Intern &bull; Summer 2025</span>
+                <span class="timeline-date">Business Analyst Intern &bull; June 2025 – Aug 2025</span>
               </div>
               <p class="timeline-text">
-                &bull; Built multi-agent workflows with retrieval to speed delivery and improve quality<br>
-                &bull; Improved data pipelines for benchmarking / SG&amp;A analysis with faster iteration loops
+                &bull; Developed multi-agent workflows on AI platform Lilli using agents for tone, logic, and
+                retrieval-augmented generation, cutting delivery time of a 17,000-word technical appendix by 2 weeks<br />
+                &bull; Improved a data pipeline for cleaning and reconciling SG&amp;A benchmarks for a defense contractor by
+                automating update propagation and reducing analysis turnaround time by 60%
               </p>
             </li>
 
-            <li class="timeline-item">
-              <div class="timeline-header">
-                <h4 class="h4 timeline-item-title">Ford Motor Company</h4>
-                <span class="timeline-date">Software Engineer Intern (ADAS) &bull; Summer 2024</span>
-              </div>
-              <p class="timeline-text">
-                &bull; Built CV model for risky-driving detection on 22k-image dataset<br>
-                &bull; Optimized training throughput via caching + cleaner pipeline separation
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <div class="timeline-header">
-                <h4 class="h4 timeline-item-title">Ford Motor Company</h4>
-                <span class="timeline-date">Software Engineer Intern (Data Reliability) &bull; Summer 2023</span>
-              </div>
-              <p class="timeline-text">
-                &bull; Improved reliability for cloud uploads with anomaly detection + evaluation on live traffic<br>
-                &bull; Automated experiment runs using Weights &amp; Biases sweeps
-              </p>
-            </li>
-
+            <!-- TA -->
             <li class="timeline-item">
               <div class="timeline-header">
                 <h4 class="h4 timeline-item-title">University of Michigan</h4>
-                <span class="timeline-date">Teaching Assistant (Computational Linear Algebra) &bull; 2024 – Present</span>
+                <span class="timeline-date">Teaching Assistant (ROB 101: Computational Linear Algebra) &bull; Jan 2024 – Present</span>
               </div>
               <p class="timeline-text">
-                &bull; Designed Julia robotics projects and correctness tests to keep grading fast + fair at scale
+                &bull; Designed Julia-based robotics projects that scaled linear algebra from toy matrix examples to
+                engineering-scale systems, including Segway balance via optimization and LiDAR-based mapping<br />
+                &bull; Implemented and reviewed edge-case tests and correctness checks for assignments, ensuring Julia
+                implementations worked reliably at scale for 200+ students
               </p>
             </li>
           </ol>
@@ -433,123 +526,63 @@ public:
 
           <ul class="skills-list content-card">
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Python</h5>
-                <data value="90">90%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">Python</h5><data value="90">90%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 90%;"></div></div>
             </li>
 
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">C++</h5>
-                <data value="85">85%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">C++</h5><data value="85">85%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
             </li>
 
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Java</h5>
-                <data value="75">75%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 75%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">Java</h5><data value="75">75%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 75%;"></div></div>
             </li>
 
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Frontend (HTML/CSS/JS)</h5>
-                <data value="85">85%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">HTML/CSS/JavaScript</h5><data value="85">85%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
             </li>
 
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">React</h5>
-                <data value="75">75%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 75%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">SQL</h5><data value="70">70%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 70%;"></div></div>
             </li>
 
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Flask</h5>
-                <data value="75">75%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 75%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">React</h5><data value="75">75%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 75%;"></div></div>
             </li>
 
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">PyTorch</h5>
-                <data value="80">80%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">Flask</h5><data value="75">75%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 75%;"></div></div>
             </li>
 
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">SQL</h5>
-                <data value="70">70%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">PyTorch</h5><data value="80">80%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 80%;"></div></div>
             </li>
 
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Cloud (AWS, GCP)</h5>
-                <data value="70">70%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">AWS / GCP</h5><data value="70">70%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 70%;"></div></div>
             </li>
 
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Docker</h5>
-                <data value="65">65%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 65%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">Docker</h5><data value="65">65%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 65%;"></div></div>
             </li>
 
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Weights &amp; Biases</h5>
-                <data value="60">60%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 60%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">Weights &amp; Biases</h5><data value="60">60%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 60%;"></div></div>
             </li>
 
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Julia / MATLAB / R</h5>
-                <data value="65">65%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 65%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">Julia / MATLAB / R</h5><data value="65">65%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 65%;"></div></div>
             </li>
           </ul>
         </section>
@@ -568,23 +601,37 @@ public:
 
           <div class="filter-select-box">
             <button class="filter-select" data-select></button>
-            <ul class="select-list">
-              <li class="select-item"></li>
-            </ul>
+            <ul class="select-list"><li class="select-item"></li></ul>
           </div>
 
           <ul class="project-list">
+            <li class="project-item active" data-project-url="Hello! I am interested in viewing your Distributed Search Engine project." data-filter-item data-category="systems">
+              <a href="#" aria-label="View Distributed Search Engine project details">
+                <figure class="project-img">
+                  <div class="project-item-icon-box" aria-hidden="true">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/google.png" alt="Screenshot of Distributed Search Engine" loading="lazy" />
+                </figure>
+                <h3 class="project-title">Distributed Search Engine</h3>
+                <p class="project-description">
+                  Indexed 10,000+ pages with Hadoop MapReduce, adding caching + ranking layers to cut query latency by 40% while keeping fault-tolerant execution.
+                </p>
+                <i class="project-skills">Python, Flask, React, Hadoop, JavaScript</i>
+              </a>
+            </li>
+
             <li class="project-item active" data-project-link="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ" data-filter-item data-category="applications">
               <a href="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ" target="_blank" rel="noopener noreferrer" aria-label="View AIDJ project on GitHub">
                 <figure class="project-img">
                   <div class="project-item-icon-box" aria-hidden="true">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="./assets/images/aidj.JPG" alt="Screenshot of Artificial Intelligence DJ" loading="lazy" />
+                  <img src="./assets/images/aidj.JPG" alt="Screenshot of AIDJ application" loading="lazy" />
                 </figure>
                 <h3 class="project-title">Artificial Intelligence DJ</h3>
                 <p class="project-description">
-                  Real-time music recommendations by predicting Spotify audio features from live crowd video. (MHACKS win)
+                  Won 1st Place (Best Use of Intel AI) at MHACKS 17 — real-time music recommendations by predicting Spotify audio features from live crowd video.
                 </p>
                 <i class="project-skills">Python, Flask, MongoDB, OpenVINO, MediaPipe</i>
               </a>
@@ -600,13 +647,13 @@ public:
                 </figure>
                 <h3 class="project-title">Instagram Clone</h3>
                 <p class="project-description">
-                  Full-stack social app with React + Flask, session auth, and performance improvements for faster loads.
+                  Full-stack social app with auth + core social features; optimized API calls and rendering to reduce page load latency by 25% on AWS.
                 </p>
                 <i class="project-skills">Python, Flask, React, AWS, SQLite</i>
               </a>
             </li>
 
-            <li class="project-item active" data-project-url="Hello! I am interested in viewing your Search Engine project." data-filter-item data-category="systems">
+            <li class="project-item active" data-project-url="Hello! I am interested in viewing your Search Engine project." data-filter-item data-category="web development">
               <a href="#" aria-label="View Search Engine project details">
                 <figure class="project-img">
                   <div class="project-item-icon-box" aria-hidden="true">
@@ -614,11 +661,11 @@ public:
                   </div>
                   <img src="./assets/images/google.png" alt="Screenshot of Search Engine project" loading="lazy" />
                 </figure>
-                <h3 class="project-title">Distributed Search Engine</h3>
+                <h3 class="project-title">Search Engine (MapReduce)</h3>
                 <p class="project-description">
-                  MapReduce indexing + ranking pipeline with caching for lower-latency queries.
+                  Distributed indexing + ranking pipeline inspired by real search engines, using MapReduce for parallelism and fault tolerance.
                 </p>
-                <i class="project-skills">Python, Hadoop MapReduce, Flask, React</i>
+                <i class="project-skills">Python, Hadoop MapReduce, REST APIs</i>
               </a>
             </li>
           </ul>
@@ -626,8 +673,7 @@ public:
           <!-- Project modal (kept) -->
           <div class="project-modal-container" data-project-modal-container>
             <div class="project-overlay" data-project-overlay></div>
-            <section class="project-modal"
-              style="max-width: 700px; padding: 2rem; background: var(--onyx); border-radius: 14px; box-shadow: 0 25px 50px rgba(0,0,0,0.2); color: var(--white-1);">
+            <section class="project-modal" style="max-width: 700px; padding: 2rem; background: var(--onyx); border-radius: 14px; box-shadow: 0 25px 50px rgba(0,0,0,0.2); color: var(--white-1);">
               <button class="project-modal-close-btn" data-project-modal-close-btn>
                 <ion-icon name="close-outline"></ion-icon>
               </button>
@@ -635,16 +681,14 @@ public:
               <div class="modal-img-wrapper" style="text-align: center; margin-bottom: 1.5rem;">
                 <figure class="project-avatar-box" style="margin: 0;">
                   <img src="./assets/images/project-placeholder.png" alt="Project Image" data-project-modal-img
-                    style="max-width: 200px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.25); transition: transform 0.3s ease;" />
+                    style="max-width: 200px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.25); transition: transform 0.3s ease;">
                 </figure>
               </div>
 
               <div class="project-modal-content" style="max-height: 70vh; overflow-y: auto;">
                 <h3 class="h3 modal-title" data-project-modal-title></h3>
                 <br />
-                <div data-project-modal-text>
-                  <p></p>
-                </div>
+                <div data-project-modal-text><p></p></div>
                 <a href="#" target="_blank" class="project-link" data-project-modal-link
                   style="color: #00bfff; font-weight: bold; text-decoration: underline; margin-top: 1rem; display: none;">
                   View on GitHub
@@ -657,12 +701,12 @@ public:
     </div>
   </main>
 
-  <!-- Site JS -->
+  <!-- custom js -->
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/modal.js"></script>
 
   <script>
-    // Theme toggle
+    // Theme toggle (preserved)
     const toggle = document.getElementById('theme-toggle');
     if (toggle) {
       toggle.addEventListener('change', () => {
@@ -670,63 +714,83 @@ public:
       });
     }
 
-    // Cursor logic: robust, transform-only (never disappears due to stacking/overflow)
+    // Cursor (preserved + hardened)
     const dot = document.querySelector('.cursor-dot');
     const outline = document.querySelector('.cursor-outline');
 
-    let mouseX = -9999, mouseY = -9999;
-    let outX = -9999, outY = -9999;
+    let mouseX = 0, mouseY = 0;
+    let outlineX = 0, outlineY = 0;
 
-    const isFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-
-    function placeDot(x, y) {
-      dot.style.transform = `translate3d(${x}px, ${y}px, 0) translate3d(-50%, -50%, 0)`;
-    }
-
-    function placeOutline(x, y) {
-      outline.style.transform = `translate3d(${x}px, ${y}px, 0) translate3d(-50%, -50%, 0)`;
-    }
-
-    function onMove(e) {
+    // Use pointer events (more reliable across elements than mousemove)
+    window.addEventListener("pointermove", (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      placeDot(mouseX, mouseY);
+      if (dot) {
+        dot.style.left = `${mouseX}px`;
+        dot.style.top = `${mouseY}px`;
+      }
+    }, { passive: true });
+
+    function animate() {
+      outlineX += (mouseX - outlineX) * 0.2;
+      outlineY += (mouseY - outlineY) * 0.2;
+      if (outline) {
+        outline.style.left = `${outlineX}px`;
+        outline.style.top = `${outlineY}px`;
+      }
+      requestAnimationFrame(animate);
     }
+    animate();
 
-    function tick() {
-      // Smooth follow
-      outX += (mouseX - outX) * 0.18;
-      outY += (mouseY - outY) * 0.18;
-      placeOutline(outX, outY);
-      requestAnimationFrame(tick);
-    }
+    // Click burst (preserved)
+    window.addEventListener('click', () => {
+      for (let i = 0; i < 12; i++) {
+        const burst = document.createElement('div');
+        burst.className = 'burst';
+        burst.style.left = `${mouseX}px`;
+        burst.style.top = `${mouseY}px`;
 
-    if (dot && outline && isFinePointer) {
-      // Ensure cursor starts visible once the user moves
-      window.addEventListener('mousemove', onMove, { passive: true });
-      window.addEventListener('mouseenter', onMove, { passive: true });
+        const angle = Math.random() * 2 * Math.PI;
+        const radius = 30 + Math.random() * 20;
+        const x = Math.cos(angle) * radius + 'px';
+        const y = Math.sin(angle) * radius + 'px';
 
-      // If mouse leaves the window, move cursor off-screen (prevents “stuck cursor” look)
-      window.addEventListener('mouseleave', () => {
-        mouseX = -9999; mouseY = -9999;
-        placeDot(mouseX, mouseY);
-        placeOutline(mouseX, mouseY);
-      });
+        burst.style.setProperty('--x', x);
+        burst.style.setProperty('--y', y);
 
-      // Kick off animation
-      tick();
-    } else {
-      // If touch device or missing nodes: remove custom cursor
-      if (dot) dot.style.display = "none";
-      if (outline) outline.style.display = "none";
-      document.body.style.cursor = "auto";
-    }
+        document.body.appendChild(burst);
+        setTimeout(() => burst.remove(), 600);
+      }
+    });
 
-    // Modal image hover scale (safe)
+    // Modal image hover scale (preserved)
     const modalImg = document.querySelector('[data-project-modal-img]');
     if (modalImg) {
-      modalImg.addEventListener('mouseenter', () => { modalImg.style.transform = 'scale(1.05)'; });
-      modalImg.addEventListener('mouseleave', () => { modalImg.style.transform = 'scale(1)'; });
+      modalImg.addEventListener('mouseenter', () => modalImg.style.transform = 'scale(1.05)');
+      modalImg.addEventListener('mouseleave', () => modalImg.style.transform = 'scale(1)');
+    }
+
+    // Scroll dark overlay (preserved)
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight <= 0 ? 0 : (scrollTop / docHeight);
+
+      const maxOpacity = 0.3;
+      const gradualFactor = 1.5;
+      const opacity = Math.min(scrollPercent * gradualFactor * maxOpacity, maxOpacity);
+      document.body.style.setProperty('--dark-overlay-opacity', opacity);
+    }, { passive: true });
+
+    // Reveal animation for highlight cards (preserved)
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    if (revealEls.length) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('reveal');
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(el => io.observe(el));
     }
   </script>
 
