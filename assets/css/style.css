@@ -2616,3 +2616,7 @@ body[data-theme="light"] .sidebar-info {
 .project-avatar-box img[data-project-modal-img]:hover {
   transform: scale(1.05);
 }
+
+.mapbox iframe {
+  pointer-events: none;
+}
