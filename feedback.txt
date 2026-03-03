@@ -25,6 +25,24 @@ Iteration log:
 - Iteration 1 (2026-03-03): Added 3 projects (Instagram Clone, Piazza Sentiment Classifier, Live Market Making). Linked entries to GitHub-profile-style repo URLs (placeholders if not present). Updated portfolio list in index.html.
 - Next: run accessibility and mobile checks, add missing placeholder images, compress assets, and create a short project detail page for Live Market Making and Piazza classifier.
 
+Iteration 2 (2026-03-03): Fixes applied
+- Replaced missing placeholder images with existing images (`project-1.jpg`, `project-2.png`, `project-3.jpg`) to remove 404s.
+- Updated modal fallback image to `project-1.jpg` to avoid modal 404s.
+- Added a keyboard-accessible "Skip to content" link for screen readers and keyboard users.
+
+Grade update: B- (improvement)
+Notes:
+- 404s fixed, small accessibility improvement added.
+- Projects added but project detail pages/modals could be richer (screenshots, demo GIFs, short video, live demos).
+
+Next actions (auto-iterating):
+3) Improve project modal to show tech stack and GitHub link prominently (done in following iteration).
+4) Add ARIA labels and ensure all interactive elements are keyboard-accessible.
+5) Add OG metadata and improve hero CTA prominence.
+6) Create lightweight project detail pages for 2 major projects (Live Market Making, Piazza classifier).
+7) Performance: create optimized images (webp) and add sizes/srcset for responsive images.
+8) Final polish: run lighthouse and a11y checks, iterate until target grade or 10 iterations.
+
 Reviewer checklist for each iteration (SWE recruiter lens):
 - Does the top fold show name, headline, 1-2 metrics? (Y/N)
 - Are projects linked with repos and short measurable bullets? (Y/N)

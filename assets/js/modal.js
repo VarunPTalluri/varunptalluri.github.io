@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const description = item.querySelector('.project-description')?.textContent || '';
         const skills = item.querySelector('.project-skills')?.textContent || '';
         const img = item.querySelector('img');
-        const imgSrc = img?.getAttribute('src') || './assets/images/project-placeholder.png';
+        const imgSrc = img?.getAttribute('src') || './assets/images/project-1.jpg';
         const altText = img?.getAttribute('alt') || '';
         const link = item.querySelector('a')?.getAttribute('href') || '';
 
