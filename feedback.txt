@@ -1,0 +1,35 @@
+Iteration 0 - Initial assessment
+
+Date: 2026-03-03
+Grade: C+ (Recruiter-facing score estimate)
+Notes:
+- Strong resume bullets with metrics; good recruiter language.
+- UX: clear sections but missing several high-impact projects (added now).
+- Accessibility: needs ARIA improvements and keyboard navigation.
+- Performance: images missing placeholders caused 404s; optimize images and sizes.
+- Mobile: some layout tweaks needed for small screens.
+
+Planned iterations (10 max or until top-10% grade):
+1) Add missing projects + descriptive bullets (done - iteration 1).
+2) Improve visual hierarchy (hero, top highlights) + accent CTA.
+3) Add project detail pages (or richer modals) with screenshots, tech, links, and short demos.
+4) Add printable PDF resume and link to it (also resume.html exists).
+5) Accessibility pass: aria-labels, skip link, contrast, keyboard nav.
+6) Performance pass: compress images, lazy-load, reduce JS bundle.
+7) SEO & metadata: structured data, OG tags for LinkedIn previews.
+8) Add analytics and contact form with spam protection.
+9) Polish copy for recruiter keywords (system design, complexity, scale).
+10) Final review and grade.
+
+Iteration log:
+- Iteration 1 (2026-03-03): Added 3 projects (Instagram Clone, Piazza Sentiment Classifier, Live Market Making). Linked entries to GitHub-profile-style repo URLs (placeholders if not present). Updated portfolio list in index.html.
+- Next: run accessibility and mobile checks, add missing placeholder images, compress assets, and create a short project detail page for Live Market Making and Piazza classifier.
+
+Reviewer checklist for each iteration (SWE recruiter lens):
+- Does the top fold show name, headline, 1-2 metrics? (Y/N)
+- Are projects linked with repos and short measurable bullets? (Y/N)
+- Are skills clearly listed and relevant? (Y/N)
+- Are contact and resume easy to download? (Y/N)
+- Are performance and accessibility issues addressed? (Y/N)
+
+Actions for you to approve: push changes to GitHub (I have permission), and I will continue to iterate.
