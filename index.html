@@ -313,15 +313,14 @@
     </aside>
 
     <div class="main-content">
-      <a class="skip-link" href="#maincontent" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
-      <div class="cursor-dot"></div>
+      <!-- NAVBAR -->
       <nav class="navbar">
         <ul class="navbar-list">
           <li class="navbar-item">
             <button class="navbar-link active" data-nav-link>About</button>
           </li>
           <li class="navbar-item">
-                      <img src="./assets/images/project-1.jpg" alt="Energy Permit Intelligence Platform" loading="lazy" />
+            <button class="navbar-link" data-nav-link>Resume</button>
           </li>
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Portfolio</button>
@@ -333,7 +332,7 @@
       <article class="about active" data-page="about">
         <header>
             <h2 class="h2 article-title">About me</h2>
-                      <img src="./assets/images/project-3.jpg" alt="Piazza Sentiment Classifier" loading="lazy" />
+            <a href="/resume.html" class="project-link" style="display:inline-block; margin-top:8px;">Download Resume</a>
         </header>
 
         <section class="about-text">
@@ -345,7 +344,7 @@ public:
   }
 
   void mission() {
-                      <img src="./assets/images/project-2.png" alt="Live Market Making" loading="lazy" />
+    print("I build at the intersection of business + engineering.");
     print("I like practical ML, systems that ship, and products with real-world impact.");
   }
 
@@ -355,7 +354,7 @@ public:
   list<string> recent = {
     "Ford ADAS — RoadHawk CV model (ResNet-18 features, 22k images, 95% acc, +15% throughput)",
     "McKinsey — multi-agent workflows on Lilli (RAG) to speed delivery by 2 weeks",
-                        <img src="./assets/images/project-1.jpg" alt="Project Image" data-project-modal-img style="max-width: 200px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.25); transition: transform 0.3s ease;">
+    "TA — Julia robotics projects + correctness testing at scale"
   };
 
   list<string> interests = {
@@ -626,7 +625,7 @@ public:
               <a href="https://github.com/VarunPTalluri" target="_blank" rel="noopener noreferrer" aria-label="View Energy Permit Intelligence Platform on GitHub">
                 <figure class="project-img">
                   <div class="project-item-icon-box" aria-hidden="true"><ion-icon name="eye-outline"></ion-icon></div>
-                  <img src="./assets/images/project-1.jpg" alt="Energy Permit Intelligence Platform" loading="lazy" />
+                  <img src="./assets/images/project-placeholder.png" alt="Energy Permit Intelligence Platform" loading="lazy" />
                 </figure>
                 <h3 class="project-title">Energy Permit Intelligence Platform</h3>
                 <p class="project-description">Engineered an asynchronous ingestion pipeline scraping municipal permitting portals with OCR fallback, supporting 15 municipalities and reducing manual research from 4–6 hours per town to a single automated batch run.</p>
@@ -657,45 +656,6 @@ public:
                 <i class="project-skills">Python, OpenVINO, MediaPipe, Spotify API</i>
               </a>
             </li>
-
-            <!-- Instagram Clone (Flask + React + MySQL) -->
-            <li class="project-item" data-project-link="https://github.com/VarunPTalluri/Instagram-Clone" data-filter-item data-category="web">
-              <a href="https://github.com/VarunPTalluri/Instagram-Clone" target="_blank" rel="noopener noreferrer" aria-label="View Instagram Clone on GitHub">
-                <figure class="project-img">
-                  <div class="project-item-icon-box" aria-hidden="true"><ion-icon name="eye-outline"></ion-icon></div>
-                  <img src="./assets/images/insta.png" alt="Instagram Clone" loading="lazy" />
-                </figure>
-                <h3 class="project-title">Instagram Clone</h3>
-                <p class="project-description">Full-stack Instagram-style app with React frontend, Flask backend, and MySQL persistence. Sessions, REST APIs, and deployed on AWS EC2.</p>
-                <i class="project-skills">Flask, React, MySQL, Python, AWS</i>
-              </a>
-            </li>
-
-            <!-- Piazza Sentiment Classifier (C++) -->
-            <li class="project-item" data-project-link="https://github.com/VarunPTalluri/piazza-classifier" data-filter-item data-category="ml">
-              <a href="https://github.com/VarunPTalluri/piazza-classifier" target="_blank" rel="noopener noreferrer" aria-label="View Piazza Sentiment Classifier on GitHub">
-                <figure class="project-img">
-                  <div class="project-item-icon-box" aria-hidden="true"><ion-icon name="eye-outline"></ion-icon></div>
-                  <img src="./assets/images/project-3.jpg" alt="Piazza Sentiment Classifier" loading="lazy" />
-                </figure>
-                <h3 class="project-title">Piazza Sentiment Classifier</h3>
-                <p class="project-description">C++ classifier for forum sentiment, engineered for speed and deployed as a microservice; includes ensemble techniques and calibration for high precision on noisy text.</p>
-                <i class="project-skills">C++, NLP, Ensemble Methods, Microservice</i>
-              </a>
-            </li>
-
-            <!-- Live Market Making (C++) -->
-            <li class="project-item" data-project-link="https://github.com/VarunPTalluri/live-market-making" data-filter-item data-category="systems">
-              <a href="https://github.com/VarunPTalluri/live-market-making" target="_blank" rel="noopener noreferrer" aria-label="View Live Market Making on GitHub">
-                <figure class="project-img">
-                  <div class="project-item-icon-box" aria-hidden="true"><ion-icon name="eye-outline"></ion-icon></div>
-                  <img src="./assets/images/project-2.png" alt="Live Market Making" loading="lazy" />
-                </figure>
-                <h3 class="project-title">Live Market Making</h3>
-                <p class="project-description">Real-time market making system with C++ agents placing buy/sell orders and optional human player integration; uses AI agents to adapt strategy to market conditions.</p>
-                <i class="project-skills">C++, Low-latency Systems, Networking, Reinforcement Learning</i>
-              </a>
-            </li>
           </ul>
 
           <!-- Project modal -->
@@ -703,7 +663,7 @@ public:
             <div class="project-overlay" data-project-overlay></div>
             <section class="project-modal" style="max-width: 700px; padding: 2rem; background: var(--onyx); border-radius: 14px; box-shadow: 0 25px 50px rgba(0,0,0,0.2); color: var(--white-1);">
               <button class="project-modal-close-btn" data-project-modal-close-btn><ion-icon name="close-outline"></ion-icon></button>
-              <div class="modal-img-wrapper" style="text-align: center; margin-bottom: 1.5rem;"><figure class="project-avatar-box" style="margin: 0;"><img src="./assets/images/project-1.jpg" alt="Project Image" data-project-modal-img style="max-width: 200px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.25); transition: transform 0.3s ease;"></figure></div>
+              <div class="modal-img-wrapper" style="text-align: center; margin-bottom: 1.5rem;"><figure class="project-avatar-box" style="margin: 0;"><img src="./assets/images/project-placeholder.png" alt="Project Image" data-project-modal-img style="max-width: 200px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.25); transition: transform 0.3s ease;"></figure></div>
               <div class="project-modal-content" style="max-height: 70vh; overflow-y: auto;"><h3 class="h3 modal-title" data-project-modal-title></h3><div data-project-modal-text><p></p></div><a href="#" target="_blank" class="project-link" data-project-modal-link style="color: #00bfff; font-weight: bold; text-decoration: underline; margin-top: 1rem; display: none;">View on GitHub</a></div>
             </section>
           </div>
@@ -755,7 +715,7 @@ public:
 
               <div class="modal-img-wrapper" style="text-align: center; margin-bottom: 1.5rem;">
                 <figure class="project-avatar-box" style="margin: 0;">
-                  <img src="./assets/images/project-1.jpg" alt="Project Image" data-project-modal-img
+                  <img src="./assets/images/project-placeholder.png" alt="Project Image" data-project-modal-img
                     style="max-width: 200px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.25); transition: transform 0.3s ease;">
                 </figure>
               </div>
