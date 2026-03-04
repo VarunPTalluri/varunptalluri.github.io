@@ -1,0 +1,8 @@
+Iteration 4 (2026-03-03): Added Piazza classifier project
+- Added `Piazza Sentiment Classifier` project card to the portfolio with a GitHub link and tech stack.
+- Verified image uses `project-2.png` to avoid 404s; modal will display tech stack and GitHub link.
+
+Preliminary grade: B (small improvement)
+Notes:
+- Projects list restored to a single clean section; duplicate items removed.
+- Next: preview locally, ensure modal content displays correctly, then commit & push.
