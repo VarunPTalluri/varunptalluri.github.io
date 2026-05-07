@@ -1,24 +1,17 @@
 'use strict';
 
-const elementToggleFunc = (elem) => elem.classList.toggle('active');
-
-/* Sidebar (mobile) */
-const sidebar = document.querySelector('[data-sidebar]');
-const sidebarBtn = document.querySelector('[data-sidebar-btn]');
-if (sidebarBtn && sidebar) {
-  sidebarBtn.addEventListener('click', () => elementToggleFunc(sidebar));
-}
-
-/* Theme */
 const THEME_KEY = 'vt-theme';
 const themeToggle = document.getElementById('theme-toggle');
+
 function applyStoredTheme() {
   const stored = localStorage.getItem(THEME_KEY);
   const light = stored === 'light';
   document.body.classList.toggle('light-mode', light);
   if (themeToggle) themeToggle.checked = light;
 }
+
 applyStoredTheme();
+
 if (themeToggle) {
   themeToggle.addEventListener('change', () => {
     const light = themeToggle.checked;
@@ -27,73 +20,52 @@ if (themeToggle) {
   });
 }
 
-/* Page navigation */
-const navigationLinks = document.querySelectorAll('[data-nav-link]');
-const pages = document.querySelectorAll('[data-page]');
+const navAnchors = document.querySelectorAll('[data-nav-anchor]');
 
-function navTarget(el) {
-  const t = el.dataset.navTarget || el.textContent || '';
-  return t.trim().toLowerCase();
-}
-
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener('click', function () {
-    const target = navTarget(this);
-    for (let j = 0; j < pages.length; j++) {
-      const match = pages[j].dataset.page === target;
-      pages[j].classList.toggle('active', match);
-    }
-    for (let j = 0; j < navigationLinks.length; j++) {
-      const t = navTarget(navigationLinks[j]);
-      navigationLinks[j].classList.toggle('active', t === target);
-    }
-    window.scrollTo(0, 0);
+function setActiveNavByHash(hash) {
+  if (!navAnchors.length) return;
+  const h = hash || '#index';
+  navAnchors.forEach((link) => {
+    link.classList.toggle('is-active', link.getAttribute('href') === h);
   });
 }
 
-/* Rotating subtitle */
-const rotatingEl = document.getElementById('rotatingText');
-if (rotatingEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const phrases = ['Software Engineer', 'Builder', 'CS × Business', 'ML + Systems', 'Product-minded'];
-  let index = 0;
-  setInterval(() => {
-    rotatingEl.classList.add('fade-out');
-    setTimeout(() => {
-      index = (index + 1) % phrases.length;
-      rotatingEl.textContent = phrases[index];
-      rotatingEl.classList.remove('fade-out');
-    }, 320);
-  }, 3600);
-}
+navAnchors.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+    if (href?.startsWith('#')) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', href);
+      }
+      setActiveNavByHash(href);
+    }
+  });
+});
 
-/* Highlight cards — reveal on scroll */
-const revealEls = document.querySelectorAll('[data-reveal]');
-if (
-  revealEls.length &&
-  !window.matchMedia('(prefers-reduced-motion: reduce)').matches
-) {
-  const io = new IntersectionObserver(
+const sectionIds = ['index', 'stack', 'experience', 'projects'];
+const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+
+if (sections.length && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('reveal');
+        if (!entry.isIntersecting) return;
+        const id = entry.target.getAttribute('id');
+        setActiveNavByHash(`#${id}`);
       });
     },
-    { threshold: 0.12 }
+    { rootMargin: '-42% 0px -42% 0px', threshold: 0 }
   );
-  revealEls.forEach((el) => io.observe(el));
-} else {
-  revealEls.forEach((el) => el.classList.add('reveal'));
+  sections.forEach((s) => observer.observe(s));
 }
 
-/* Optional contact form (template hook) */
-const form = document.querySelector('[data-form]');
-const formInputs = document.querySelectorAll('[data-form-input]');
-const formBtn = document.querySelector('[data-form-btn]');
-if (form && formBtn) {
-  for (let i = 0; i < formInputs.length; i++) {
-    formInputs[i].addEventListener('input', function () {
-      if (form.checkValidity()) formBtn.removeAttribute('disabled');
-      else formBtn.setAttribute('disabled', '');
-    });
+window.addEventListener('DOMContentLoaded', () => {
+  if (location.hash && document.querySelector(location.hash)) {
+    setActiveNavByHash(location.hash);
+  } else {
+    setActiveNavByHash('#index');
   }
-}
+});

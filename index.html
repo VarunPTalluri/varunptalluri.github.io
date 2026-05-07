@@ -3,472 +3,258 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Varun Talluri — University of Michigan CS + Ross. Software engineer focused on ML, distributed systems, and product-minded engineering." />
-  <meta name="theme-color" content="#0c0d10" />
-  <meta property="og:type" content="website" />
+  <meta name="description" content="Varun Talluri — Michigan CSE + Ross. ML, distributed systems, product-minded engineering." />
+  <meta name="theme-color" content="#09090b" />
   <meta property="og:title" content="Varun Talluri" />
-  <meta property="og:description" content="CS + Business at Michigan. ML, systems, full stack — internships at Ford ADAS, Ford Data Reliability, McKinsey." />
+  <meta property="og:description" content="CS + Business at Michigan. Ford, McKinsey, systems + ML." />
   <meta property="og:url" content="https://varunptalluri.github.io/" />
-  <title>Varun Talluri — Software Engineer</title>
+  <title>Varun Talluri — Spec</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/css/ionicons.min.css" rel="stylesheet" />
   <link rel="shortcut icon" href="./assets/images/personallogo.JPG" type="image/x-icon" />
-
-  <link rel="stylesheet" href="./assets/css/style.css" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/css/ionicons.min.css" />
+
+  <link rel="stylesheet" href="./assets/css/spec-sheet.css" />
 </head>
 
-<body>
-  <main>
-    <aside class="sidebar" data-sidebar>
-      <div class="sidebar-info">
-        <figure class="avatar-box">
-          <img src="./assets/images/me.jpg" alt="Varun Talluri" width="80" />
-        </figure>
+<body class="spec-sheet">
+  <div class="spec-grid-bg" aria-hidden="true"></div>
 
-        <div class="info-content">
-          <h1 class="name" title="Varun Talluri">Varun Talluri</h1>
-          <p class="title" id="rotatingText">Software Engineer</p>
-        </div>
+  <header class="spec-topbar">
+    <a class="spec-brand" href="#">VARUN_TALLURI</a>
+    <nav class="spec-nav" aria-label="Sections">
+      <a href="#index" data-nav-anchor>Index</a>
+      <a href="#stack" data-nav-anchor>Stack</a>
+      <a href="#experience" data-nav-anchor>Experience</a>
+      <a href="#projects" data-nav-anchor>Projects</a>
+    </nav>
+    <div class="spec-topbar-actions">
+      <a class="spec-btn-outline" href="https://drive.google.com/file/d/1pmd4W0aLQoRuz_blGVPbRFwUAmQwQNlr/view?usp=sharing" target="_blank" rel="noopener noreferrer">Résumé.pdf</a>
+      <label class="spec-theme">
+        <input type="checkbox" id="theme-toggle" aria-label="Toggle light mode" />
+        <span class="spec-theme-ui" aria-hidden="true"></span>
+      </label>
+    </div>
+  </header>
 
-        <button type="button" class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-          <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
-        </button>
-      </div>
+  <div class="spec-page">
+    <header class="spec-hero">
+      <p class="spec-hero-kicker">System profile</p>
+      <h1>Varun Talluri</h1>
+      <p class="spec-hero-mono">Software engineering · ML &amp; systems · CSE + Ross, University of Michigan // Expected May 2027 · GPA 3.97</p>
+    </header>
 
-      <div class="sidebar-info_more">
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-              <a href="tel:+12484964483" class="contact-link">(248) 496-4483</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-              <a href="mailto:talluriv@umich.edu" class="contact-link">talluriv@umich.edu</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="globe-outline" aria-hidden="true"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Website</p>
-              <a href="https://varunptalluri.github.io" class="contact-link" target="_blank" rel="noopener noreferrer">varunptalluri.github.io</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Expected Graduation</p>
-              <time datetime="2027-05">May 2027</time>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="school-outline" aria-hidden="true"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">School</p>
-              <p class="contact-link">University of Michigan</p>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-              <address>Ann Arbor, MI</address>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="ribbon-outline" aria-hidden="true"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Citizenship</p>
-              <p class="contact-link">U.S. Citizen</p>
-            </div>
-          </li>
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/varun-talluri/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <ion-icon name="logo-linkedin" aria-hidden="true"></ion-icon>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://github.com/VarunPTalluri" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <ion-icon name="logo-github" aria-hidden="true"></ion-icon>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://devpost.com/talluriv" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Devpost">
-              <ion-icon name="construct-outline" aria-hidden="true"></ion-icon>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://drive.google.com/file/d/1pmd4W0aLQoRuz_blGVPbRFwUAmQwQNlr/view?usp=sharing" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Resume PDF">
-              <ion-icon name="document-text-outline" aria-hidden="true"></ion-icon>
-            </a>
-          </li>
-        </ul>
-
-        <label class="theme-switch">
-          <span class="theme-switch-label">Theme</span>
-          <input type="checkbox" id="theme-toggle" aria-label="Toggle light mode" />
-          <span class="slider"></span>
-        </label>
-      </div>
-    </aside>
-
-    <div class="main-content">
-      <nav class="navbar" aria-label="Primary">
-        <ul class="navbar-list">
-          <li class="navbar-item">
-            <button type="button" class="navbar-link active" data-nav-link data-nav-target="about">About</button>
-          </li>
-          <li class="navbar-item">
-            <button type="button" class="navbar-link" data-nav-link data-nav-target="experience">Experience</button>
-          </li>
-          <li class="navbar-item">
-            <button type="button" class="navbar-link" data-nav-link data-nav-target="projects">Projects</button>
-          </li>
-        </ul>
-      </nav>
-
-      <article class="about active" data-page="about">
-        <header class="article-header-row">
-          <h2 class="h2 article-title">About</h2>
-          <a href="./resume.html" class="text-link text-link-subtle">Résumé (HTML)</a>
-        </header>
-
-        <section class="about-text">
-          <div class="about-prose">
-            <p class="about-lead">
-              I'm Varun — CS + Business at Michigan (CSE + Ross). I care about systems that stay correct under load and products that earn their complexity.
-            </p>
-            <p>
-              Internships at Ford (ADAS + data reliability) and McKinsey sharpened how I ship ML and tooling: RoadHawk CV, anomaly detection at scale, and multi-agent + RAG workflows on an internal platform. I TA computational linear algebra and build robotics-flavored assignments in Julia.
-            </p>
-            <p class="about-muted">
-              Tennis, F1, viola, spikeball, NYT Mini.
-            </p>
+    <div class="spec-columns">
+      <div class="spec-main">
+        <section id="index" class="spec-module">
+          <div class="spec-module-head">
+            <span class="mod-num">01</span>
+            <h2>Index</h2>
           </div>
-
-          <div class="highlight-grid" aria-label="Selected outcomes">
-            <div class="highlight-card" data-reveal>
-              <div class="highlight-title">Delivery</div>
-              <div class="highlight-metric">2 weeks faster</div>
-              <div class="subtle">Multi-agent workflows + RAG on a 17k-word technical appendix.</div>
+          <p class="spec-lede">I build production ML, reliable data systems, and internal tools that shorten feedback loops.</p>
+          <p class="spec-lede-sub">Ford (ADAS + data reliability), McKinsey (agents + RAG on Lilli), TA for computational linear algebra / Julia robotics.</p>
+          <div class="spec-metrics" aria-label="Selected signals">
+            <div class="spec-metric">
+              <div class="spec-metric-val">−2 wk</div>
+              <div class="spec-metric-lbl">Delivery</div>
+              <p class="spec-metric-note">Multi-agent + RAG on a 17k-word client appendix.</p>
             </div>
-            <div class="highlight-card" data-reveal>
-              <div class="highlight-title">ML</div>
-              <div class="highlight-metric">95% accuracy</div>
-              <div class="subtle">RoadHawk risky-driving CV — ResNet-18 features, 22k images.</div>
+            <div class="spec-metric">
+              <div class="spec-metric-val">95%</div>
+              <div class="spec-metric-lbl">CV accuracy</div>
+              <p class="spec-metric-note">RoadHawk — ResNet-18, 22k images (Ford ADAS).</p>
             </div>
-            <div class="highlight-card" data-reveal>
-              <div class="highlight-title">Systems</div>
-              <div class="highlight-metric">40% lower latency</div>
-              <div class="subtle">Distributed search — MapReduce index, ranking, caching.</div>
-            </div>
-          </div>
-
-          <div class="cta-row">
-            <a class="cta-btn" target="_blank" rel="noopener noreferrer"
-              href="https://drive.google.com/file/d/1pmd4W0aLQoRuz_blGVPbRFwUAmQwQNlr/view?usp=sharing">
-              <ion-icon name="document-text-outline" aria-hidden="true"></ion-icon>
-              Résumé (PDF)
-            </a>
-            <a class="cta-btn secondary" target="_blank" rel="noopener noreferrer"
-              href="https://www.linkedin.com/in/varun-talluri/">
-              <ion-icon name="logo-linkedin" aria-hidden="true"></ion-icon>
-              LinkedIn
-            </a>
-            <a class="cta-btn secondary" target="_blank" rel="noopener noreferrer" href="https://github.com/VarunPTalluri">
-              <ion-icon name="logo-github" aria-hidden="true"></ion-icon>
-              GitHub
-            </a>
-          </div>
-
-          <div class="chip-row" aria-label="Tools and stack">
-            <span class="chip">PyTorch</span>
-            <span class="chip">Python</span>
-            <span class="chip">C++</span>
-            <span class="chip">React</span>
-            <span class="chip">Flask</span>
-            <span class="chip">Hadoop / MapReduce</span>
-            <span class="chip">AWS · GCP</span>
-            <span class="chip">Weights &amp; Biases</span>
-            <span class="chip">SQL</span>
-          </div>
-        </section>
-      </article>
-
-      <article class="resume" data-page="experience">
-        <header>
-          <h2 class="h2 article-title">Experience</h2>
-        </header>
-
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline" aria-hidden="true"></ion-icon>
-            </div>
-            <h3 class="h3">Education</h3>
-          </div>
-
-          <ol class="timeline-list">
-            <li class="timeline-item">
-              <div class="timeline-header">
-                <h4 class="h4 timeline-item-title">University of Michigan — Ann Arbor</h4>
-                <span class="timeline-date">B.S.E. Computer Science · B.B.A. Product Management (Ross) · Expected May 2027 · GPA 3.97</span>
-              </div>
-              <p class="timeline-text">
-                Coursework: Data Structures &amp; Algorithms, OOP, Web Systems, Machine Learning, Computer Architecture, Discrete Math, Computational Linear Algebra, Multivariable Calculus, Ethics of AI.
-              </p>
-            </li>
-          </ol>
-        </section>
-
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="briefcase-outline" aria-hidden="true"></ion-icon>
-            </div>
-            <h3 class="h3">Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-            <li class="timeline-item">
-              <div class="timeline-header">
-                <h4 class="h4 timeline-item-title">Ford Motor Company — ADAS</h4>
-                <span class="timeline-date">Software Engineer Intern · Jun 2024 – Aug 2024</span>
-              </div>
-              <p class="timeline-text">
-                • Built RoadHawk, a PyTorch CV model for risky driving using fixed feature extraction + pretrained ResNet-18 on 22k images (95% accuracy, 87% precision).<br />
-                • Cut training time from ~2h to ~25 min on an HPC cluster (CUDA, containers) for reproducible experiments.<br />
-                • Batched and cached preprocessing, improving training throughput ~15% with stable inference latency.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <div class="timeline-header">
-                <h4 class="h4 timeline-item-title">Ford Motor Company — Data Reliability</h4>
-                <span class="timeline-date">Software Engineer Intern · Jun 2023 – Aug 2023</span>
-              </div>
-              <p class="timeline-text">
-                • Raised anomaly detection precision from 65% → 83% on 10k+ weekly uploads via LOF + KNN ensemble and threshold calibration.<br />
-                • Built Python dashboards (Seaborn, Cufflinks) for anomaly rates and utilization to catch drift earlier.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <div class="timeline-header">
-                <h4 class="h4 timeline-item-title">McKinsey &amp; Company</h4>
-                <span class="timeline-date">Business Analyst Intern · Jun 2025 – Aug 2025</span>
-              </div>
-              <p class="timeline-text">
-                • Built multi-agent workflows on Lilli (tone, logic, RAG) and cut delivery time on a 17,000-word technical appendix by ~2 weeks.<br />
-                • Automated SG&amp;A benchmark reconciliation for a defense client; ~60% faster pipeline turnaround.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <div class="timeline-header">
-                <h4 class="h4 timeline-item-title">University of Michigan</h4>
-                <span class="timeline-date">Teaching Assistant — ROB 101 · Jan 2024 – present</span>
-              </div>
-              <p class="timeline-text">
-                • Designed Julia robotics projects scaling from toy LA to production-flavored systems (Segway balance, LiDAR mapping).<br />
-                • Implemented and reviewed edge-case tests for 200+ students.
-              </p>
-            </li>
-          </ol>
-        </section>
-
-        <section class="skill">
-          <h3 class="h3 skills-title">Skills</h3>
-          <div class="skills-matrix content-card">
-            <div class="skill-group">
-              <h4 class="skill-group-title">Languages</h4>
-              <p class="skill-group-body">Python, C++, Java, JavaScript, SQL, Julia, R, MATLAB, Swift</p>
-            </div>
-            <div class="skill-group">
-              <h4 class="skill-group-title">ML &amp; data</h4>
-              <p class="skill-group-body">PyTorch, classical ML, feature engineering, experiment tracking (W&amp;B), Pandas</p>
-            </div>
-            <div class="skill-group">
-              <h4 class="skill-group-title">Web &amp; infra</h4>
-              <p class="skill-group-body">React, Flask, FastAPI, Docker, AWS, GCP, Hadoop / MapReduce, HPC batch</p>
+            <div class="spec-metric">
+              <div class="spec-metric-val">−40%</div>
+              <div class="spec-metric-lbl">Query latency</div>
+              <p class="spec-metric-note">Distributed search — MapReduce index + cache.</p>
             </div>
           </div>
         </section>
-      </article>
 
-      <article class="portfolio" data-page="projects">
-        <header>
-          <h2 class="h2 article-title">Projects</h2>
-        </header>
+        <section id="stack" class="spec-module">
+          <div class="spec-module-head">
+            <span class="mod-num">02</span>
+            <h2>Core stack</h2>
+          </div>
+          <div class="spec-stack-grid">
+            <div class="spec-stack-card">
+              <span class="spec-stack-tag">Languages</span>
+              <h3>Runtime &amp; data</h3>
+              <p>Python, C++, SQL, Java, JavaScript, Julia — production ML, services, and batch.</p>
+            </div>
+            <div class="spec-stack-card">
+              <span class="spec-stack-tag">ML</span>
+              <h3>Training &amp; eval</h3>
+              <p>PyTorch, classical ML, feature work, W&amp;B, HPC / CUDA pipelines.</p>
+            </div>
+            <div class="spec-stack-card">
+              <span class="spec-stack-tag">Web</span>
+              <h3>Interfaces &amp; APIs</h3>
+              <p>React, Flask, FastAPI — internal tools and student-facing systems.</p>
+            </div>
+            <div class="spec-stack-card">
+              <span class="spec-stack-tag">Infra</span>
+              <h3>Scale &amp; ops</h3>
+              <p>Docker, AWS, GCP, Hadoop / MapReduce, Playwright automation.</p>
+            </div>
+          </div>
+        </section>
 
-        <section class="projects">
-          <ul class="project-list">
-            <li class="project-item" data-github="https://github.com/VarunPTalluri/energy-permit-intel">
-              <div class="project-card">
-                <a class="project-media" href="https://github.com/VarunPTalluri/energy-permit-intel" target="_blank" rel="noopener noreferrer"
-                  aria-label="Open Energy Permit Intelligence on GitHub">
-                  <figure class="project-img">
-                    <img src="./assets/images/project-1.jpg" alt="" loading="lazy" />
-                  </figure>
-                </a>
-                <div class="project-body">
-                  <p class="project-eyebrow">Full stack · Automation</p>
-                  <h3 class="project-title">
-                    <a href="https://github.com/VarunPTalluri/energy-permit-intel" target="_blank" rel="noopener noreferrer">Energy Permit Intelligence</a>
-                  </h3>
-                  <p class="project-tagline">Municipal permit ingestion with resilient scraping and OCR fallback.</p>
-                  <ul class="project-metrics" aria-label="Outcomes">
-                    <li><span class="metric-value">15</span> <span class="metric-label">municipalities</span></li>
-                    <li><span class="metric-value">4–6h</span> <span class="metric-label">→ one batch</span></li>
-                  </ul>
-                  <ul class="project-bullets">
-                    <li>Async pipeline across heterogeneous permitting portals.</li>
-                    <li>OCR path when HTML/PDF parsing fails.</li>
-                  </ul>
-                  <div class="project-stack" aria-label="Stack">
-                    <span>Python</span><span>FastAPI</span><span>SQLite</span><span>Playwright</span><span>OCR</span>
-                  </div>
-                  <div class="project-actions">
-                    <a class="btn btn-secondary" href="https://github.com/VarunPTalluri/energy-permit-intel" target="_blank" rel="noopener noreferrer">Repository</a>
-                    <button type="button" class="btn btn-ghost" data-project-modal-open>Overview</button>
-                  </div>
+        <section id="experience" class="spec-module">
+          <div class="spec-module-head">
+            <span class="mod-num">03</span>
+            <h2>Experience</h2>
+          </div>
+
+          <div class="spec-exp-item">
+            <div class="spec-exp-top">
+              <h3>University of Michigan</h3>
+              <span class="spec-exp-date">B.S.E. CS · B.B.A. Ross · 2027</span>
+            </div>
+            <ul class="spec-exp-bullets">
+              <li>Algorithms, ML, web systems, architecture, linear algebra, ethics of AI.</li>
+            </ul>
+          </div>
+
+          <div class="spec-exp-item">
+            <div class="spec-exp-top">
+              <h3>Ford — ADAS</h3>
+              <span class="spec-exp-date">SWE intern · 2024</span>
+            </div>
+            <ul class="spec-exp-bullets">
+              <li>RoadHawk CV: ResNet-18, 22k images → 95% acc / 87% prec.</li>
+              <li>Training ~2h → ~25m on HPC; +15% throughput via batching + cache.</li>
+            </ul>
+          </div>
+
+          <div class="spec-exp-item">
+            <div class="spec-exp-top">
+              <h3>Ford — Data reliability</h3>
+              <span class="spec-exp-date">SWE intern · 2023</span>
+            </div>
+            <ul class="spec-exp-bullets">
+              <li>Anomaly precision 65% → 83% (10k+ weekly uploads); LOF + KNN ensemble.</li>
+              <li>Monitoring dashboards for drift and utilization.</li>
+            </ul>
+          </div>
+
+          <div class="spec-exp-item">
+            <div class="spec-exp-top">
+              <h3>McKinsey &amp; Company</h3>
+              <span class="spec-exp-date">BA intern · 2025</span>
+            </div>
+            <ul class="spec-exp-bullets">
+              <li>Multi-agent workflows + RAG on Lilli; ~2 weeks faster on 17k-word appendix.</li>
+              <li>SG&amp;A benchmarks pipeline ~60% faster turnaround.</li>
+            </ul>
+          </div>
+
+          <div class="spec-exp-item">
+            <div class="spec-exp-top">
+              <h3>U-M — Teaching assistant</h3>
+              <span class="spec-exp-date">ROB 101 · 2024–</span>
+            </div>
+            <ul class="spec-exp-bullets">
+              <li>Julia robotics projects (Segway, LiDAR); edge-case testing for 200+ students.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="projects" class="spec-module">
+          <div class="spec-module-head">
+            <span class="mod-num">04</span>
+            <h2>Projects</h2>
+          </div>
+
+          <ul class="spec-project-list">
+            <li class="project-item spec-project-wrap" data-github="https://github.com/VarunPTalluri/energy-permit-intel">
+              <figure class="project-img project-img--sr" aria-hidden="true">
+                <img src="./assets/images/project-1.jpg" alt="" width="80" height="48" loading="lazy" />
+              </figure>
+              <div class="spec-project">
+                <div class="spec-project-head">
+                  <h3 class="project-title"><a href="https://github.com/VarunPTalluri/energy-permit-intel" target="_blank" rel="noopener noreferrer">Energy permit intelligence</a></h3>
+                  <span class="spec-outcome">15 locales · batch ETL</span>
+                </div>
+                <p class="project-tagline spec-project-line">Municipal permit ingestion with Playwright + OCR fallback.</p>
+                <ul class="project-bullets spec-sr-only">
+                  <li>Async scraping across heterogeneous portals.</li>
+                  <li>OCR path when structured parse fails.</li>
+                </ul>
+                <div class="project-stack spec-sr-only" aria-hidden="true"><span>Python</span><span>FastAPI</span><span>SQLite</span><span>Playwright</span></div>
+                <p class="spec-project-meta">Python · FastAPI · SQLite · Playwright · OCR · <a href="https://github.com/VarunPTalluri/energy-permit-intel" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+                <div class="spec-project-actions">
+                  <button type="button" data-project-modal-open>Full spec</button>
                 </div>
               </div>
             </li>
 
-            <li class="project-item" data-github="https://github.com/VarunPTalluri">
-              <div class="project-card">
-                <a class="project-media" href="https://github.com/VarunPTalluri" target="_blank" rel="noopener noreferrer"
-                  aria-label="View Varun Talluri GitHub profile">
-                  <figure class="project-img">
-                    <img src="./assets/images/google.png" alt="" loading="lazy" />
-                  </figure>
-                </a>
-                <div class="project-body">
-                  <p class="project-eyebrow">Distributed systems</p>
-                  <h3 class="project-title">
-                    <a href="https://github.com/VarunPTalluri" target="_blank" rel="noopener noreferrer">Distributed Search Engine</a>
-                  </h3>
-                  <p class="project-tagline">Inverted index and query path tuned for latency.</p>
-                  <ul class="project-metrics" aria-label="Outcomes">
-                    <li><span class="metric-value">10k+</span> <span class="metric-label">pages indexed</span></li>
-                    <li><span class="metric-value">40%</span> <span class="metric-label">lower latency</span></li>
-                  </ul>
-                  <ul class="project-bullets">
-                    <li>MapReduce-built index across 4 worker nodes.</li>
-                    <li>Ranking + caching on the query path.</li>
-                  </ul>
-                  <div class="project-stack" aria-label="Stack">
-                    <span>Python</span><span>Flask</span><span>React</span><span>Hadoop</span><span>MapReduce</span>
-                  </div>
-                  <div class="project-actions">
-                    <a class="btn btn-secondary" href="https://github.com/VarunPTalluri" target="_blank" rel="noopener noreferrer">Code</a>
-                    <button type="button" class="btn btn-ghost" data-project-modal-open>Overview</button>
-                  </div>
+            <li class="project-item spec-project-wrap" data-github="https://github.com/VarunPTalluri">
+              <figure class="project-img project-img--sr" aria-hidden="true">
+                <img src="./assets/images/google.png" alt="" width="80" height="48" loading="lazy" />
+              </figure>
+              <div class="spec-project">
+                <div class="spec-project-head">
+                  <h3 class="project-title"><a href="https://github.com/VarunPTalluri" target="_blank" rel="noopener noreferrer">Distributed search engine</a></h3>
+                  <span class="spec-outcome">10k+ pages · −40% latency</span>
+                </div>
+                <p class="project-tagline spec-project-line">MapReduce inverted index, ranking, and caching across four workers.</p>
+                <ul class="project-bullets spec-sr-only">
+                  <li>Hadoop indexing pipeline.</li>
+                  <li>Query path optimizations.</li>
+                </ul>
+                <div class="project-stack spec-sr-only" aria-hidden="true"><span>Python</span><span>Flask</span><span>React</span><span>Hadoop</span></div>
+                <p class="spec-project-meta">Python · Flask · React · Hadoop · <a href="https://github.com/VarunPTalluri" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+                <div class="spec-project-actions">
+                  <button type="button" data-project-modal-open>Full spec</button>
                 </div>
               </div>
             </li>
 
-            <li class="project-item" data-github="https://github.com/VarunPTalluri/piazza-sentiment-classifier">
-              <div class="project-card">
-                <a class="project-media" href="https://github.com/VarunPTalluri/piazza-sentiment-classifier" target="_blank" rel="noopener noreferrer"
-                  aria-label="Open Piazza sentiment classifier on GitHub">
-                  <figure class="project-img">
-                    <img src="./assets/images/project-2.png" alt="" loading="lazy" />
-                  </figure>
-                </a>
-                <div class="project-body">
-                  <p class="project-eyebrow">C++ · NLP</p>
-                  <h3 class="project-title">
-                    <a href="https://github.com/VarunPTalluri/piazza-sentiment-classifier" target="_blank" rel="noopener noreferrer">Piazza Sentiment Classifier</a>
-                  </h3>
-                  <p class="project-tagline">Fast inference for class discussion moderation signals.</p>
-                  <ul class="project-metrics" aria-label="Outcomes">
-                    <li><span class="metric-value">Custom</span> <span class="metric-label">features</span></li>
-                    <li><span class="metric-value">Low-latency</span> <span class="metric-label">inference</span></li>
-                  </ul>
-                  <ul class="project-bullets">
-                    <li>Feature extraction tailored to short course forum posts.</li>
-                    <li>Multithreaded pipeline for responsive classification.</li>
-                  </ul>
-                  <div class="project-stack" aria-label="Stack">
-                    <span>C++</span><span>NLP</span><span>threading</span>
-                  </div>
-                  <div class="project-actions">
-                    <a class="btn btn-secondary" href="https://github.com/VarunPTalluri/piazza-sentiment-classifier" target="_blank" rel="noopener noreferrer">Repository</a>
-                    <button type="button" class="btn btn-ghost" data-project-modal-open>Overview</button>
-                  </div>
+            <li class="project-item spec-project-wrap" data-github="https://github.com/VarunPTalluri/piazza-sentiment-classifier">
+              <figure class="project-img project-img--sr" aria-hidden="true">
+                <img src="./assets/images/project-2.png" alt="" width="80" height="48" loading="lazy" />
+              </figure>
+              <div class="spec-project">
+                <div class="spec-project-head">
+                  <h3 class="project-title"><a href="https://github.com/VarunPTalluri/piazza-sentiment-classifier" target="_blank" rel="noopener noreferrer">Piazza sentiment classifier</a></h3>
+                  <span class="spec-outcome">C++ inference</span>
+                </div>
+                <p class="project-tagline spec-project-line">Custom features + threaded inference for course forums.</p>
+                <ul class="project-bullets spec-sr-only">
+                  <li>Feature design for short posts.</li>
+                  <li>Low-latency classification path.</li>
+                </ul>
+                <div class="project-stack spec-sr-only" aria-hidden="true"><span>C++</span><span>NLP</span></div>
+                <p class="spec-project-meta">C++ · NLP · <a href="https://github.com/VarunPTalluri/piazza-sentiment-classifier" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+                <div class="spec-project-actions">
+                  <button type="button" data-project-modal-open>Full spec</button>
                 </div>
               </div>
             </li>
 
-            <li class="project-item" data-github="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ">
-              <div class="project-card">
-                <a class="project-media" href="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ" target="_blank" rel="noopener noreferrer"
-                  aria-label="Open AI DJ on GitHub">
-                  <figure class="project-img">
-                    <img src="./assets/images/aidj.JPG" alt="" loading="lazy" />
-                  </figure>
-                </a>
-                <div class="project-body">
-                  <p class="project-eyebrow">ML · Multimodal</p>
-                  <h3 class="project-title">
-                    <a href="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ" target="_blank" rel="noopener noreferrer">Artificial Intelligence DJ</a>
-                  </h3>
-                  <p class="project-tagline">Vision-driven audio feature prediction for live playlists.</p>
-                  <ul class="project-metrics" aria-label="Outcomes">
-                    <li><span class="metric-value">1st</span> <span class="metric-label">MHacks 17</span></li>
-                    <li><span class="metric-value">Real-time</span> <span class="metric-label">recommendations</span></li>
-                  </ul>
-                  <ul class="project-bullets">
-                    <li>Vision embeddings → audio feature space for track selection.</li>
-                    <li>Integrated with Spotify for live playback.</li>
-                  </ul>
-                  <div class="project-stack" aria-label="Stack">
-                    <span>Python</span><span>OpenVINO</span><span>MediaPipe</span><span>Spotify API</span>
-                  </div>
-                  <div class="project-actions">
-                    <a class="btn btn-secondary" href="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ" target="_blank" rel="noopener noreferrer">Repository</a>
-                    <button type="button" class="btn btn-ghost" data-project-modal-open>Overview</button>
-                  </div>
+            <li class="project-item spec-project-wrap" data-github="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ">
+              <figure class="project-img project-img--sr" aria-hidden="true">
+                <img src="./assets/images/aidj.JPG" alt="" width="80" height="48" loading="lazy" />
+              </figure>
+              <div class="spec-project">
+                <div class="spec-project-head">
+                  <h3 class="project-title"><a href="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ" target="_blank" rel="noopener noreferrer">AI DJ</a></h3>
+                  <span class="spec-outcome">1st · MHacks 17</span>
+                </div>
+                <p class="project-tagline spec-project-line">Vision embeddings → audio features; Spotify playback.</p>
+                <ul class="project-bullets spec-sr-only">
+                  <li>Multimodal recommendations in real time.</li>
+                  <li>OpenVINO + MediaPipe integration.</li>
+                </ul>
+                <div class="project-stack spec-sr-only" aria-hidden="true"><span>Python</span><span>OpenVINO</span><span>Spotify</span></div>
+                <p class="spec-project-meta">Python · OpenVINO · MediaPipe · <a href="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+                <div class="spec-project-actions">
+                  <button type="button" data-project-modal-open>Full spec</button>
                 </div>
               </div>
             </li>
@@ -495,13 +281,55 @@
             </section>
           </div>
         </section>
-      </article>
+      </div>
+
+      <aside class="spec-rail" aria-label="Contact and summary">
+        <div class="spec-rail-block">
+          <h3>Contact</h3>
+          <p class="spec-contact-line"><a href="mailto:talluriv@umich.edu">talluriv@umich.edu</a></p>
+          <p class="spec-contact-line"><a href="tel:+12484964483">(248) 496-4483</a></p>
+          <p class="spec-contact-line">Ann Arbor, MI · US citizen</p>
+        </div>
+        <div class="spec-rail-block">
+          <h3>Summary spec</h3>
+          <table class="spec-spec-table">
+            <tbody>
+              <tr>
+                <th scope="row">Focus</th>
+                <td>ML · distributed systems · internal tools</td>
+              </tr>
+              <tr>
+                <th scope="row">Degree</th>
+                <td>CSE + Ross PM</td>
+              </tr>
+              <tr>
+                <th scope="row">Status</th>
+                <td>Graduating 2027</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="spec-rail-block">
+          <h3>Links</h3>
+          <div class="spec-rail-links">
+            <a href="https://github.com/VarunPTalluri" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/varun-talluri/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="./resume.html">Résumé.html</a>
+            <a href="https://devpost.com/talluriv" target="_blank" rel="noopener noreferrer">Devpost</a>
+          </div>
+          <a class="spec-rail-cta" href="mailto:talluriv@umich.edu">Open channel</a>
+        </div>
+      </aside>
     </div>
-  </main>
+
+    <footer class="spec-footer">
+      <span>Built for precision · VT</span>
+      <span>© Varun Talluri</span>
+    </footer>
+  </div>
 
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/modal.js"></script>
-
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
