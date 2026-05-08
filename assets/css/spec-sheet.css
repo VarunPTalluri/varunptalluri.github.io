@@ -1,4 +1,4 @@
-/* Spec-sheet portfolio — minimal, high-skim, technical */
+/* Spec-sheet portfolio: minimal layout, recruiter-friendly skim */
 
 img {
   max-width: 100%;
@@ -264,6 +264,8 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
   object-fit: cover;
   border-radius: 4px;
   box-shadow: 0 1px 0 var(--line-strong), 0 14px 32px rgba(0, 0, 0, 0.24);
+  outline: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  outline-offset: 3px;
 }
 
 @media (max-width: 720px) {
@@ -311,6 +313,8 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
   line-height: 1.55;
   color: var(--muted);
   max-width: 46ch;
+  padding-left: 12px;
+  border-left: 2px solid color-mix(in srgb, var(--accent-rose) 65%, var(--accent));
 }
 
 .spec-columns {
@@ -363,8 +367,11 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
 .mod-num {
   font-family: var(--mono);
   font-size: 12px;
-  color: var(--accent);
   font-weight: 600;
+  background: linear-gradient(120deg, var(--accent) 0%, var(--accent-rose) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .spec-module h2 {
@@ -418,22 +425,23 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: var(--line-strong);
-  opacity: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-rose) 100%);
+  opacity: 0.9;
 }
 
 .spec-metric:hover {
-  border-color: var(--line-strong);
+  border-color: color-mix(in srgb, var(--accent) 25%, var(--line-strong));
   box-shadow: none;
 }
 
 .spec-metric-val {
   font-family: var(--mono);
-  font-size: 16px;
+  font-size: 1.35rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--accent);
   margin-bottom: 4px;
+  letter-spacing: -0.02em;
 }
 
 .spec-metric-lbl {
@@ -507,8 +515,9 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
   display: inline-block;
   font-family: var(--mono);
   font-size: 10px;
-  padding: 2px 6px;
+  padding: 2px 8px 2px 7px;
   border: 1px solid var(--line);
+  border-left: 2px solid var(--accent-rose);
   color: var(--dim);
   margin-bottom: 8px;
   text-transform: uppercase;
@@ -534,7 +543,7 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
 
 .spec-exp-item--highlight {
   border-left-color: var(--accent);
-  background: transparent;
+  background: linear-gradient(90deg, var(--accent-dim), transparent 42%);
   margin-left: 0;
   padding-left: 18px;
   padding-top: 12px;
@@ -590,6 +599,28 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
   color: var(--dim);
 }
 
+.spec-stat {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.spec-exp-subblock {
+  margin-top: 14px;
+}
+
+.spec-exp-subblock:first-of-type {
+  margin-top: 10px;
+}
+
+.spec-exp-function {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--accent) 80%, var(--text));
+  margin: 0 0 8px;
+}
+
 /* Projects */
 .spec-project {
   border: 1px solid var(--line);
@@ -637,9 +668,9 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
   font-size: 10px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--dim);
-  border: 1px solid var(--line);
-  background: transparent;
+  color: var(--accent-rose);
+  border: 1px solid color-mix(in srgb, var(--accent-rose) 38%, var(--line));
+  background: var(--rose-dim);
   padding: 4px 9px;
   border-radius: 3px;
 }
@@ -690,11 +721,25 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
 }
 
 .spec-rail-block {
+  position: relative;
   border: 1px solid var(--line);
   border-radius: 3px;
-  padding: 16px;
+  padding: 16px 16px 16px 18px;
   margin-bottom: 16px;
   background: var(--bg-elev);
+  overflow: hidden;
+}
+
+.spec-rail-block::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-rose) 100%);
+  opacity: 0.85;
+  pointer-events: none;
 }
 
 body.spec-sheet.light-mode .spec-rail-block {
