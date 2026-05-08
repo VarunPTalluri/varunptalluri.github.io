@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Varun Talluri — Michigan CSE + Ross. ML, distributed systems, product-minded engineering." />
-  <meta name="theme-color" content="#09090b" />
+  <meta name="description" content="Varun Talluri — University of Michigan Computer Science and Ross Product Management. Incoming Palantir intern; Ford, McKinsey, ML and systems." />
+  <meta name="theme-color" content="#07080c" />
   <meta property="og:title" content="Varun Talluri" />
-  <meta property="og:description" content="CS + Business at Michigan. Ford, McKinsey, systems + ML." />
+  <meta property="og:description" content="B.S.E. CS &amp; B.B.A. PM at Michigan. Forward Deployed Software Engineer intern at Palantir (Fall 2026)." />
   <meta property="og:url" content="https://varunptalluri.github.io/" />
-  <title>Varun Talluri — Spec</title>
+  <title>Varun Talluri | Software Engineer</title>
 
   <link rel="shortcut icon" href="./assets/images/personallogo.JPG" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,15 +24,15 @@
   <div class="spec-grid-bg" aria-hidden="true"></div>
 
   <header class="spec-topbar">
-    <a class="spec-brand" href="#">VARUN_TALLURI</a>
-    <nav class="spec-nav" aria-label="Sections">
+    <a class="spec-brand" href="#">Varun Talluri</a>
+    <nav class="spec-nav" aria-label="Page sections">
       <a href="#index" data-nav-anchor>Index</a>
       <a href="#stack" data-nav-anchor>Stack</a>
       <a href="#experience" data-nav-anchor>Experience</a>
       <a href="#projects" data-nav-anchor>Projects</a>
     </nav>
     <div class="spec-topbar-actions">
-      <a class="spec-btn-outline" href="https://drive.google.com/file/d/1pmd4W0aLQoRuz_blGVPbRFwUAmQwQNlr/view?usp=sharing" target="_blank" rel="noopener noreferrer">Résumé.pdf</a>
+      <a class="spec-btn-outline spec-btn-resume" href="https://drive.google.com/uc?export=download&amp;id=1pmd4W0aLQoRuz_blGVPbRFwUAmQwQNlr" download="Varun-Talluri-Resume.pdf" rel="noopener">Download Resume (PDF)</a>
       <label class="spec-theme">
         <input type="checkbox" id="theme-toggle" aria-label="Toggle light mode" />
         <span class="spec-theme-ui" aria-hidden="true"></span>
@@ -41,10 +41,16 @@
   </header>
 
   <div class="spec-page">
-    <header class="spec-hero">
-      <p class="spec-hero-kicker">System profile</p>
-      <h1>Varun Talluri</h1>
-      <p class="spec-hero-mono">Software engineering · ML &amp; systems · CSE + Ross, University of Michigan // Expected May 2027 · GPA 3.97</p>
+    <header class="spec-hero spec-hero-split">
+      <div class="spec-hero-main">
+        <p class="spec-hero-kicker">Profile</p>
+        <h1>Varun Talluri</h1>
+        <p class="spec-hero-mono">B.S.E. Computer Science and B.B.A. Product Management (Ross), University of Michigan · May 2027 · GPA 3.97 · U.S. citizen</p>
+        <p class="spec-hero-tagline">Ford and McKinsey internships so far; joining Palantir as a Forward Deployed Software Engineer intern in Fall 2026. I spend a lot of time on CV and data pipelines—and on whether what ships is actually useful to the people running it.</p>
+      </div>
+      <div class="spec-hero-photo">
+        <img class="spec-headshot" src="./assets/images/varun-headshot.png" width="200" height="250" alt="Varun Talluri, professional portrait" loading="eager" />
+      </div>
     </header>
 
     <div class="spec-columns">
@@ -54,52 +60,53 @@
             <span class="mod-num">01</span>
             <h2>Index</h2>
           </div>
-          <p class="spec-lede">I build production ML, reliable data systems, and internal tools that shorten feedback loops.</p>
-          <p class="spec-lede-sub">Ford (ADAS + data reliability), McKinsey (agents + RAG on Lilli), TA for computational linear algebra / Julia robotics.</p>
-          <div class="spec-metrics" aria-label="Selected signals">
+          <p class="spec-lede">Production ML and fleet data (Ford), consultant-facing agents (McKinsey), and grading infrastructure for a 1,000+ student robotics course (Michigan ROB&nbsp;101).</p>
+          <p class="spec-lede-sub">Skim metrics below, then stack → experience → projects for detail.</p>
+          <div class="spec-metrics" aria-label="Highlighted outcomes">
             <div class="spec-metric">
-              <div class="spec-metric-val">−2 wk</div>
-              <div class="spec-metric-lbl">Delivery</div>
-              <p class="spec-metric-note">Multi-agent + RAG on a 17k-word client appendix.</p>
+              <div class="spec-metric-val">2 Weeks</div>
+              <div class="spec-metric-lbl">McKinsey Delivery</div>
+              <p class="spec-metric-note">Multi-agent RAG orchestration replacing roughly two weeks of manual consultant effort.</p>
             </div>
             <div class="spec-metric">
               <div class="spec-metric-val">95%</div>
-              <div class="spec-metric-lbl">CV accuracy</div>
-              <p class="spec-metric-note">RoadHawk — ResNet-18, 22k images (Ford ADAS).</p>
+              <div class="spec-metric-lbl">CV Accuracy</div>
+              <p class="spec-metric-note">Risky-driving detection in production Ford ADAS pipelines, synthetic and real camera data.</p>
             </div>
             <div class="spec-metric">
-              <div class="spec-metric-val">−40%</div>
-              <div class="spec-metric-lbl">Query latency</div>
-              <p class="spec-metric-note">Distributed search — MapReduce index + cache.</p>
+              <div class="spec-metric-val">83%</div>
+              <div class="spec-metric-lbl">Anomaly Precision</div>
+              <p class="spec-metric-note">LOF-based detection on 10,000+ weekly cloud uploads at Ford Data Reliability (from 65%).</p>
             </div>
           </div>
+          <p class="spec-honors-line"><span class="spec-honors-label">Honors</span> 1st Place, MHACKS 17 — Best Use of Intel AI.</p>
         </section>
 
         <section id="stack" class="spec-module">
           <div class="spec-module-head">
             <span class="mod-num">02</span>
-            <h2>Core stack</h2>
+            <h2>Core Stack</h2>
           </div>
           <div class="spec-stack-grid">
             <div class="spec-stack-card">
               <span class="spec-stack-tag">Languages</span>
-              <h3>Runtime &amp; data</h3>
-              <p>Python, C++, SQL, Java, JavaScript, Julia — production ML, services, and batch.</p>
+              <h3>Code</h3>
+              <p>C++, Python, Java, JavaScript, SQL, Julia</p>
             </div>
             <div class="spec-stack-card">
-              <span class="spec-stack-tag">ML</span>
-              <h3>Training &amp; eval</h3>
-              <p>PyTorch, classical ML, feature work, W&amp;B, HPC / CUDA pipelines.</p>
+              <span class="spec-stack-tag">ML &amp; Compute</span>
+              <h3>Training &amp; HPC</h3>
+              <p>PyTorch, Weights &amp; Biases, CUDA clusters, classical ML and feature work.</p>
             </div>
             <div class="spec-stack-card">
-              <span class="spec-stack-tag">Web</span>
-              <h3>Interfaces &amp; APIs</h3>
-              <p>React, Flask, FastAPI — internal tools and student-facing systems.</p>
+              <span class="spec-stack-tag">Web &amp; APIs</span>
+              <h3>Services</h3>
+              <p>React, Flask, FastAPI — dashboards, internal tools, and course infrastructure.</p>
             </div>
             <div class="spec-stack-card">
-              <span class="spec-stack-tag">Infra</span>
-              <h3>Scale &amp; ops</h3>
-              <p>Docker, AWS, GCP, Hadoop / MapReduce, Playwright automation.</p>
+              <span class="spec-stack-tag">Data &amp; Cloud</span>
+              <h3>Infrastructure</h3>
+              <p>Hadoop, AWS, GCP, Docker, Playwright, distributed batch and scraping pipelines.</p>
             </div>
           </div>
         </section>
@@ -113,53 +120,69 @@
           <div class="spec-exp-item">
             <div class="spec-exp-top">
               <h3>University of Michigan</h3>
-              <span class="spec-exp-date">B.S.E. CS · B.B.A. Ross · 2027</span>
+              <span class="spec-exp-date">Ann Arbor, MI · May 2027</span>
             </div>
+            <p class="spec-exp-role">B.S.E. Computer Science · B.B.A. Product Management, Ross School of Business</p>
             <ul class="spec-exp-bullets">
-              <li>Algorithms, ML, web systems, architecture, linear algebra, ethics of AI.</li>
+              <li><strong>GPA:</strong> 3.97 / 4.0</li>
+              <li><strong>Coursework:</strong> Distributed Systems, Operating Systems, Machine Learning, Data Structures &amp; Algorithms, Computer Architecture, Databases, Web Systems, Mobile App Design, Theory of Computation, Computational Linear Algebra</li>
+            </ul>
+          </div>
+
+          <div class="spec-exp-item spec-exp-item--highlight">
+            <div class="spec-exp-top">
+              <h3>Palantir Technologies</h3>
+              <span class="spec-exp-date">Washington, DC · Fall 2026</span>
+            </div>
+            <p class="spec-exp-role">Incoming Forward Deployed Software Engineer Intern</p>
+          </div>
+
+          <div class="spec-exp-item">
+            <div class="spec-exp-top">
+              <h3>Ford Motor Company</h3>
+              <span class="spec-exp-date">Dearborn, MI · Jun 2024 – Aug 2024</span>
+            </div>
+            <p class="spec-exp-role">Software Engineer Intern, ADAS</p>
+            <ul class="spec-exp-bullets">
+              <li>Built a PyTorch vision system at <strong>95% accuracy</strong> for risky-driving detection using synthetic and real data, processing up to <strong>7,500 images per day</strong> from vehicle camera pipelines for fleet-level insights.</li>
+              <li>Scaled distributed training on CUDA-enabled HPC clusters, reducing runtime from <strong>two hours to 25 minutes</strong>.</li>
+              <li>Optimized preprocessing and training with batching and caching for <strong>15% higher throughput</strong>.</li>
             </ul>
           </div>
 
           <div class="spec-exp-item">
             <div class="spec-exp-top">
-              <h3>Ford — ADAS</h3>
-              <span class="spec-exp-date">SWE intern · 2024</span>
+              <h3>Ford Motor Company</h3>
+              <span class="spec-exp-date">Dearborn, MI · Jun 2023 – Aug 2023</span>
             </div>
+            <p class="spec-exp-role">Software Engineer Intern, Data Reliability</p>
             <ul class="spec-exp-bullets">
-              <li>RoadHawk CV: ResNet-18, 22k images → 95% acc / 87% prec.</li>
-              <li>Training ~2h → ~25m on HPC; +15% throughput via batching + cache.</li>
-            </ul>
-          </div>
-
-          <div class="spec-exp-item">
-            <div class="spec-exp-top">
-              <h3>Ford — Data reliability</h3>
-              <span class="spec-exp-date">SWE intern · 2023</span>
-            </div>
-            <ul class="spec-exp-bullets">
-              <li>Anomaly precision 65% → 83% (10k+ weekly uploads); LOF + KNN ensemble.</li>
-              <li>Monitoring dashboards for drift and utilization.</li>
+              <li>Implemented LOF-based anomaly detection on <strong>10,000+ weekly GCS uploads</strong>, improving precision from <strong>65% to 83%</strong>.</li>
+              <li>Integrated the pipeline into production workflows for <strong>30+ engineers</strong>, reducing downtime from data anomalies.</li>
             </ul>
           </div>
 
           <div class="spec-exp-item">
             <div class="spec-exp-top">
               <h3>McKinsey &amp; Company</h3>
-              <span class="spec-exp-date">BA intern · 2025</span>
+              <span class="spec-exp-date">Detroit, MI · Jun 2025 – Aug 2025</span>
             </div>
+            <p class="spec-exp-role">Business Analyst Intern</p>
             <ul class="spec-exp-bullets">
-              <li>Multi-agent workflows + RAG on Lilli; ~2 weeks faster on 17k-word appendix.</li>
-              <li>SG&amp;A benchmarks pipeline ~60% faster turnaround.</li>
+              <li>Engineered multi-agent pipelines by orchestrating custom RAG agents, saving roughly <strong>two weeks</strong> of multi-consultant effort.</li>
+              <li>Rebuilt SG&amp;A benchmarking with automated ingestion and updates, cutting turnaround by <strong>60%</strong>.</li>
             </ul>
           </div>
 
           <div class="spec-exp-item">
             <div class="spec-exp-top">
-              <h3>U-M — Teaching assistant</h3>
-              <span class="spec-exp-date">ROB 101 · 2024–</span>
+              <h3>University of Michigan</h3>
+              <span class="spec-exp-date">Ann Arbor, MI · Jan 2024 – Present</span>
             </div>
+            <p class="spec-exp-role">Teaching Assistant, ROB 101 (Computational Linear Algebra)</p>
             <ul class="spec-exp-bullets">
-              <li>Julia robotics projects (Segway, LiDAR); edge-case testing for 200+ students.</li>
+              <li>Taught <strong>1,000+ students</strong> across semesters through robotics projects applying linear algebra to real systems.</li>
+              <li>Built automated feedback pipelines on Vocareum, reducing instructor grading time by <strong>60%</strong>.</li>
             </ul>
           </div>
         </section>
@@ -171,24 +194,23 @@
           </div>
 
           <ul class="spec-project-list">
-            <li class="project-item spec-project-wrap" data-github="https://github.com/VarunPTalluri/energy-permit-intel">
+            <li class="project-item spec-project-wrap" data-github="">
               <figure class="project-img project-img--sr" aria-hidden="true">
                 <img src="./assets/images/project-1.jpg" alt="" width="80" height="48" loading="lazy" />
               </figure>
               <div class="spec-project">
                 <div class="spec-project-head">
-                  <h3 class="project-title"><a href="https://github.com/VarunPTalluri/energy-permit-intel" target="_blank" rel="noopener noreferrer">Energy permit intelligence</a></h3>
-                  <span class="spec-outcome">15 locales · batch ETL</span>
+                  <h3 class="project-title">Portfolio Analytics Platform</h3>
+                  <span class="spec-outcome">$80K+ Book</span>
                 </div>
-                <p class="project-tagline spec-project-line">Municipal permit ingestion with Playwright + OCR fallback.</p>
+                <p class="project-tagline spec-project-line">Analytics engine with market data, sentiment, Sharpe ratio, and covariance for portfolio decisions.</p>
                 <ul class="project-bullets spec-sr-only">
-                  <li>Async scraping across heterogeneous portals.</li>
-                  <li>OCR path when structured parse fails.</li>
+                  <li>Developed a portfolio analytics engine managing $80K+ in assets, integrating market data APIs with sentiment analysis for rebalancing; implemented quantitative risk metrics including Sharpe ratio and covariance.</li>
                 </ul>
-                <div class="project-stack spec-sr-only" aria-hidden="true"><span>Python</span><span>FastAPI</span><span>SQLite</span><span>Playwright</span></div>
-                <p class="spec-project-meta">Python · FastAPI · SQLite · Playwright · OCR · <a href="https://github.com/VarunPTalluri/energy-permit-intel" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+                <div class="project-stack spec-sr-only" aria-hidden="true"><span>React</span><span>Flask</span><span>LLM</span><span>Gemini API</span><span>Google Stitch</span></div>
+                <p class="spec-project-meta">React · Flask · LLM · Gemini API · Google Stitch</p>
                 <div class="spec-project-actions">
-                  <button type="button" data-project-modal-open>Full spec</button>
+                  <button type="button" data-project-modal-open>Full Details</button>
                 </div>
               </div>
             </li>
@@ -199,62 +221,38 @@
               </figure>
               <div class="spec-project">
                 <div class="spec-project-head">
-                  <h3 class="project-title"><a href="https://github.com/VarunPTalluri" target="_blank" rel="noopener noreferrer">Distributed search engine</a></h3>
-                  <span class="spec-outcome">10k+ pages · −40% latency</span>
+                  <h3 class="project-title"><a href="https://github.com/VarunPTalluri" target="_blank" rel="noopener noreferrer">Distributed Search Engine</a></h3>
+                  <span class="spec-outcome">10,000+ Documents</span>
                 </div>
-                <p class="project-tagline spec-project-line">MapReduce inverted index, ranking, and caching across four workers.</p>
+                <p class="project-tagline spec-project-line">MapReduce search with TF-IDF and PageRank-style ranking across four fault-tolerant workers.</p>
                 <ul class="project-bullets spec-sr-only">
-                  <li>Hadoop indexing pipeline.</li>
-                  <li>Query path optimizations.</li>
+                  <li>Engineered a distributed search engine for 10,000+ documents using MapReduce, TF-IDF and PageRank-based ranking, and socket-based coordination across four worker nodes.</li>
                 </ul>
-                <div class="project-stack spec-sr-only" aria-hidden="true"><span>Python</span><span>Flask</span><span>React</span><span>Hadoop</span></div>
-                <p class="spec-project-meta">Python · Flask · React · Hadoop · <a href="https://github.com/VarunPTalluri" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+                <div class="project-stack spec-sr-only" aria-hidden="true"><span>Python</span><span>Hadoop</span><span>MapReduce</span><span>Socket Programming</span></div>
+                <p class="spec-project-meta">Python · Hadoop · MapReduce · Sockets · <a href="https://github.com/VarunPTalluri" target="_blank" rel="noopener noreferrer">GitHub</a></p>
                 <div class="spec-project-actions">
-                  <button type="button" data-project-modal-open>Full spec</button>
+                  <button type="button" data-project-modal-open>Full Details</button>
                 </div>
               </div>
             </li>
 
-            <li class="project-item spec-project-wrap" data-github="https://github.com/VarunPTalluri/piazza-sentiment-classifier">
+            <li class="project-item spec-project-wrap" data-github="https://github.com/VarunPTalluri/energy-permit-intel">
               <figure class="project-img project-img--sr" aria-hidden="true">
-                <img src="./assets/images/project-2.png" alt="" width="80" height="48" loading="lazy" />
+                <img src="./assets/images/project-1.jpg" alt="" width="80" height="48" loading="lazy" />
               </figure>
               <div class="spec-project">
                 <div class="spec-project-head">
-                  <h3 class="project-title"><a href="https://github.com/VarunPTalluri/piazza-sentiment-classifier" target="_blank" rel="noopener noreferrer">Piazza sentiment classifier</a></h3>
-                  <span class="spec-outcome">C++ inference</span>
+                  <h3 class="project-title"><a href="https://github.com/VarunPTalluri/energy-permit-intel" target="_blank" rel="noopener noreferrer">Energy Permit Intelligence Platform</a></h3>
+                  <span class="spec-outcome">7 Users · 15 Cities</span>
                 </div>
-                <p class="project-tagline spec-project-line">Custom features + threaded inference for course forums.</p>
+                <p class="project-tagline spec-project-line">Asynchronous scraping with OCR fallback; replaces hours of manual permitting research per municipality.</p>
                 <ul class="project-bullets spec-sr-only">
-                  <li>Feature design for short posts.</li>
-                  <li>Low-latency classification path.</li>
+                  <li>Built an asynchronous pipeline across 15 municipalities, reducing manual permitting research from 4–6 hours each to one automated workflow used by 7 active users.</li>
                 </ul>
-                <div class="project-stack spec-sr-only" aria-hidden="true"><span>C++</span><span>NLP</span></div>
-                <p class="spec-project-meta">C++ · NLP · <a href="https://github.com/VarunPTalluri/piazza-sentiment-classifier" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+                <div class="project-stack spec-sr-only" aria-hidden="true"><span>Python</span><span>Playwright</span><span>FastAPI</span><span>OCR</span></div>
+                <p class="spec-project-meta">Python · Playwright · FastAPI · OCR · <a href="https://github.com/VarunPTalluri/energy-permit-intel" target="_blank" rel="noopener noreferrer">GitHub</a></p>
                 <div class="spec-project-actions">
-                  <button type="button" data-project-modal-open>Full spec</button>
-                </div>
-              </div>
-            </li>
-
-            <li class="project-item spec-project-wrap" data-github="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ">
-              <figure class="project-img project-img--sr" aria-hidden="true">
-                <img src="./assets/images/aidj.JPG" alt="" width="80" height="48" loading="lazy" />
-              </figure>
-              <div class="spec-project">
-                <div class="spec-project-head">
-                  <h3 class="project-title"><a href="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ" target="_blank" rel="noopener noreferrer">AI DJ</a></h3>
-                  <span class="spec-outcome">1st · MHacks 17</span>
-                </div>
-                <p class="project-tagline spec-project-line">Vision embeddings → audio features; Spotify playback.</p>
-                <ul class="project-bullets spec-sr-only">
-                  <li>Multimodal recommendations in real time.</li>
-                  <li>OpenVINO + MediaPipe integration.</li>
-                </ul>
-                <div class="project-stack spec-sr-only" aria-hidden="true"><span>Python</span><span>OpenVINO</span><span>Spotify</span></div>
-                <p class="spec-project-meta">Python · OpenVINO · MediaPipe · <a href="https://github.com/VarunPTalluri/Artificial-Intelligence-DJ" target="_blank" rel="noopener noreferrer">GitHub</a></p>
-                <div class="spec-project-actions">
-                  <button type="button" data-project-modal-open>Full spec</button>
+                  <button type="button" data-project-modal-open>Full Details</button>
                 </div>
               </div>
             </li>
@@ -263,7 +261,7 @@
           <div class="project-modal-container" data-project-modal-container>
             <div class="project-overlay" data-project-overlay></div>
             <section class="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
-              <button type="button" class="project-modal-close-btn" data-project-modal-close-btn aria-label="Close">
+              <button type="button" class="project-modal-close-btn" data-project-modal-close-btn aria-label="Close dialog">
                 <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
               </button>
               <div class="project-modal-inner">
@@ -286,25 +284,40 @@
       <aside class="spec-rail" aria-label="Contact and summary">
         <div class="spec-rail-block">
           <h3>Contact</h3>
-          <p class="spec-contact-line"><a href="mailto:talluriv@umich.edu">talluriv@umich.edu</a></p>
-          <p class="spec-contact-line"><a href="tel:+12484964483">(248) 496-4483</a></p>
-          <p class="spec-contact-line">Ann Arbor, MI · US citizen</p>
+          <dl class="spec-contact-list">
+            <div class="spec-contact-row">
+              <dt>Email</dt>
+              <dd><a href="mailto:talluriv@umich.edu">talluriv@umich.edu</a></dd>
+            </div>
+            <div class="spec-contact-row">
+              <dt>Phone</dt>
+              <dd><a href="tel:+12484964483">(248) 496-4483</a></dd>
+            </div>
+            <div class="spec-contact-row">
+              <dt>Website</dt>
+              <dd><a href="https://varunptalluri.github.io/" target="_blank" rel="noopener noreferrer">varunptalluri.github.io</a></dd>
+            </div>
+            <div class="spec-contact-row">
+              <dt>Location</dt>
+              <dd>Ann Arbor, MI</dd>
+            </div>
+          </dl>
         </div>
         <div class="spec-rail-block">
-          <h3>Summary spec</h3>
+          <h3>Summary</h3>
           <table class="spec-spec-table">
             <tbody>
               <tr>
-                <th scope="row">Focus</th>
-                <td>ML · distributed systems · internal tools</td>
+                <th scope="row">Education</th>
+                <td>University of Michigan — CS &amp; Ross · 2027 · GPA 3.97</td>
               </tr>
               <tr>
-                <th scope="row">Degree</th>
-                <td>CSE + Ross PM</td>
+                <th scope="row">Next</th>
+                <td>Palantir — Forward Deployed SWE intern, Fall 2026</td>
               </tr>
               <tr>
-                <th scope="row">Status</th>
-                <td>Graduating 2027</td>
+                <th scope="row">Interests</th>
+                <td>Tennis, Formula One, viola</td>
               </tr>
             </tbody>
           </table>
@@ -313,21 +326,24 @@
           <h3>Links</h3>
           <div class="spec-rail-links">
             <a href="https://github.com/VarunPTalluri" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/varun-talluri/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="./resume.html">Résumé.html</a>
+            <a href="https://www.linkedin.com/in/varun-talluri" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://devpost.com/talluriv" target="_blank" rel="noopener noreferrer">Devpost</a>
           </div>
-          <a class="spec-rail-cta" href="mailto:talluriv@umich.edu">Open channel</a>
+          <a class="spec-rail-cta" href="https://drive.google.com/uc?export=download&amp;id=1pmd4W0aLQoRuz_blGVPbRFwUAmQwQNlr" download="Varun-Talluri-Resume.pdf" rel="noopener">Download Resume (PDF)</a>
+          <p class="spec-rail-note">Prefer a browser view? <a href="./resume.html">Open resume (HTML)</a></p>
         </div>
       </aside>
     </div>
 
     <footer class="spec-footer">
-      <span>Built for precision · VT</span>
-      <span>© Varun Talluri</span>
+      <span>Varun Talluri · Ann Arbor, MI</span>
+      <span>© <span id="spec-year"></span> · <a href="./resume.html">Resume (HTML only)</a></span>
     </footer>
   </div>
 
+  <script>
+    document.getElementById('spec-year').textContent = new Date().getFullYear();
+  </script>
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/modal.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
