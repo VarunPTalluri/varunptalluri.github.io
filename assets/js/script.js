@@ -24,7 +24,7 @@ const navAnchors = document.querySelectorAll('[data-nav-anchor]');
 
 function setActiveNavByHash(hash) {
   if (!navAnchors.length) return;
-  const h = hash || '#impact';
+  const h = hash || '#experience';
   navAnchors.forEach((link) => {
     link.classList.toggle('is-active', link.getAttribute('href') === h);
   });
@@ -45,7 +45,7 @@ navAnchors.forEach((link) => {
   });
 });
 
-const sectionIds = ['impact', 'skills', 'experience', 'projects'];
+const sectionIds = ['experience', 'skills', 'projects', 'education'];
 const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
 
 if (sections.length && 'IntersectionObserver' in window) {
@@ -66,6 +66,6 @@ window.addEventListener('DOMContentLoaded', () => {
   if (location.hash && document.querySelector(location.hash)) {
     setActiveNavByHash(location.hash);
   } else {
-    setActiveNavByHash('#impact');
+    setActiveNavByHash('#experience');
   }
 });
