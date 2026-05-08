@@ -110,7 +110,7 @@ U.S. Citizen
 
 \resumeSubheading
 {Palantir Technologies}{Washington DC}
-{Incoming Forward Deployed Software Engineer Intern}{Summer 2025}
+{Incoming Forward Deployed Software Engineer Intern}{2026}
 \vspace{4pt}
 
 \resumeSubheading
