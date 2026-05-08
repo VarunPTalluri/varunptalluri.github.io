@@ -20,14 +20,15 @@ body.spec-sheet {
   --bg-elev: #0c0e14;
   --line: rgba(255, 255, 255, 0.055);
   --line-strong: rgba(255, 255, 255, 0.11);
+  --grid-line: rgba(255, 255, 255, 0.022);
   --text: #eef0f5;
   --muted: #9aa3b2;
   --dim: #6b7380;
   --accent: #5eb0ff;
   --accent-rose: #f43f5e;
-  --accent-dim: rgba(94, 176, 255, 0.14);
-  --rose-dim: rgba(244, 63, 94, 0.11);
-  --blue-glow: rgba(94, 176, 255, 0.14);
+  --accent-dim: rgba(94, 176, 255, 0.09);
+  --rose-dim: rgba(244, 63, 94, 0.07);
+  --blue-glow: rgba(94, 176, 255, 0.08);
   --mono: "IBM Plex Mono", ui-monospace, monospace;
   --sans: "IBM Plex Sans", system-ui, sans-serif;
   font-family: var(--sans);
@@ -44,14 +45,15 @@ body.spec-sheet.light-mode {
   --bg-elev: #e8edf5;
   --line: rgba(15, 25, 45, 0.11);
   --line-strong: rgba(15, 25, 45, 0.17);
+  --grid-line: rgba(15, 25, 45, 0.045);
   --text: #0a0c11;
   --muted: #343c4d;
   --dim: #4f5869;
   --accent: #1d4ed8;
   --accent-rose: #be185d;
-  --accent-dim: rgba(29, 78, 216, 0.11);
-  --rose-dim: rgba(190, 24, 93, 0.1);
-  --blue-glow: rgba(29, 78, 216, 0.09);
+  --accent-dim: rgba(29, 78, 216, 0.07);
+  --rose-dim: rgba(190, 24, 93, 0.07);
+  --blue-glow: rgba(29, 78, 216, 0.06);
 }
 
 .spec-grid-bg {
@@ -61,12 +63,12 @@ body.spec-sheet.light-mode {
   z-index: 0;
   background-color: var(--bg);
   background-image:
-    radial-gradient(ellipse 100% 80% at 100% -20%, var(--blue-glow), transparent 48%),
-    radial-gradient(ellipse 70% 50% at -10% 40%, var(--rose-dim), transparent 48%),
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: auto, auto, 48px 48px, 48px 48px;
-  mask-image: radial-gradient(ellipse 85% 75% at 50% -10%, black 25%, transparent 72%);
+    radial-gradient(ellipse 100% 70% at 100% -30%, var(--blue-glow), transparent 52%),
+    radial-gradient(ellipse 65% 45% at -8% 45%, var(--rose-dim), transparent 52%),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: auto, auto, 56px 56px, 56px 56px;
+  mask-image: radial-gradient(ellipse 88% 65% at 50% -5%, black 18%, transparent 70%);
 }
 
 .spec-sheet a {
@@ -108,7 +110,7 @@ body.spec-sheet.light-mode .spec-topbar {
 }
 
 .spec-brand:hover {
-  color: var(--accent-rose);
+  color: var(--accent);
 }
 
 .spec-nav {
@@ -131,7 +133,7 @@ body.spec-sheet.light-mode .spec-topbar {
 
 .spec-nav a:hover,
 .spec-nav a.is-active {
-  color: var(--accent-rose);
+  color: var(--accent);
 }
 
 .spec-topbar-actions {
@@ -154,24 +156,24 @@ body.spec-sheet.light-mode .spec-topbar {
 }
 
 .spec-btn-outline.spec-btn-resume {
-  border-color: color-mix(in srgb, var(--accent) 45%, var(--accent-rose));
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-rose) 8%, var(--bg-elev)), var(--bg-elev));
+  border-color: var(--line-strong);
+  background: transparent;
 }
 
 .spec-btn-outline.spec-btn-resume:hover {
-  border-color: var(--accent-rose);
-  color: var(--text);
-  box-shadow: 0 0 24px rgba(244, 63, 94, 0.16), 0 0 36px rgba(94, 176, 255, 0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: none;
 }
 
 body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
-  color: var(--text);
+  color: var(--accent);
 }
 
 .spec-btn-outline:hover:not(.spec-btn-resume) {
-  border-color: var(--accent-rose);
-  color: var(--accent-rose);
-  box-shadow: 0 0 22px rgba(244, 63, 94, 0.14), 0 0 36px rgba(94, 176, 255, 0.08);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: none;
 }
 
 .spec-theme {
@@ -260,18 +262,22 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
   height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 6px;
-  box-shadow:
-    0 0 0 1px var(--line-strong),
-    0 14px 36px rgba(0, 0, 0, 0.3),
-    0 0 44px rgba(94, 176, 255, 0.1),
-    0 0 32px rgba(244, 63, 94, 0.07);
+  border-radius: 4px;
+  box-shadow: 0 1px 0 var(--line-strong), 0 14px 32px rgba(0, 0, 0, 0.24);
 }
 
 @media (max-width: 720px) {
   .spec-headshot {
     max-width: none;
   }
+}
+
+.spec-hero-greeting {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  margin: 0 0 8px;
+  letter-spacing: 0.02em;
 }
 
 .spec-hero-kicker {
@@ -284,11 +290,11 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
 }
 
 .spec-hero h1 {
-  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-size: clamp(1.55rem, 3.2vw, 2rem);
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.15;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .spec-hero-mono {
@@ -300,17 +306,17 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
 }
 
 .spec-hero-tagline {
-  margin-top: 14px;
-  font-size: 15px;
+  margin-top: 12px;
+  font-size: 14px;
   line-height: 1.55;
   color: var(--muted);
-  max-width: 56ch;
+  max-width: 46ch;
 }
 
 .spec-columns {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
-  gap: 40px;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 32px;
   align-items: start;
 }
 
@@ -349,8 +355,8 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  margin-bottom: 18px;
-  padding-bottom: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -370,10 +376,11 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
 }
 
 .spec-lede {
-  font-size: 1rem;
-  color: var(--text);
-  margin-bottom: 16px;
-  max-width: 56ch;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 18px;
+  max-width: 50ch;
+  line-height: 1.55;
 }
 
 .spec-lede-sub {
@@ -386,7 +393,7 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
 .spec-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  gap: 10px;
 }
 
 @media (max-width: 640px) {
@@ -398,11 +405,11 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
 .spec-metric {
   position: relative;
   border: 1px solid var(--line);
-  padding: 16px 16px 14px;
-  border-radius: 4px;
-  background: linear-gradient(165deg, var(--accent-dim), transparent 55%), var(--bg-elev);
+  padding: 14px 14px 12px;
+  border-radius: 3px;
+  background: var(--bg-elev);
   overflow: hidden;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.15s ease;
 }
 
 .spec-metric::before {
@@ -411,14 +418,14 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent-rose), var(--accent));
-  opacity: 0.95;
+  height: 1px;
+  background: var(--line-strong);
+  opacity: 1;
 }
 
 .spec-metric:hover {
-  border-color: color-mix(in srgb, var(--accent-rose) 38%, var(--line-strong));
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-color: var(--line-strong);
+  box-shadow: none;
 }
 
 .spec-metric-val {
@@ -445,13 +452,14 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
 }
 
 .spec-honors-line {
-  margin-top: 22px;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  font-size: 13px;
-  color: var(--muted);
-  background: var(--accent-dim);
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  font-size: 12px;
+  font-family: var(--mono);
+  color: var(--dim);
+  background: none;
 }
 
 .spec-honors-label {
@@ -481,13 +489,12 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
   border-radius: 4px;
   padding: 14px 16px;
   background: var(--bg-elev);
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.15s ease;
 }
 
 .spec-stack-card:hover {
-  border-color: color-mix(in srgb, var(--accent) 32%, var(--line-strong));
-  transform: translateY(-2px);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+  border-color: var(--line-strong);
+  box-shadow: none;
 }
 
 .spec-stack-card h3 {
@@ -526,8 +533,8 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
 }
 
 .spec-exp-item--highlight {
-  border-left-color: var(--accent-rose);
-  background: linear-gradient(90deg, var(--rose-dim), transparent 50%);
+  border-left-color: var(--accent);
+  background: transparent;
   margin-left: 0;
   padding-left: 18px;
   padding-top: 12px;
@@ -589,13 +596,13 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
   border-radius: 4px;
   padding: 16px 18px;
   margin-bottom: 12px;
-  background: linear-gradient(160deg, var(--accent-dim), transparent 55%), var(--bg-elev);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: var(--bg-elev);
+  transition: border-color 0.15s ease;
 }
 
 .spec-project:hover {
-  border-color: color-mix(in srgb, var(--accent) 30%, var(--line-strong));
-  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.15);
+  border-color: var(--line-strong);
+  box-shadow: none;
 }
 
 .spec-project-head {
@@ -618,11 +625,11 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
 }
 
 .spec-project-head .project-title a:hover {
-  color: var(--accent-rose);
+  color: var(--accent);
 }
 
 .spec-project-meta a:hover {
-  color: var(--accent-rose);
+  color: var(--accent);
 }
 
 .spec-outcome {
@@ -630,9 +637,9 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
   font-size: 10px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--accent-rose);
-  border: 1px solid color-mix(in srgb, var(--accent-rose) 42%, var(--line-strong));
-  background: var(--rose-dim);
+  color: var(--dim);
+  border: 1px solid var(--line);
+  background: transparent;
   padding: 4px 9px;
   border-radius: 3px;
 }
@@ -662,7 +669,7 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
   font: inherit;
   background: none;
   border: none;
-  color: var(--accent-rose);
+  color: var(--accent);
   cursor: pointer;
   padding: 0;
   text-decoration: underline;
@@ -691,14 +698,12 @@ body.spec-sheet.light-mode .spec-btn-outline.spec-btn-resume:hover {
 }
 
 body.spec-sheet.light-mode .spec-rail-block {
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.5) inset,
-    0 6px 22px rgba(15, 30, 60, 0.08);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.55) inset;
 }
 
 body.spec-sheet.light-mode .spec-metric:hover,
 body.spec-sheet.light-mode .spec-project:hover {
-  box-shadow: 0 12px 32px rgba(15, 30, 60, 0.1), 0 4px 12px rgba(29, 78, 216, 0.06);
+  box-shadow: none;
 }
 
 .spec-rail-block h3 {
@@ -706,7 +711,7 @@ body.spec-sheet.light-mode .spec-project:hover {
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent-rose);
+  color: var(--muted);
   margin-bottom: 12px;
 }
 
@@ -774,6 +779,13 @@ body.spec-sheet.light-mode .spec-project:hover {
   text-underline-offset: 3px;
 }
 
+.spec-rail-plain {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
 .spec-spec-table {
   width: 100%;
   font-size: 12px;
@@ -816,7 +828,7 @@ body.spec-sheet.light-mode .spec-project:hover {
 }
 
 .spec-rail-links a:hover {
-  color: var(--accent-rose);
+  color: var(--accent);
 }
 
 .spec-rail-cta {
@@ -831,13 +843,13 @@ body.spec-sheet.light-mode .spec-project:hover {
   color: var(--text);
   text-decoration: none !important;
   margin-top: 4px;
-  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 .spec-rail-cta:hover {
-  border-color: var(--accent-rose);
-  color: var(--accent-rose);
-  box-shadow: 0 0 26px rgba(244, 63, 94, 0.14), 0 0 40px rgba(94, 176, 255, 0.08);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: none;
 }
 
 .spec-footer {
@@ -861,7 +873,7 @@ body.spec-sheet.light-mode .spec-project:hover {
 }
 
 .spec-footer a:hover {
-  color: var(--accent-rose);
+  color: var(--muted);
   text-decoration: underline !important;
   text-underline-offset: 3px;
 }
@@ -1056,7 +1068,7 @@ body.spec-sheet .project-modal-stack {
 }
 
 body.spec-sheet .modal-github-link {
-  color: var(--accent-rose);
+  color: var(--accent);
 }
 
 body.spec-sheet .project-modal-close-btn {
