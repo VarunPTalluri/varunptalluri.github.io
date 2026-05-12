@@ -13,9 +13,13 @@
 \usepackage{tabularx}
 \usepackage{fontawesome5}
 \usepackage{multicol}
+\usepackage{iftex}
 \setlength{\multicolsep}{-3.0pt}
 \setlength{\columnsep}{-1pt}
-\input{glyphtounicode}
+\ifPDFTeX
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+\fi
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot{}
@@ -35,8 +39,6 @@
 \titleformat{\section}{
   \vspace{-6pt}\scshape\raggedright\large\bfseries
 }{}{0em}{}[\color{black}\titlerule \vspace{-2pt}]
-
-\pdfgentounicode=1
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%  Commands  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\resumeItem}[1]{
