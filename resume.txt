@@ -3,191 +3,157 @@
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
-\usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\usepackage{fontawesome5}
-\usepackage{multicol}
 \usepackage{iftex}
-\setlength{\multicolsep}{-3.0pt}
-\setlength{\columnsep}{-1pt}
 \ifPDFTeX
-  \input{glyphtounicode}
-  \pdfgentounicode=1
+\input{glyphtounicode}
 \fi
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-\addtolength{\oddsidemargin}{-0.6in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1.19in}
-\addtolength{\topmargin}{-.7in}
-\addtolength{\textheight}{1.4in}
+\addtolength{\oddsidemargin}{-0.60in}
+\addtolength{\evensidemargin}{-0.60in}
+\addtolength{\textwidth}{1.20in}
+\addtolength{\topmargin}{-.80in}
+\addtolength{\textheight}{1.64in}
+
 \urlstyle{same}
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
+\ifPDFTeX
+\pdfgentounicode=1
+\fi
+\linespread{1.045}
 
-\titleformat{\section}{
-  \vspace{-6pt}\scshape\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule \vspace{-2pt}]
+\titleformat{\section}{\vspace{-2pt}\scshape\raggedright\large\bfseries}{}{0em}{}[\color{black}\titlerule \vspace{-2pt}]
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Commands  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
-}
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{0pt}}}}
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
+  \vspace{0pt}\item
     \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textbf{\small #2} \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-6pt}
+    \end{tabular*}\vspace{-4pt}
 }
-\newcommand{\resumeSubheadingContinue}[2]{
-  \vspace{-2pt}
-    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-6pt}
-}
-\newcommand{\resumeProjectHeading}[2]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & \textbf{\small #2} \\
-    \end{tabular*}\vspace{-6pt}
-}
+\newcommand{\resumeProjectHeading}[1]{\vspace{0pt}\item #1\vspace{-4pt}}
 \renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in,label={},itemsep=2pt,topsep=1pt]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.22in,itemsep=0.8pt,topsep=1.2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-1pt}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Heading  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 \begin{center}
 {\Huge\scshape Varun Talluri} \\
-\vspace{4pt}
+\vspace{3pt}
 \small
-(248)-496-4483 
-\textbar{} 
-\href{mailto:talluriv@umich.edu}{\underline{talluriv@umich.edu}} 
-\textbar{} 
-\href{https://www.linkedin.com/in/varun-talluri}{\underline{LinkedIn}}
-\textbar{} 
-\href{https://varunptalluri.github.io/}{\underline{Website}}
-\textbar{} 
-U.S. Citizen
+(248) 496-4483 $|$
+\href{mailto:talluriv@umich.edu}{\underline{talluriv@umich.edu}} $|$
+\href{https://www.linkedin.com/in/varun-talluri}{\underline{LinkedIn}} $|$
+\href{https://varunptalluri.github.io/}{\underline{Website}} $|$ U.S. Citizen
 \end{center}
 
-\vspace{-12pt}
+\vspace{-9pt}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Education  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Education}
 \resumeSubHeadingListStart
 \resumeSubheading
 {University of Michigan}{Ann Arbor, MI}
-{B.S.E. Computer Science \textbar{} B.B.A. Product Management (Ross School of Business)}{May 2027}
+{B.S.E. Computer Science $|$ B.B.A. Product Management, Ross School of Business}{May 2027}
 \resumeItemListStart
 \resumeItem{\textbf{GPA:} 3.97/4.0}
-\resumeItem{\textbf{Coursework:} Machine Learning, Distributed Systems, Operating Systems, Data Structures \& Algorithms, Computer Architecture, Databases, Web Systems, Mobile App Design, Theory of Computation, Computational Linear Algebra}
+\resumeItem{\textbf{Coursework:} Distributed Systems, Operating Systems, Machine Learning, Data Structures \& Algorithms, Computer Architecture, Web Systems, Mobile App Design, Theory of Computation, Computational Linear Algebra
+}
 \resumeItemListEnd
 \resumeSubHeadingListEnd
 
-\vspace{-12pt}
+\vspace{-7pt}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Experience  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experience}
 \resumeSubHeadingListStart
-
 \resumeSubheading
-{Palantir Technologies}{Washington DC}
-{Incoming Forward Deployed Software Engineer Intern}{2026}
-\vspace{4pt}
+{Palantir Technologies}{Washington, DC}
+{Incoming Forward Deployed Software Engineer Intern}{Summer 2026}
 
 \resumeSubheading
 {Ford Motor Company}{Dearborn, MI}
-{Software Engineer Intern, ADAS}{June 2024 -- Aug 2024}
+{Software Engineer Intern, ADAS Computer Vision}{Jun 2024 -- Aug 2024}
 \resumeItemListStart
-\resumeItem{Built a PyTorch-based computer vision system achieving 95\% accuracy in risky driving detection using synthetic and
-
-real data, processing up to 7,500 images per day from vehicle camera pipelines to enable fleet-level driving insights}
-\resumeItem{Scaled distributed training workloads on CUDA-enabled HPC clusters, reducing runtime from 2 hours to 25 minutes}
-\resumeItem{Optimized data preprocessing and training pipeline with batching and caching, improving throughput by 15\%}
+\resumeItem{Built PyTorch CV classifier for risky-driving detection, reaching 95\% accuracy on synthetic/fleet camera data}
+\resumeItem{Scaled 4-GPU CUDA/HPC training, cutting runtime from 2 hours to 25 minutes with batched loading and parallel jobs}
+\resumeItem{Standardized reproducible ADAS experiments with Weights \& Biases tooling and reusable preprocessing utilities}
 \resumeItemListEnd
 
 \resumeSubheading
 {Ford Motor Company}{Dearborn, MI}
-{Software Engineer Intern, Data Reliability}{June 2023 -- Aug 2023}
+{Software Engineer Intern, Data Reliability Platform}{Jun 2023 -- Aug 2023}
 \resumeItemListStart
-\resumeItem{Implemented LOF for anomaly detection, analyzing 10,000+ weekly GCS uploads, improving precision from 65\% to 83\%}
-\resumeItem{Integrated detection pipeline into production workflows for 30+ engineers, reducing downtime from data anomalies}
+\resumeItem{Built LOF anomaly detection pipelines for 10,000+ weekly GCS uploads, improving precision from 65\% to 83\%}
+\resumeItem{Integrated production monitoring and alerting used by 30+ engineers, reducing downtime from corrupted vehicle uploads}
 \resumeItemListEnd
 
 \resumeSubheading
 {McKinsey \& Company}{Detroit, MI}
-{Business Analyst Intern}{June 2025 -- Aug 2025}
+{Business Analyst Intern}{Jun 2025 -- Aug 2025}
 \resumeItemListStart
-\resumeItem{Engineered multi-agent pipelines by orchestrating custom RAG agents, reducing 2 weeks of multi-consultant work}
-\resumeItem{Rebuilt SG\&A benchmarking pipeline with automated data ingestion and updates, reducing turnaround time by 60\%}
+\resumeItem{Built AI orchestration pipelines for retrieval-augmented document synthesis, eliminating 2 weeks of manual analysis}
+\resumeItem{Automated SG\&A benchmark ingestion pipelines, reducing recurring client turnaround time by 60\%}
 \resumeItemListEnd
 
 \resumeSubheading
 {University of Michigan}{Ann Arbor, MI}
 {Teaching Assistant, ROB 101}{Jan 2024 -- Present}
 \resumeItemListStart
-\resumeItem{Taught 1,000+ students across semesters through robotics-based projects applying linear algebra to real-world systems}
-\resumeItem{Built automated pipelines on Vocareum to give feedback on code submissions, reducing instructor grading time by 60\%}
+\resumeItem{Mentored 1,000+ students on robotics projects involving optimization, LiDAR mapping, and balancing control systems}
+\resumeItem{Built automated grading infrastructure on Vocareum, reducing instructor evaluation overhead by 60\%}
 \resumeItemListEnd
-
 \resumeSubHeadingListEnd
 
-\vspace{-12pt}
+\vspace{-7pt}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Projects  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Projects}
 \resumeSubHeadingListStart
-
-\resumeProjectHeading
-{\textbf{Portfolio Analytics Platform} \textbar{} \textit{React, Flask, LLM, Gemini API, Google Stitch}}{}
+\resumeProjectHeading{\textbf{Energy Permit Intelligence Platform} $|$ \textit{Python, FastAPI, Playwright, OCR}}
 \resumeItemListStart
-\resumeItem{Developed a portfolio analytics engine managing \$80K+ in assets, integrating market data APIs with sentiment analysis to inform rebalancing strategy; implemented quantitative risk metrics, such as Sharpe Ratio and covariance}
+\resumeItem{Built async FastAPI platform with rate-limited Playwright crawlers and OCR extraction across 15 municipalities}
+\resumeItem{Reduced 4--6 hours of municipal research to one workflow with concurrent crawling and classification pipelines}
 \resumeItemListEnd
 
-\resumeProjectHeading
-{\textbf{Distributed Search Engine} \textbar{} \textit{Python, Hadoop, MapReduce, Socket Programming}}{}
+\resumeProjectHeading{\textbf{Kiwifruit} $|$ \textit{SwiftUI, Firebase, Screen Time API, REST APIs}}
 \resumeItemListStart
-\resumeItem{Engineered a distributed search engine for 10,000+ documents using MapReduce pipelines with TF-IDF and PageRank-based ranking with fault-tolerant execution across 4 worker nodes with socket-based communication}
+\resumeItem{Built SwiftUI reading app with adaptive challenge generation from multimodal inputs and contextual APIs}
+\resumeItem{Integrated Screen Time APIs, Firebase, local persistence, and realtime personalization to improve engagement}
 \resumeItemListEnd
 
-\resumeProjectHeading
-{\textbf{Energy Permit Intelligence Platform} \textbar{} \textit{Python, Playwright, FastAPI, OCR}}{}
+\resumeProjectHeading{\textbf{Distributed Search Engine} $|$ \textit{Python, Hadoop, MapReduce, Socket Programming}}
 \resumeItemListStart
-\resumeItem{Built an asynchronous scraping pipeline across 15 municipalities, reducing manual permitting research from 4--6 hours per municipality to a single automated workflow used by 7 active users}
+\resumeItem{Built distributed search engine indexing 10,000+ documents with Hadoop MapReduce, TF-IDF, and PageRank retrieval}
+\resumeItem{Implemented distributed indexing and socket-based query coordination for parallel processing and resilient execution}
 \resumeItemListEnd
-
 \resumeSubHeadingListEnd
 
-\vspace{-12pt}
+\vspace{-7pt}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Skills  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Skills \& Honors}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-     \textbf{Languages}{: C++, Python, Java, JavaScript, SQL, Julia} \\
-     \textbf{Technologies}{: PyTorch, React, Flask, FastAPI, Hadoop, AWS, GCP, Docker, HPC, Weights \& Biases} \\
-     \textbf{Honors \& Interests}{: 1st Place, MHACKS 17 (Best Use of Intel AI); Tennis, Formula One, Viola}
-    }}
- \end{itemize}
+\begin{itemize}[leftmargin=0.15in,label={},itemsep=0pt,topsep=1pt]
+\small{\item{
+\textbf{Languages:} Python, C++, Java, SQL, JavaScript, Julia \\
+\textbf{Frameworks:} PyTorch, FastAPI, React, Flask, Hadoop, Docker, Firebase, Playwright, Weights \& Biases \\
+\textbf{Systems:} Distributed Training, HPC, MapReduce, Async Pipelines, CUDA, AWS, GCP \\
+\textbf{Honors:} MHACKS 17 Winner, Best Use of Intel AI
+}}
+\end{itemize}
 
 \end{document}
