@@ -1,5 +1,7 @@
 'use strict';
 
+const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 const THEME_KEY = 'vt-theme';
 const themeToggle = document.getElementById('theme-toggle');
 
@@ -37,7 +39,7 @@ navAnchors.forEach((link) => {
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.scrollIntoView({ behavior: reduceMotion() ? 'auto' : 'smooth', block: 'start' });
         history.pushState(null, '', href);
       }
       setActiveNavByHash(href);
@@ -69,3 +71,28 @@ window.addEventListener('DOMContentLoaded', () => {
     setActiveNavByHash('#education');
   }
 });
+
+(function initReadProgressAndToTop() {
+  const fill = document.getElementById('spec-read-progress-fill');
+  const toTop = document.getElementById('spec-to-top');
+  if (!fill || !toTop) return;
+
+  if (reduceMotion()) {
+    fill.style.transition = 'none';
+  }
+
+  function onScroll() {
+    const st = document.documentElement.scrollTop || document.body.scrollTop;
+    const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const p = h > 0 ? Math.min(100, (st / h) * 100) : 0;
+    fill.style.width = `${p}%`;
+    toTop.hidden = st < 420;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  toTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: reduceMotion() ? 'auto' : 'smooth' });
+  });
+})();
