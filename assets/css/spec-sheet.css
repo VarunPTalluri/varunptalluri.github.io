@@ -1,4 +1,4 @@
-/* Varun Talluri — editorial resume layout, recruiter scan order */
+/* Varun Talluri — portfolio / résumé layout; Michigan-informed navy + blue / gold accents */
 
 img {
   max-width: 100%;
@@ -13,48 +13,65 @@ html {
   html {
     scroll-behavior: auto;
   }
+
+  .spec-read-progress-fill {
+    transition: none;
+  }
 }
 
 body.spec-sheet {
-  --bg: #090a0d;
-  --bg-subtle: #10141c;
-  --line: rgba(255, 255, 255, 0.055);
-  --line-strong: rgba(255, 255, 255, 0.1);
-  --text: #ebeff5;
-  --muted: #a7b0bf;
-  --dim: #6f7a8c;
-  --accent: #82b6ff;
-  --accent-2: #e893b5;
-  --accent-soft: rgba(130, 182, 255, 0.12);
-  --accent-warm: rgba(232, 147, 181, 0.06);
+  /* Navy foundation + Michigan-adjacent blue / restrained gold */
+  --bg: #04060c;
+  --bg-subtle: #0a101c;
+  --panel: #0e1624;
+  --line: rgba(255, 255, 255, 0.085);
+  --line-strong: rgba(255, 255, 255, 0.2);
+  --text: #f4f6fb;
+  --body: #d2dae8;
+  --muted: #b8c2d4;
+  --dim: #8b97ad;
+  --accent: #6eb0ff;
+  --accent-strong: #8cc4ff;
+  --accent-2: #d4a84a;
+  --accent-soft: rgba(110, 176, 255, 0.14);
+  --accent-warm: rgba(212, 168, 74, 0.09);
   --mono: "IBM Plex Mono", ui-monospace, monospace;
   --sans: "IBM Plex Sans", system-ui, sans-serif;
   font-family: var(--sans);
   background: var(--bg);
   color: var(--text);
   font-size: 17px;
-  line-height: 1.68;
+  line-height: 1.72;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
 }
 
 body.spec-sheet.light-mode {
-  --bg: #f5f4f1;
-  --bg-subtle: #ffffff;
-  --line: rgba(20, 28, 42, 0.08);
-  --line-strong: rgba(20, 28, 42, 0.13);
-  --text: #131820;
-  --muted: #3f4756;
-  --dim: #5a6374;
-  --accent: #1a56b8;
-  --accent-2: #b8447e;
-  --accent-soft: rgba(26, 86, 184, 0.09);
-  --accent-warm: rgba(184, 68, 126, 0.05);
+  --bg: #e4e8f0;
+  --bg-subtle: #f2f4f9;
+  --panel: #ffffff;
+  --line: rgba(0, 39, 76, 0.1);
+  --line-strong: rgba(0, 39, 76, 0.16);
+  --text: #071018;
+  --body: #2a3442;
+  --muted: #3d4756;
+  --dim: #5c6574;
+  --accent: #003262;
+  --accent-strong: #004a8f;
+  --accent-2: #9a7200;
+  --accent-soft: rgba(0, 50, 98, 0.1);
+  --accent-warm: rgba(184, 135, 0, 0.08);
 }
 
 body.spec-sheet ::selection {
   background: var(--accent-soft);
+  color: var(--text);
+}
+
+body.spec-sheet.light-mode ::selection {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
   color: var(--text);
 }
 
@@ -64,8 +81,9 @@ body.spec-sheet ::selection {
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse 100% 70% at 70% -25%, var(--accent-soft), transparent 52%),
-    radial-gradient(ellipse 80% 50% at -15% 85%, var(--accent-warm), transparent 50%);
+    radial-gradient(ellipse 90% 55% at 78% -8%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 55%),
+    radial-gradient(ellipse 70% 45% at -5% 92%, color-mix(in srgb, var(--accent-2) 14%, transparent), transparent 48%),
+    linear-gradient(180deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 96%, var(--bg-subtle)) 100%);
 }
 
 .spec-sheet a:focus-visible,
@@ -89,12 +107,13 @@ body.spec-sheet ::selection {
 }
 
 .spec-sheet a:hover {
+  color: var(--accent-strong);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 body.spec-sheet.light-mode .spec-topbar {
-  background: rgba(245, 244, 241, 0.94);
+  background: color-mix(in srgb, var(--bg) 94%, #ffffff);
 }
 
 .spec-topbar {
@@ -102,14 +121,71 @@ body.spec-sheet.light-mode .spec-topbar {
   top: 0;
   z-index: 50;
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  border-bottom: 1px solid var(--line-strong);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(18px);
+}
+
+.spec-topbar-inner {
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
-  padding: 16px clamp(16px, 4vw, 28px);
-  border-bottom: 1px solid var(--line);
-  background: rgba(9, 10, 13, 0.88);
-  backdrop-filter: blur(16px);
+  padding: 14px clamp(16px, 4vw, 28px) 12px;
+}
+
+.spec-read-progress {
+  height: 3px;
+  background: var(--line);
+  width: 100%;
+}
+
+.spec-read-progress-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    color-mix(in srgb, var(--accent-strong) 70%, var(--accent-2))
+  );
+  transition: width 0.12s ease-out;
+}
+
+.spec-to-top {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 45;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid var(--line-strong);
+  background: var(--panel);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.spec-to-top:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.spec-to-top:active {
+  transform: scale(0.96);
+}
+
+body.spec-sheet.light-mode .spec-to-top {
+  box-shadow: 0 6px 20px rgba(18, 26, 42, 0.12);
 }
 
 .spec-brand {
@@ -122,7 +198,7 @@ body.spec-sheet.light-mode .spec-topbar {
 }
 
 .spec-brand:hover {
-  color: var(--accent);
+  color: var(--accent-strong);
 }
 
 .spec-nav {
@@ -136,8 +212,8 @@ body.spec-sheet.light-mode .spec-topbar {
 .spec-nav a {
   font-family: var(--mono);
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--dim);
   text-decoration: none !important;
@@ -148,10 +224,14 @@ body.spec-sheet.light-mode .spec-topbar {
 }
 
 .spec-nav a:hover {
-  color: var(--text);
+  color: var(--muted);
 }
 
 .spec-nav a.is-active {
+  color: var(--accent-strong);
+}
+
+body.spec-sheet.light-mode .spec-nav a.is-active {
   color: var(--accent);
 }
 
@@ -170,7 +250,7 @@ body.spec-sheet.light-mode .spec-topbar {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
-  border: 1px solid transparent;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line-strong));
   color: var(--text);
   border-radius: 8px;
   text-decoration: none !important;
@@ -231,9 +311,9 @@ body.spec-sheet.light-mode .spec-topbar {
 .spec-page {
   position: relative;
   z-index: 1;
-  max-width: 41rem;
+  max-width: 42.5rem;
   margin: 0 auto;
-  padding: 32px clamp(18px, 5vw, 36px) 5rem;
+  padding: 36px clamp(18px, 5vw, 38px) 5.5rem;
 }
 
 .spec-hero {
@@ -270,8 +350,8 @@ body.spec-sheet.light-mode .spec-topbar {
   object-fit: cover;
   border-radius: 12px;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.06) inset,
-    0 20px 50px rgba(0, 0, 0, 0.35);
+    0 1px 0 rgba(255, 255, 255, 0.07) inset,
+    0 22px 56px rgba(0, 0, 0, 0.38);
   border: 1px solid var(--line-strong);
 }
 
@@ -291,52 +371,63 @@ body.spec-sheet.light-mode .spec-topbar {
 
 .spec-hero-role {
   margin: 0 0 18px;
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--accent-strong);
+  line-height: 1.45;
+  max-width: 36rem;
+}
+
+body.spec-sheet.light-mode .spec-hero-role {
   color: var(--accent);
 }
 
 .spec-hero-intro {
-  margin: 0 0 14px;
-  font-size: 1.07rem;
-  line-height: 1.62;
-  color: var(--muted);
+  margin: 0 0 16px;
+  font-size: 1.0625rem;
+  line-height: 1.68;
+  color: var(--body);
   max-width: 38rem;
   text-wrap: balance;
 }
 
 .spec-signals {
-  margin: 0 0 22px;
+  margin: 0 0 24px;
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--dim);
-  line-height: 1.55;
+  line-height: 1.65;
 }
 
 .spec-spotlight {
-  margin: 0 0 26px;
-  padding: 20px 18px 22px;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background: color-mix(in srgb, var(--bg-subtle) 88%, var(--bg));
+  margin: 0 0 28px;
+  padding: 22px 20px 24px;
+  border-radius: 11px;
+  border: 1px solid var(--line-strong);
+  background: var(--panel);
   list-style: none;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 12px 40px rgba(0, 0, 0, 0.22);
 }
 
 body.spec-sheet.light-mode .spec-spotlight {
-  box-shadow: 0 1px 2px rgba(20, 28, 42, 0.04);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset, 0 2px 8px rgba(18, 26, 42, 0.06);
 }
 
 .spec-spotlight li {
   position: relative;
   padding-left: 0;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   font-size: 15px;
-  line-height: 1.55;
-  color: var(--muted);
+  line-height: 1.62;
+  color: var(--body);
 }
 
 .spec-spotlight li:last-child {
@@ -352,22 +443,23 @@ body.spec-sheet.light-mode .spec-spotlight {
   margin: 0;
   font-family: var(--mono);
   font-size: 12px;
-  color: var(--dim);
-  letter-spacing: 0.02em;
-  line-height: 1.65;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+  line-height: 1.68;
 }
 
 .spec-quick-strip {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 12px;
-  padding: 22px 0 32px;
-  margin-bottom: 12px;
-  border-bottom: 1px solid var(--line);
+  gap: 10px 14px;
+  padding: 24px 0 30px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--line-strong);
   font-family: var(--mono);
   font-size: 12px;
-  color: var(--dim);
+  font-weight: 500;
+  color: var(--muted);
 }
 
 .spec-quick-strip a {
@@ -392,49 +484,60 @@ body.spec-sheet.light-mode .spec-spotlight {
 
 .spec-flow {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .spec-module {
-  padding-bottom: 3.25rem;
-  scroll-margin-top: 92px;
+  scroll-margin-top: 96px;
+  padding: 2rem 1.65rem 2.1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: var(--panel);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.055) inset,
+    0 14px 44px rgba(0, 0, 0, 0.2);
 }
 
-.spec-module + .spec-module {
-  border-top: 1px solid var(--line);
-  padding-top: 3rem;
+body.spec-sheet.light-mode .spec-module {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 6px 28px rgba(0, 39, 76, 0.07);
 }
 
 .spec-module:last-child {
-  padding-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .spec-module--major {
-  padding-top: 0;
-  border-top: none !important;
+  margin-top: 0;
 }
 
 .spec-section-title {
   margin: 0 0 12px;
-  padding-left: 14px;
-  border-left: 3px solid var(--accent);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line-strong);
+  font-family: var(--mono);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--dim);
+  color: var(--text);
 }
 
 .spec-section-lede {
-  margin: 0 0 28px;
+  margin: 0 0 1.65rem;
   font-size: 15px;
-  color: var(--muted);
-  line-height: 1.55;
-  max-width: 36rem;
+  font-weight: 400;
+  color: var(--body);
+  line-height: 1.64;
+  max-width: 38rem;
 }
 
 .spec-exp-item {
-  border-left: 1px solid var(--line-strong);
-  padding: 0 0 30px 22px;
+  border-left: 2px solid var(--line-strong);
+  padding: 0 0 32px 24px;
   margin-left: 2px;
 }
 
@@ -443,9 +546,9 @@ body.spec-sheet.light-mode .spec-spotlight {
 }
 
 .spec-exp-item--featured {
-  border-left-width: 2px;
-  border-left-color: color-mix(in srgb, var(--accent) 75%, var(--accent-2));
-  padding-bottom: 26px;
+  border-left-width: 3px;
+  border-left-color: var(--accent);
+  padding-bottom: 28px;
 }
 
 .spec-exp-item--featured .spec-exp-role {
@@ -458,19 +561,21 @@ body.spec-sheet.light-mode .spec-spotlight {
   align-items: baseline;
   justify-content: space-between;
   gap: 8px 16px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .spec-exp-top h3 {
   margin: 0;
   font-size: 17px;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.018em;
+  line-height: 1.25;
 }
 
 .spec-exp-date {
   font-family: var(--mono);
   font-size: 12px;
+  font-weight: 500;
   color: var(--dim);
   white-space: nowrap;
 }
@@ -482,12 +587,13 @@ body.spec-sheet.light-mode .spec-spotlight {
 }
 
 .spec-exp-role {
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   font-size: 14px;
   font-family: var(--sans);
-  font-style: italic;
-  color: var(--dim);
-  line-height: 1.45;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.52;
 }
 
 .spec-exp-bullets {
@@ -495,25 +601,30 @@ body.spec-sheet.light-mode .spec-spotlight {
   padding: 0;
   list-style: none;
   font-size: 15px;
-  color: var(--muted);
+  color: var(--body);
 }
 
 .spec-exp-bullets li {
   position: relative;
-  padding-left: 16px;
-  margin-bottom: 8px;
-  line-height: 1.55;
+  padding-left: 18px;
+  margin-bottom: 11px;
+  line-height: 1.64;
+}
+
+.spec-exp-bullets li:last-child {
+  margin-bottom: 0;
 }
 
 .spec-exp-bullets li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.65em;
-  width: 5px;
-  height: 1px;
-  background: var(--dim);
-  opacity: 0.7;
+  top: 0.68em;
+  width: 6px;
+  height: 2px;
+  border-radius: 1px;
+  background: color-mix(in srgb, var(--accent) 55%, var(--dim));
+  opacity: 0.95;
 }
 
 .spec-exp-subblock {
@@ -536,12 +647,12 @@ body.spec-sheet.light-mode .spec-spotlight {
 .spec-skill-groups {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 24px;
 }
 
 .spec-skill-group {
-  padding-bottom: 22px;
-  border-bottom: 1px solid var(--line);
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line-strong);
 }
 
 .spec-skill-group:last-child {
@@ -550,11 +661,13 @@ body.spec-sheet.light-mode .spec-spotlight {
 }
 
 .spec-skill-group-title {
-  margin: 0 0 8px;
-  font-size: 13px;
+  margin: 0 0 10px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--text);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-family: var(--mono);
 }
 
 .spec-skill-tags {
@@ -569,24 +682,25 @@ body.spec-sheet.light-mode .spec-spotlight {
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 500;
-  padding: 7px 12px;
+  padding: 8px 13px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--bg-subtle) 85%, var(--bg));
-  border: 1px solid var(--line);
-  color: var(--muted);
-  letter-spacing: 0.03em;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  background: color-mix(in srgb, var(--bg-subtle) 55%, var(--panel));
+  border: 1px solid var(--line-strong);
+  color: color-mix(in srgb, var(--text) 82%, var(--dim));
+  letter-spacing: 0.02em;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
 }
 
 .spec-tag:hover {
-  border-color: color-mix(in srgb, var(--accent) 35%, var(--line-strong));
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line-strong));
   color: var(--text);
+  background: color-mix(in srgb, var(--accent-soft) 90%, var(--panel));
 }
 
 .spec-project {
-  padding: 22px 0;
+  padding: 24px 0;
   margin-bottom: 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--line-strong);
   border-radius: 0;
   background: transparent;
 }
@@ -612,22 +726,23 @@ body.spec-sheet.light-mode .spec-spotlight {
 }
 
 .spec-project-head .project-title a:hover {
-  color: var(--accent);
+  color: var(--accent-strong);
 }
 
 .spec-project-line {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   font-size: 15px;
-  color: var(--muted);
-  line-height: 1.55;
+  color: var(--body);
+  line-height: 1.62;
 }
 
 .spec-project-meta {
   margin: 0;
   font-family: var(--mono);
   font-size: 11px;
-  color: var(--dim);
-  line-height: 1.5;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .spec-project-meta a:hover {
@@ -662,10 +777,10 @@ body.spec-sheet.light-mode .spec-spotlight {
 }
 
 .spec-honors-inline {
-  margin: 0 0 14px;
+  margin: 0.5rem 0 0;
   font-size: 15px;
-  color: var(--muted);
-  line-height: 1.55;
+  color: var(--body);
+  line-height: 1.62;
 }
 
 .spec-personal-note {
@@ -675,18 +790,19 @@ body.spec-sheet.light-mode .spec-spotlight {
 }
 
 .spec-footer {
-  margin-top: 3rem;
+  margin-top: 2.75rem;
   padding-top: 24px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--line-strong);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 12px;
   font-family: var(--mono);
   font-size: 11px;
+  font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--dim);
+  color: var(--muted);
 }
 
 .spec-project-list {
@@ -848,7 +964,8 @@ body.spec-sheet.light-mode .spec-spotlight {
 }
 
 .project-modal-bullets li {
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+  line-height: 1.55;
 }
 
 .project-modal-tagline {
@@ -877,7 +994,7 @@ body.spec-sheet .project-modal {
 body.spec-sheet .project-modal-tagline,
 body.spec-sheet .project-modal-bullets,
 body.spec-sheet .project-modal-stack {
-  color: var(--muted);
+  color: var(--body);
 }
 
 body.spec-sheet .modal-github-link {
