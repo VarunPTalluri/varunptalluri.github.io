@@ -1,4 +1,4 @@
-/* Varun Talluri — portfolio / résumé layout; Michigan-informed navy + blue / gold accents */
+/* Varun Talluri — portfolio layout; Michigan-inspired palette, easy-on-the-eyes contrast */
 
 img {
   max-width: 100%;
@@ -17,24 +17,32 @@ html {
   .spec-read-progress-fill {
     transition: none;
   }
+
+  .spec-js .spec-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 body.spec-sheet {
-  /* Navy foundation + Michigan-adjacent blue / restrained gold */
-  --bg: #04060c;
-  --bg-subtle: #0a101c;
-  --panel: #0e1624;
-  --line: rgba(255, 255, 255, 0.085);
-  --line-strong: rgba(255, 255, 255, 0.2);
-  --text: #f4f6fb;
-  --body: #d2dae8;
-  --muted: #b8c2d4;
-  --dim: #8b97ad;
-  --accent: #6eb0ff;
-  --accent-strong: #8cc4ff;
-  --accent-2: #d4a84a;
-  --accent-soft: rgba(110, 176, 255, 0.14);
-  --accent-warm: rgba(212, 168, 74, 0.09);
+  /* Warm navy, softened text (less eye strain than pure white on black) */
+  --um-blue: #00274c;
+  --um-maize: #ffcb05;
+  --bg: #141a26;
+  --bg-subtle: #1c2433;
+  --panel: #222b3d;
+  --line: rgba(255, 255, 255, 0.065);
+  --line-strong: rgba(255, 255, 255, 0.13);
+  --text: #e8ecf4;
+  --body: #b9c4d6;
+  --muted: #9eaab9;
+  --dim: #7d8899;
+  --accent: #8eb8e5;
+  --accent-strong: #b3d4f5;
+  --accent-2: #c4a85a;
+  --accent-soft: rgba(142, 184, 229, 0.12);
+  --accent-warm: rgba(196, 168, 90, 0.08);
   --mono: "IBM Plex Mono", ui-monospace, monospace;
   --sans: "IBM Plex Sans", system-ui, sans-serif;
   font-family: var(--sans);
@@ -49,20 +57,20 @@ body.spec-sheet {
 }
 
 body.spec-sheet.light-mode {
-  --bg: #e4e8f0;
-  --bg-subtle: #f2f4f9;
-  --panel: #ffffff;
-  --line: rgba(0, 39, 76, 0.1);
-  --line-strong: rgba(0, 39, 76, 0.16);
-  --text: #071018;
-  --body: #2a3442;
-  --muted: #3d4756;
-  --dim: #5c6574;
-  --accent: #003262;
-  --accent-strong: #004a8f;
-  --accent-2: #9a7200;
-  --accent-soft: rgba(0, 50, 98, 0.1);
-  --accent-warm: rgba(184, 135, 0, 0.08);
+  --bg: #e9e6df;
+  --bg-subtle: #f3f0e9;
+  --panel: #fdfcfa;
+  --line: rgba(0, 39, 76, 0.08);
+  --line-strong: rgba(0, 39, 76, 0.13);
+  --text: #1a2230;
+  --body: #3d4656;
+  --muted: #505a6a;
+  --dim: #667080;
+  --accent: #0d3d6d;
+  --accent-strong: #1a5588;
+  --accent-2: #7a5c12;
+  --accent-soft: rgba(13, 61, 109, 0.09);
+  --accent-warm: rgba(196, 168, 90, 0.12);
 }
 
 body.spec-sheet ::selection {
@@ -81,9 +89,16 @@ body.spec-sheet.light-mode ::selection {
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse 90% 55% at 78% -8%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 55%),
-    radial-gradient(ellipse 70% 45% at -5% 92%, color-mix(in srgb, var(--accent-2) 14%, transparent), transparent 48%),
-    linear-gradient(180deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 96%, var(--bg-subtle)) 100%);
+    radial-gradient(ellipse 85% 50% at 75% -5%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 58%),
+    radial-gradient(ellipse 65% 42% at 0% 95%, color-mix(in srgb, var(--accent-2) 8%, transparent), transparent 52%),
+    linear-gradient(185deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 94%, #1a2230) 100%);
+}
+
+body.spec-sheet.light-mode .spec-atmosphere {
+  background:
+    radial-gradient(ellipse 80% 45% at 80% 0%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 0% 100%, color-mix(in srgb, var(--accent-2) 10%, transparent), transparent 50%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-subtle) 100%);
 }
 
 .spec-sheet a:focus-visible,
@@ -112,8 +127,90 @@ body.spec-sheet.light-mode ::selection {
   text-underline-offset: 3px;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .spec-js .spec-reveal:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+.spec-reveal {
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.spec-js .spec-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.spec-toast {
+  position: fixed;
+  bottom: 88px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  z-index: 200;
+  max-width: min(90vw, 20rem);
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.spec-toast.is-showing {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+body.spec-sheet.light-mode .spec-toast {
+  box-shadow: 0 10px 32px rgba(0, 39, 76, 0.12);
+}
+
+.spec-toast[hidden] {
+  display: none !important;
+}
+
 body.spec-sheet.light-mode .spec-topbar {
-  background: color-mix(in srgb, var(--bg) 94%, #ffffff);
+  background: color-mix(in srgb, var(--bg-subtle) 96%, #ffffff);
+}
+
+.spec-topbar-strip {
+  flex-shrink: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--um-blue) 0%,
+    var(--um-blue) 30%,
+    var(--um-maize) 30%,
+    var(--um-maize) 38%,
+    var(--um-blue) 38%,
+    var(--um-blue) 62%,
+    var(--um-maize) 62%,
+    var(--um-maize) 70%,
+    var(--um-blue) 70%
+  );
+  opacity: 0.88;
+}
+
+body.spec-sheet.light-mode .spec-topbar-strip {
+  opacity: 1;
 }
 
 .spec-topbar {
@@ -329,6 +426,11 @@ body.spec-sheet.light-mode .spec-nav a.is-active {
   align-items: start;
 }
 
+.spec-hero-photo {
+  display: flex;
+  justify-content: flex-end;
+}
+
 @media (max-width: 720px) {
   .spec-hero-split {
     grid-template-columns: 1fr;
@@ -337,8 +439,26 @@ body.spec-sheet.light-mode .spec-nav a.is-active {
   .spec-hero-photo {
     order: -1;
     justify-self: center;
-    width: min(176px, 48vw);
+    justify-content: center;
+    width: min(188px, 52vw);
   }
+}
+
+.spec-headshot-wrap {
+  width: 100%;
+  max-width: 188px;
+  border-radius: 14px;
+  padding: 2px;
+  background: linear-gradient(
+    152deg,
+    color-mix(in srgb, var(--um-blue) 55%, var(--panel)),
+    color-mix(in srgb, var(--um-maize) 42%, var(--panel))
+  );
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2);
+}
+
+body.spec-sheet.light-mode .spec-headshot-wrap {
+  box-shadow: 0 8px 26px rgba(0, 39, 76, 0.1);
 }
 
 .spec-headshot {
@@ -349,10 +469,8 @@ body.spec-sheet.light-mode .spec-nav a.is-active {
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.07) inset,
-    0 22px 56px rgba(0, 0, 0, 0.38);
-  border: 1px solid var(--line-strong);
+  box-shadow: none;
+  border: none;
 }
 
 @media (max-width: 720px) {
@@ -366,7 +484,38 @@ body.spec-sheet.light-mode .spec-nav a.is-active {
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 1.12;
-  margin: 0 0 10px;
+  margin: 0 0 12px;
+}
+
+.spec-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 0 0 14px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.spec-hero-badge span:first-of-type {
+  color: var(--accent-strong);
+}
+
+body.spec-sheet.light-mode .spec-hero-badge span:first-of-type {
+  color: var(--accent);
+}
+
+.spec-hero-badge-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--um-maize), var(--um-blue));
+  opacity: 0.9;
 }
 
 .spec-hero-role {
@@ -413,8 +562,8 @@ body.spec-sheet.light-mode .spec-hero-role {
   background: var(--panel);
   list-style: none;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.06) inset,
-    0 12px 40px rgba(0, 0, 0, 0.22);
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 8px 28px rgba(0, 0, 0, 0.12);
 }
 
 body.spec-sheet.light-mode .spec-spotlight {
@@ -462,6 +611,43 @@ body.spec-sheet.light-mode .spec-spotlight {
   color: var(--muted);
 }
 
+.spec-quick-email-group {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+
+.spec-copy-email {
+  font: inherit;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--accent-strong);
+  background: color-mix(in srgb, var(--accent-soft) 80%, var(--panel));
+  border: 1px solid var(--line-strong);
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.spec-copy-email:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line-strong));
+  color: var(--text);
+  background: var(--accent-soft);
+}
+
+body.spec-sheet.light-mode .spec-copy-email {
+  color: var(--accent);
+}
+
+body.spec-sheet.light-mode .spec-copy-email:hover {
+  color: var(--text);
+}
+
 .spec-quick-strip a {
   color: var(--text);
   text-decoration: none !important;
@@ -496,8 +682,8 @@ body.spec-sheet.light-mode .spec-spotlight {
   border-radius: 14px;
   background: var(--panel);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.055) inset,
-    0 14px 44px rgba(0, 0, 0, 0.2);
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 10px 36px rgba(0, 0, 0, 0.14);
 }
 
 body.spec-sheet.light-mode .spec-module {
@@ -861,10 +1047,10 @@ body.spec-sheet.light-mode .spec-module {
 .project-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(12, 16, 26, 0.58);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 0;
 }
 
@@ -884,14 +1070,16 @@ body.spec-sheet.light-mode .spec-module {
   flex-direction: column;
   padding: 22px;
   margin: 24px auto;
-  border-radius: 8px;
-  transform: translateY(10px);
+  border-radius: 12px;
+  transform: translateY(16px) scale(0.98);
   opacity: 0;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .project-modal-container.active .project-modal {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   opacity: 1;
 }
 

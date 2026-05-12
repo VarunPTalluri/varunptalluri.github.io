@@ -96,3 +96,59 @@ window.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: reduceMotion() ? 'auto' : 'smooth' });
   });
 })();
+
+(function initScrollReveals() {
+  const els = document.querySelectorAll('.spec-reveal');
+  if (!els.length) return;
+  if (reduceMotion()) {
+    els.forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+  if (!('IntersectionObserver' in window)) {
+    els.forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      });
+    },
+    { rootMargin: '0px 0px -6% 0px', threshold: 0.06 }
+  );
+  els.forEach((el) => io.observe(el));
+})();
+
+(function initCopyEmailAndToast() {
+  const toast = document.getElementById('spec-toast');
+  let toastTimer;
+
+  function showToast(message) {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.removeAttribute('hidden');
+    clearTimeout(toastTimer);
+    requestAnimationFrame(() => {
+      toast.classList.add('is-showing');
+    });
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('is-showing');
+      setTimeout(() => toast.setAttribute('hidden', ''), 320);
+    }, 2600);
+  }
+
+  document.querySelectorAll('[data-copy-email]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const email = btn.getAttribute('data-copy-email') || '';
+      if (!email) return;
+      try {
+        await navigator.clipboard.writeText(email);
+        showToast('Email copied to your clipboard.');
+      } catch {
+        showToast('Could not copy automatically. Please copy the address manually.');
+      }
+    });
+  });
+})();

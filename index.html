@@ -3,9 +3,12 @@
 
 <head>
   <meta charset="UTF-8" />
+  <script>
+    document.documentElement.classList.add('spec-js');
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Varun Talluri: University of Michigan (Computer Science and Ross). Incoming Forward Deployed Software Engineer Intern at Palantir (Summer 2026). Computer vision, data reliability, retrieval-augmented workflows, and teaching-scale tooling." />
-  <meta name="theme-color" content="#04060c" />
+  <meta name="description" content="Varun Talluri, University of Michigan (Computer Science and Ross). Incoming Forward Deployed Software Engineer Intern at Palantir (Summer 2026). I work on computer vision, data reliability, retrieval-augmented workflows, and teaching tools." />
+  <meta name="theme-color" content="#141a26" />
   <meta property="og:title" content="Varun Talluri" />
   <meta property="og:description" content="University of Michigan (Computer Science and Ross). Incoming Forward Deployed Software Engineer Intern at Palantir (Summer 2026)." />
   <meta property="og:url" content="https://varunptalluri.github.io/" />
@@ -24,6 +27,7 @@
   <div class="spec-atmosphere" aria-hidden="true"></div>
 
   <header class="spec-topbar">
+    <div class="spec-topbar-strip" aria-hidden="true"></div>
     <div class="spec-topbar-inner">
       <a class="spec-brand" href="#">Varun Talluri</a>
       <nav class="spec-nav" aria-label="Page sections">
@@ -47,25 +51,31 @@
 
   <div class="spec-page">
     <header class="spec-hero spec-hero-split">
-      <div class="spec-hero-main">
+      <div class="spec-hero-main spec-reveal" style="--reveal-delay: 0ms">
         <h1>Varun Talluri</h1>
+        <p class="spec-hero-badge"><span>University of Michigan</span><span class="spec-hero-badge-dot" aria-hidden="true"></span><span>Ann Arbor</span></p>
         <p class="spec-hero-role">Incoming Forward Deployed Software Engineer Intern, Palantir (Summer 2026)</p>
-        <p class="spec-hero-intro">His work centers on production machine learning, fleet and cloud data systems, and internal software that teams rely on every day. Recent experience includes ADAS computer vision and data reliability at Ford, retrieval-augmented document synthesis at McKinsey, and grading infrastructure for ROB 101 at Michigan.</p>
+        <p class="spec-hero-intro">I focus on production machine learning, fleet and cloud data systems, and internal software that teams use every day. Recently I have worked on ADAS computer vision and data reliability at Ford, retrieval-augmented document synthesis at McKinsey, and grading infrastructure for ROB 101 at Michigan.</p>
         <p class="spec-signals" aria-label="Focus areas">Computer vision · Data reliability · RAG and orchestration · Distributed systems · Teaching-scale tooling</p>
         <ul class="spec-spotlight" aria-label="Recent measurable outcomes">
-          <li><strong>McKinsey:</strong> AI orchestration for retrieval-augmented document synthesis, eliminating about <strong>two weeks</strong> of manual analysis.</li>
-          <li><strong>Ford, ADAS:</strong> PyTorch classifier at <strong>95%</strong> accuracy on synthetic and fleet camera data; <strong>4-GPU</strong> CUDA/HPC training from two hours to <strong>25 minutes</strong>.</li>
-          <li><strong>Ford, Data Reliability:</strong> LOF pipelines on <strong>10,000+</strong> weekly uploads; precision <strong>65%</strong> to <strong>83%</strong>; monitoring for <strong>30+</strong> engineers.</li>
+          <li><strong>McKinsey:</strong> I built AI orchestration for retrieval-augmented document synthesis, cutting about <strong>two weeks</strong> of manual analysis.</li>
+          <li><strong>Ford, ADAS:</strong> I shipped a PyTorch classifier at <strong>95%</strong> accuracy on synthetic and fleet camera data, and scaled <strong>4-GPU</strong> CUDA/HPC training from two hours to <strong>25 minutes</strong>.</li>
+          <li><strong>Ford, Data Reliability:</strong> I built LOF pipelines on <strong>10,000+</strong> weekly uploads, raising precision from <strong>65%</strong> to <strong>83%</strong>, with monitoring for <strong>30+</strong> engineers.</li>
         </ul>
         <p class="spec-hero-mono">B.S.E., Computer Science, and B.B.A., Product Management (Ross School of Business), University of Michigan · Expected May 2027 · Ann Arbor, MI</p>
       </div>
-      <div class="spec-hero-photo">
-        <img class="spec-headshot" src="./assets/images/varun-headshot.png" width="200" height="250" alt="Varun Talluri, professional portrait" loading="eager" />
+      <div class="spec-hero-photo spec-reveal" style="--reveal-delay: 70ms">
+        <div class="spec-headshot-wrap">
+          <img class="spec-headshot" src="./assets/images/varun-headshot.png" width="200" height="250" alt="Varun Talluri, professional portrait" loading="eager" />
+        </div>
       </div>
     </header>
 
-    <div class="spec-quick-strip" aria-label="Contact">
-      <a href="mailto:talluriv@umich.edu">talluriv@umich.edu</a>
+    <div class="spec-quick-strip spec-reveal" style="--reveal-delay: 120ms" aria-label="Contact">
+      <span class="spec-quick-email-group">
+        <a href="mailto:talluriv@umich.edu">talluriv@umich.edu</a>
+        <button type="button" class="spec-copy-email" data-copy-email="talluriv@umich.edu" aria-label="Copy email address to clipboard">Copy</button>
+      </span>
       <span class="spec-quick-sep" aria-hidden="true">·</span>
       <a href="tel:+12484964483">(248) 496-4483</a>
       <span class="spec-quick-sep" aria-hidden="true">·</span>
@@ -77,9 +87,9 @@
     </div>
 
     <main class="spec-flow">
-      <section id="education" class="spec-module spec-module--major">
+      <section id="education" class="spec-module spec-module--major spec-reveal" style="--reveal-delay: 0ms">
         <h2 class="spec-section-title">Education</h2>
-        <p class="spec-section-lede">Undergraduate degrees from the College of Engineering and the Ross School of Business.</p>
+        <p class="spec-section-lede">I am pursuing undergraduate degrees in the College of Engineering and the Ross School of Business.</p>
         <div class="spec-edu-block">
           <div class="spec-exp-top">
             <h3>University of Michigan</h3>
@@ -88,14 +98,14 @@
           <p class="spec-exp-role">B.S.E. in Computer Science and B.B.A. in Product Management, Ross School of Business</p>
           <ul class="spec-exp-bullets">
             <li>GPA 3.97 / 4.0 · U.S. citizen</li>
-            <li>Coursework includes distributed systems, operating systems, machine learning, Data Structures and Algorithms, computer architecture, web systems, mobile app design, theory of computation, and computational linear algebra. Full list on the résumé PDF.</li>
+            <li>My coursework includes distributed systems, operating systems, machine learning, Data Structures and Algorithms, computer architecture, web systems, mobile app design, theory of computation, and computational linear algebra. The full list is on my resume PDF.</li>
           </ul>
         </div>
       </section>
 
-      <section id="experience" class="spec-module">
+      <section id="experience" class="spec-module spec-reveal" style="--reveal-delay: 60ms">
         <h2 class="spec-section-title">Experience</h2>
-        <p class="spec-section-lede">Internships and teaching appointments, in the same order as the résumé PDF.</p>
+        <p class="spec-section-lede">Internships and teaching roles below match the order on my resume PDF.</p>
 
         <div class="spec-exp-item spec-exp-item--featured">
           <div class="spec-exp-top">
@@ -112,9 +122,9 @@
           </div>
           <p class="spec-exp-role">Software Engineer Intern, ADAS Computer Vision</p>
           <ul class="spec-exp-bullets">
-            <li>Built a PyTorch computer vision classifier for risky-driving detection, reaching 95% accuracy on synthetic and fleet camera data.</li>
-            <li>Scaled 4-GPU CUDA/HPC training, cutting runtime from two hours to 25 minutes with batched loading and parallel jobs.</li>
-            <li>Standardized reproducible ADAS experiments with Weights &amp; Biases tooling and reusable preprocessing utilities.</li>
+            <li>I built a PyTorch computer vision classifier for risky-driving detection, reaching 95% accuracy on synthetic and fleet camera data.</li>
+            <li>I scaled 4-GPU CUDA/HPC training, cutting runtime from two hours to 25 minutes with batched loading and parallel jobs.</li>
+            <li>I standardized reproducible ADAS experiments with Weights &amp; Biases tooling and reusable preprocessing utilities.</li>
           </ul>
         </div>
 
@@ -125,8 +135,8 @@
           </div>
           <p class="spec-exp-role">Software Engineer Intern, Data Reliability Platform</p>
           <ul class="spec-exp-bullets">
-            <li>Built LOF anomaly detection pipelines for 10,000+ weekly GCS uploads, improving precision from 65% to 83%.</li>
-            <li>Integrated production monitoring and alerting used by 30+ engineers, reducing downtime from corrupted vehicle uploads.</li>
+            <li>I built LOF anomaly detection pipelines for 10,000+ weekly GCS uploads, improving precision from 65% to 83%.</li>
+            <li>I integrated production monitoring and alerting used by 30+ engineers, reducing downtime from corrupted vehicle uploads.</li>
           </ul>
         </div>
 
@@ -137,8 +147,8 @@
           </div>
           <p class="spec-exp-role">Business Analyst Intern</p>
           <ul class="spec-exp-bullets">
-            <li>Built AI orchestration pipelines for retrieval-augmented document synthesis, eliminating two weeks of manual analysis.</li>
-            <li>Automated SG&amp;A benchmark ingestion pipelines, reducing recurring client turnaround time by 60%.</li>
+            <li>I built AI orchestration pipelines for retrieval-augmented document synthesis, eliminating two weeks of manual analysis.</li>
+            <li>I automated SG&amp;A benchmark ingestion pipelines, reducing recurring client turnaround time by 60%.</li>
           </ul>
         </div>
 
@@ -149,15 +159,15 @@
           </div>
           <p class="spec-exp-role">Teaching Assistant · ROB 101 Computational Linear Algebra</p>
           <ul class="spec-exp-bullets">
-            <li>Mentored 1,000+ students on robotics projects involving optimization, LiDAR mapping, and balancing control systems.</li>
-            <li>Built automated grading infrastructure on Vocareum, reducing instructor evaluation overhead by 60%.</li>
+            <li>I mentored 1,000+ students on robotics projects involving optimization, LiDAR mapping, and balancing control systems.</li>
+            <li>I built automated grading infrastructure on Vocareum, reducing instructor evaluation overhead by 60%.</li>
           </ul>
         </div>
       </section>
 
-      <section id="skills" class="spec-module">
+      <section id="skills" class="spec-module spec-reveal" style="--reveal-delay: 90ms">
         <h2 class="spec-section-title">Technical Skills &amp; Honors</h2>
-        <p class="spec-section-lede">Tools and environments aligned with the roles above; grouped for quick scanning.</p>
+        <p class="spec-section-lede">I group the tools and environments I use most often so you can scan them quickly.</p>
 
         <div class="spec-skill-groups">
           <div class="spec-skill-group">
@@ -175,16 +185,16 @@
           <div class="spec-skill-group">
             <h3 class="spec-skill-group-title">Systems</h3>
             <p class="spec-skill-tags">
-              <span class="spec-tag">Distributed training</span><span class="spec-tag">HPC</span><span class="spec-tag">MapReduce</span><span class="spec-tag">Async pipelines</span><span class="spec-tag">CUDA</span><span class="spec-tag">AWS</span><span class="spec-tag">GCP</span>
+              <span class="spec-tag">Distributed training</span><span class="spec-tag">HPC</span><span class="spec-tag">MapReduce</span><span class="spec-tag">Asynchronous pipelines</span><span class="spec-tag">CUDA</span><span class="spec-tag">AWS</span><span class="spec-tag">GCP</span>
             </p>
           </div>
         </div>
         <p class="spec-honors-inline"><strong>Honors:</strong> MHACKS 17 Winner, Best Use of Intel AI.</p>
       </section>
 
-      <section id="projects" class="spec-module">
+      <section id="projects" class="spec-module spec-reveal" style="--reveal-delay: 120ms">
         <h2 class="spec-section-title">Selected Projects</h2>
-        <p class="spec-section-lede">Representative projects; source repositories are linked where available.</p>
+        <p class="spec-section-lede">A few projects I have built end to end. I link source repositories where they exist.</p>
 
         <ul class="spec-project-list">
           <li class="project-item spec-project-wrap" data-github="https://github.com/VarunPTalluri/energy-permit-intel">
@@ -195,9 +205,9 @@
               <div class="spec-project-head">
                 <h3 class="project-title"><a href="https://github.com/VarunPTalluri/energy-permit-intel" target="_blank" rel="noopener noreferrer">Energy Permit Intelligence Platform</a></h3>
               </div>
-              <p class="project-tagline spec-project-line">Async FastAPI platform with rate-limited Playwright crawlers and OCR across municipalities.</p>
+              <p class="project-tagline spec-project-line">Asynchronous FastAPI platform with rate-limited Playwright crawlers and OCR across municipalities.</p>
               <ul class="project-bullets spec-sr-only">
-                <li>Built async FastAPI platform with rate-limited Playwright crawlers and OCR extraction across 15 municipalities.</li>
+                <li>Built an asynchronous FastAPI platform with rate-limited Playwright crawlers and OCR extraction across 15 municipalities.</li>
                 <li>Reduced 4–6 hours of municipal research to one workflow with concurrent crawling and classification pipelines.</li>
               </ul>
               <div class="project-stack spec-sr-only" aria-hidden="true"><span>Python</span><span>FastAPI</span><span>Playwright</span><span>OCR</span></div>
@@ -280,6 +290,8 @@
       <span>© <span id="spec-year"></span></span>
     </footer>
   </div>
+
+  <div id="spec-toast" class="spec-toast" role="status" aria-live="polite" hidden></div>
 
   <script>
     document.getElementById('spec-year').textContent = new Date().getFullYear();
